@@ -3,6 +3,7 @@
 #include "string.h"
 #include "common.h"
 #include "sysprintf.h"
+#include "adc.h"
 
 
 int gprsProtocolFrameFill(u_char *pioBuf, u_char ubCmd, u_short uwSeq, const u_char *pcMAC, const u_char *pcData, u_short uwdataL)
@@ -28,20 +29,21 @@ int gprsProtocolFrameFill(u_char *pioBuf, u_char ubCmd, u_short uwSeq, const u_c
 
 	if (pcData == NULL || uwdataL == 0)
 	{
-		pFrame->ubDataLenL = GPRS_F_MAC_LEN;
-		//pFrame->ubDataLenH = 0x00;
-                pFrame->ubDataLenH = power_check_val;
+		pFrame->ubDataLenL = GPRS_F_MAC_LEN + 1;
+		pFrame->ubDataLenH = 0x00;
+                //pFrame->ubDataLenH = power_check_val;
 	}
 	else
 	{
-		pFrame->ubDataLenL = (GPRS_F_MAC_LEN + uwdataL)&0xff;
-		//pFrame->ubDataLenH = ((GPRS_F_MAC_LEN + uwdataL)>>8)&0xff;
-                pFrame->ubDataLenH = power_check_val;
+		pFrame->ubDataLenL = (GPRS_F_MAC_LEN + 1 + uwdataL)&0xff;
+		pFrame->ubDataLenH = ((GPRS_F_MAC_LEN + uwdataL)>>8)&0xff;
+                //pFrame->ubDataLenH = power_check_val;
 		dataEndPos = uwdataL;
 		memcpy(pFrame->ubaData, pcData, uwdataL);
 	}
 	nFrameL += dataEndPos;
-
+        pFrame->ubaData[dataEndPos++] = power_check_val;
+        nFrameL += 1; 
 	uwCrc = cyg_crc16((const u_char *)&pFrame->ubSyn, nFrameL-1);//sub head
 	//pFrame->ubaData[dataEndPos++] = uwCrc&0xff;		//crc L
 	//pFrame->ubaData[dataEndPos++] = (uwCrc>>8)&0xff;//crc H

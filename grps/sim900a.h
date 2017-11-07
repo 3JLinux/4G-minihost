@@ -31,6 +31,7 @@
 #define SIM900A_SEND_START			0x01
 #define SIM900A_SEND_FINISH			0x02
 #define SIM900A_SEND_NONE			0x03
+#define SIM900A_SEND_OK                         0x04
 
 
 #define NET_CONNECT_SIM900			0x01
@@ -67,5 +68,6 @@ typedef struct _net_mode
 
 void uart4_send_char(u_char ch);
 
+extern u_char power_check_val;
 
 #endif

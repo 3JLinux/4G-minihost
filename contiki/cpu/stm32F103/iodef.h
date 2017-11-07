@@ -14,8 +14,8 @@
 #define LED_PORT		GPIOB
 #define LED_P_PIN		GPIO_Pin_9
 #define LED_W_PIN		GPIO_Pin_8
-#define LED_S_PIN		GPIO_Pin_7
-#define LED_T_PIN		GPIO_Pin_6
+#define LED_S_PIN		GPIO_Pin_6
+#define LED_T_PIN		GPIO_Pin_7
 
 //led operation
 #define LED_P(a)		sysSetPinStat(LED_PORT,LED_P_PIN,a)
@@ -128,13 +128,17 @@
 
 
 //state led
-#define POWER_LED_PIN		GPIO_Pin_6
-#define POWER_LED_PORT		GPIOA
+#define POWER_LED_PIN		GPIO_Pin_4//GPIO_Pin_6
+#define POWER_LED_PORT		GPIOC//GPIOA
 #define POWER_LED(a)		sysSetPinStat(POWER_LED_PORT,POWER_LED_PIN,a)
 
-#define NET_LED_PIN			GPIO_Pin_4
-#define NET_LED_PORT		GPIOC
+#define NET_LED_PIN		GPIO_Pin_7//GPIO_Pin_4
+#define NET_LED_PORT		GPIOA//GPIOC
 #define NET_LED(a)			sysSetPinStat(NET_LED_PORT,NET_LED_PIN,a)
+
+#define HWGG_LED_PIN            GPIO_Pin_6
+#define HWGG_LED_PORT           GPIOA
+#define HWGG_LED(a)             sysSetPinStat(HWGG_LED_PORT,HWGG_LED_PIN,a)
 
 #define ALARM_LED_PIN		GPIO_Pin_0
 #define ALARM_LED_PORT		GPIOB

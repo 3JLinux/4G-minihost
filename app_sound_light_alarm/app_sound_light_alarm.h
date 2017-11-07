@@ -3,6 +3,7 @@
 
 #include "dev_info.h"
 
+#define SOUND_LIGHT_CMD_MANUAL_ALARM    0x89
 #define SOUND_LIGHT_CMD_ON		0x88	
 #define SOUND_LIGHT_CMD_OFF		0x87
 
@@ -17,6 +18,8 @@
 
 #define SOUND_LIGHT_EMERGENCY_TIME    (3*FIRE_SOUND_LIGHT_NODE_MAX_NUM*SOUND_LIGHT_SEND_PKG_EMERGENCY_TIME)
 
+#define Send_RF_Data_by_Uart    uart2_send_bytes
+
 typedef struct sound_light_msg
 {
 	u_char ubCmd;
@@ -26,5 +29,6 @@ extern void addSoundLightNodeTable(const u_char *pcAddMAC);
 extern void setSoundLightState(const u_char cmd);
 
 extern int uart3_send_bytes(u_char *pBuf, u_char ubLength);
+extern void sound_light_address_table(u_char *sound_light_mac,uint8 sound_light_num) ;/*Modify_jjj*/
 
 #endif

@@ -7,6 +7,7 @@
 #include <string.h>
 #include "end_node_list.h"
 #include "app_sound_light_alarm.h"
+#include "iodef.h"
 
 static struct ctimer period_nodeaddr_timer;
 PROCESS(fire_node_uart, "fire_uart");
@@ -340,13 +341,22 @@ static int read_from_fire_rxbuf(void *dest, unsigned short len)
 }
 
 
-
+#define HWGG_SAVE_CLARR_TIME (10*1000)
+#define MAC_OFFSET 1
 PROCESS_THREAD(fire_node_uart, ev, data)
 {
 	static u_char buf[128];
+        static u_char hwgg_terminal_save_clear_flag = 0;
+        static u_char hwgg_terminal_save_mac[4] = {0};
+        //static u_char hwgg_terminal_save_alarm;
+        static u_char hwgg_terminal_alarm;
+        u_char hwgg_terminal_mac[4];
 	static struct etimer et_rev_timeout;
+        static struct etimer et_hwgg_terminal_save_clear;
+        static struct etimer et_hwgg_led_timeout;
 	static int ptr;
 	HWGG_FRAME *pHwgg;
+        u_char i;
 	int c;
 	
 	PROCESS_BEGIN();
@@ -376,8 +386,10 @@ PROCESS_THREAD(fire_node_uart, ev, data)
 				{
 					//set timeout 
 					//Frame start
+                                        //HWGG_LED(0);
 					XPRINTF((12, "start\r\n"));
-					etimer_set(&et_rev_timeout, 500);					
+					etimer_set(&et_rev_timeout, 500);
+                                        //etimer_set(&et_hwgg_led_timeout, 1000);
 				}
 
 				//head error
@@ -394,11 +406,36 @@ PROCESS_THREAD(fire_node_uart, ev, data)
 						if ((c == HWGG_END)&& (pHwgg->ubLen + HWGG_HEAD_END_CRC_LEN) == ptr)
 						{
 							//MEM_DUMP(10,"ra<-", buf, ptr);
+                                                       
 							if (fireAppFilterNodeAddr((const u_char *)buf))
 							{
+                                                          HWGG_LED(0);
+                                                          etimer_set(&et_hwgg_led_timeout, 1000);
+                                                          /*
 								//MEM_DUMP(10,"filt", buf, ptr);
-								add_to_fire_rxbuf(buf);
-								process_poll(&fire_read_process);
+                                                                memcpy(hwgg_terminal_mac,(pHwgg->ubaData + MAC_OFFSET),4);
+                                                                MEM_DUMP(10,"mac", hwgg_terminal_mac, 4);
+                                                                hwgg_terminal_alarm = pHwgg->ubCmd;
+                                                                MEM_DUMP(10,"alarm", &hwgg_terminal_alarm, 1);
+                                                                if((memcmp(hwgg_terminal_save_mac,hwgg_terminal_mac,4) == 0) && (hwgg_terminal_alarm == HWGG_CMD_WARN))
+                                                                {
+                                                                  if((hwgg_terminal_save_clear_flag == 0))
+                                                                  {
+                                                                    etimer_set(&et_hwgg_terminal_save_clear,HWGG_SAVE_CLARR_TIME);
+                                                                    hwgg_terminal_save_clear_flag = 1;
+                                                                  }
+                                                                }
+                                                                else 
+                                                                {
+                                                          */
+                                                                  //hwgg_terminal_save_alarm = hwgg_terminal_alarm;
+                                                                  //memcpy(hwgg_terminal_save_mac,hwgg_terminal_mac,4);
+                                                                  //MEM_DUMP(10,"mac save", hwgg_terminal_save_mac, 4);
+                                                                  //hwgg_terminal_save_clear_flag = 0;
+                                                                  add_to_fire_rxbuf(buf);
+                                                                  process_poll(&fire_read_process);
+                                                                //}
+                                                                
 							}
 							etimer_stop(&et_rev_timeout);
 							ptr = 0;
@@ -413,6 +450,10 @@ PROCESS_THREAD(fire_node_uart, ev, data)
 				buf[0] = 0;
 			}
 		}
+                if ((ev == PROCESS_EVENT_TIMER)&&(etimer_expired(&et_hwgg_led_timeout)))
+                {
+                  HWGG_LED(1);
+                }
 	}
 	PROCESS_END();
 }

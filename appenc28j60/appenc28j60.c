@@ -25,8 +25,10 @@
 #include "dev_info.h"
 #include "hwgg.h"
 #include "app485.h"
+//#include "mp3app.h"
 
 #define UDP_PORT_C	4567
+//#define UDP_PORT_C      51091
 //#define UDP_PORT_C	4570
 
 
@@ -39,7 +41,10 @@ const uip_ip4addr_t stip4MaskAddr={192,168,4,1};
 
 //mark mark
 //remote server ip addr
-const uip_ip4addr_t serverHostIp4Addr={119,29,155,148};//正式
+//const uip_ip4addr_t serverHostIp4Addr={139,159,226,232};//新正式
+//const uip_ip4addr_t serverHostIp4Addr={119,29,155,148};//正式
+//const uip_ip4addr_t serverHostIp4Addr={139,159,209,212};//新测试
+const uip_ip4addr_t serverHostIp4Addr={139,159,220,138};//新华为云测试
 //const uip_ip4addr_t serverHostIp4Addr={192,168,4,120};//林工
 //const uip_ip4addr_t serverHostIp4Addr={119,29,224,28};//调试
 //const uip_ip4addr_t serverHostIp4Addr={192,168,0,203};//本地
@@ -65,7 +70,8 @@ process_event_t event_ip_tran;
 
 #define IP_NOT_NET_WAIT_TIME	120		//second
 
-
+#define ERR_ADDRESS_SITE 17
+#define USLESS_DATA_NUM 18
 
 
 /*---------------------------------------------------------------------------*/
@@ -82,6 +88,10 @@ void netModeSet(u_char mode)
 
 NET_MODE *netModeGet(void)
 {
+        //if((getNetState() == NET_SIM900_CONNECT_NONE) && (stnetMode.netMode != NET_CONNECT_ETH))
+        //{
+          //stnetMode.netMode = NET_CONNECT_ETH;
+        //}
 	return (NET_MODE*)&stnetMode;
 }
 
@@ -278,6 +288,7 @@ void ipProtocolRxProcess(u_char *ptxBuf, const u_char *pcFrame, u_short uwSendSe
 	}
 	else if (pGprs->ubCmd == GPRS_F_CMD_WARN_ACK)
 	{
+                const GPRS_WARN_INFO *pGprsWarnInfo = (const GPRS_WARN_INFO *)(pGprs->ubaData);
 		if (uwSendSeq == uwSeq)
 		{
 			etimer_stop(petwait);
@@ -294,6 +305,16 @@ void ipProtocolRxProcess(u_char *ptxBuf, const u_char *pcFrame, u_short uwSendSe
 				{
 					//process_post(&sim900a_app_process, sim900_event_start_sms_phone, &stWarnPhone);
 				}
+            if( pGprsWarnInfo->ubInfoLen > 0 && pGprsWarnInfo->ubInfoLen < (SMOKE_ADDRESS_INFO_MAX_LEN+13) )
+            {
+                uint8 i,sound_light_mac_num,err_address_num;
+                static u_char ubaBuf[128];  
+                memcpy( ubaBuf+1, pGprsWarnInfo->ubDevType, pGprsWarnInfo->ubInfoLen );
+                    err_address_num = ubaBuf[ERR_ADDRESS_SITE];
+                    sound_light_mac_num = ubaBuf[USLESS_DATA_NUM+err_address_num];
+                    sound_light_address_table(&(ubaBuf[USLESS_DATA_NUM+err_address_num+1]),sound_light_mac_num);
+                    XPRINTF((12, "sound_light_mac_num:0x%X\n",&sound_light_mac_num));	
+            }
 			}
 		}
 	}
@@ -420,6 +441,11 @@ void ipDataHandler(process_event_t ev, process_data_t data)
 		{
 			ptxMsg->nLen = nFramL;
 			uwCurrentSeq = uwipSeq;
+                        //ptxMsg->ubamsg[nFramL] = ptxMsg->ubamsg[nFramL - 1];
+                        //ptxMsg->ubamsg[nFramL - 1] = ptxMsg->ubamsg[nFramL - 2];
+                        //ptxMsg->ubamsg[nFramL - 2] = ptxMsg->ubamsg[nFramL - 3];
+                        //ptxMsg->ubamsg[nFramL - 3] = power_check_val;
+                        //ptxMsg->ubamsg[nFramL] = power_check_val;
 			process_post(&ip_data_process, event_ip_send_data,ptxMsg);
 			etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
 			uwipSeq++; // every send a ip frame, uwipSeq + 1;

@@ -103,6 +103,7 @@ static void ledOpt(u_char ubstate)
 	FAULT_LED(ubstate);
 	NET_LED(ubstate);
 	POWER_LED(ubstate);
+        HWGG_LED(ubstate);
 }
 
 
@@ -176,7 +177,7 @@ void selfCheckHandler(process_event_t ev, process_data_t data)
 			checkfinish = 1;
 			BUZZER(1);
 			ledOpt(1);
-			NET_LED(0);
+			//NET_LED(0);
 			POWER_LED(0);
 			process_start(&blink_process, NULL);
 		}
@@ -270,10 +271,10 @@ PROCESS_THREAD(key_msg_read_process, ev, data)
 
 void initAppKey(void)
 {
-	process_start(&key_msg_read_process, NULL);
-	process_start(&key_msg_handler_process, NULL);
-	process_start(&dev_check_self_process, NULL);
-	swDisable();
+	//process_start(&key_msg_read_process, NULL);
+	//process_start(&key_msg_handler_process, NULL);
+	//process_start(&dev_check_self_process, NULL);
+	//swDisable();
 }
 
 

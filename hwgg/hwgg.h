@@ -62,7 +62,7 @@ typedef struct _hwgg
 //#define HWGG_NODE_CHECK_TIMS_S		360  //second
 //#define HWGG_NODE_CHECK_TIMS_S		90  //second
 #define HWGG_NODE_CHECK_TIMS_S		(24*3600+500)  //second  mark mark
-
+//#define HWGG_NODE_CHECK_TIMS_S                  (60*5+30)
 
 /*this frame struct is used to communication to end node by router node*/
 typedef struct _hwgg

@@ -22,6 +22,9 @@
 #define GPRS_EB		0xeb
 #define GPRS_DSC1B	0x1b
 
+
+#define DEVICE_ALARM    1
+#define DEVICE_OFFLINE  2
 /*
 	GPRS_F_COMMON_L
 	---------------
@@ -82,9 +85,17 @@ typedef struct _gprs_warn_phone
 	u_char ubaPhoneB[20];
 }GPRS_WARN_PHONE;
 
-
+#define SMOKE_ADDRESS_INFO_MAX_LEN   200
+typedef struct _gprs_warn_info
+{
+	u_char ubaPhone[40];
+    u_char ubInfoLen;
+    u_char ubDevType[1];
+    u_char ubSmokeMac[GPRS_F_MAC_LEN];
+    u_char ubDate[7];
+    u_char ubAddress[SMOKE_ADDRESS_INFO_MAX_LEN+2];
+}GPRS_WARN_INFO;
 
 extern int gprsProtocolFrameFill(u_char *pioBuf, u_char ubCmd, u_short uwSeq, const u_char *pcMAC, const u_char *pcData, u_short uwdataL);
-extern u_char power_check_val;
 #endif
 

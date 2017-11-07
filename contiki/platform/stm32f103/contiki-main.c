@@ -48,6 +48,7 @@ PROCINIT(NULL);
 PROCESS_THREAD(blink_process, ev, data)
 {
 	//static u_char ubach[4] = {0x12, 0x23, 0x55, 0x66};
+        static u_char first_star = 0;
 	static struct etimer et;
 	static u_char ubacrctest[] = {0x1f,0x3a,0xab,0xcc};
 	u_short crc = 0;
@@ -72,6 +73,11 @@ PROCESS_THREAD(blink_process, ev, data)
 		else
 		{
 			NET_LED(1);
+                        if(first_star == 0)
+                        {
+                          HWGG_LED(1);
+                          first_star = 1;
+                        }
 			//FAULT_LED(0);
 			ALARM_LED(0);
 		}		//uart4_send_char('a');
@@ -467,8 +473,8 @@ int main(void)
 	initAppKey( );
 	//net
 	app_enc28j60_init( );
-	app485Init( );
-	mp3init( );
+	//app485Init( );
+	//mp3init( );
     appSoundLightInit();
 	XPRINTF((0,"Processes running\r\n"));
 	while(1) 

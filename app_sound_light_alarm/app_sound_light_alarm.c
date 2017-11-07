@@ -10,6 +10,9 @@
 #include "sysprintf.h"
 
 static process_event_t event_sound_light_msg;
+const static u_char SOUND_LIGHT_MAC_NULL[4] = {0,0,0,0} ;
+static uint8 sound_light_on_num;
+static uint8 sound_light_on_mac[30][4];
 
 PROCESS(sound_light_msg_handler_process, "sound_light_msg_handler");
 
@@ -57,21 +60,44 @@ static int rfUartProtocolFrameFill(u_char *pioBuf, u_char ubCmd, const u_char *p
 	return nFrameL;
 }
 
-static void rfUartSendProcess(u_char ubCmd)
+static void rfUartSendProcess(u_char ubCmd) /*Modify_jjj*/
 {
     const FIRE_NODE_INFO *pfireNodeInfo = (const FIRE_NODE_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_FIRE_NODE_INFO);
     int length;
     static u_char txBuf[64];     
-	static u_char ubIndex = 0;    
+	static u_char ubIndex = 0;  
+    if(ubCmd == SOUND_LIGHT_CMD_OFF || ubCmd == SOUND_LIGHT_CMD_MANUAL_ALARM )
+    {
 	if (pfireNodeInfo->soundl_node_num == 0 || pfireNodeInfo->soundl_node_num > FIRE_SOUND_LIGHT_NODE_MAX_NUM)
 	  	return ;    
-    if(ubIndex >= pfireNodeInfo->soundl_node_num){        
+      if(ubIndex >= pfireNodeInfo->soundl_node_num){        
         ubIndex = 0;
-    }
-    if(ubIndex < FIRE_SOUND_LIGHT_NODE_MAX_NUM){
-        length = rfUartProtocolFrameFill(txBuf,ubCmd,pfireNodeInfo->soundlNodeArray[ubIndex].ubaNodeAddr);
+      }
+      if(ubIndex < FIRE_SOUND_LIGHT_NODE_MAX_NUM){
+        if(ubCmd != SOUND_LIGHT_CMD_MANUAL_ALARM)
+        {
+          length = rfUartProtocolFrameFill(txBuf,ubCmd,pfireNodeInfo->soundlNodeArray[ubIndex].ubaNodeAddr);
+        }
+        else 
+        {
+          length = rfUartProtocolFrameFill(txBuf,SOUND_LIGHT_CMD_ON,pfireNodeInfo->soundlNodeArray[ubIndex].ubaNodeAddr);
+        }
         if (length > 0)
-           uart3_send_bytes(txBuf, length);
+           Send_RF_Data_by_Uart(txBuf, length);
+      }
+    }
+    else if(ubCmd == SOUND_LIGHT_CMD_ON)
+    {
+      if (sound_light_on_num == 0 || sound_light_on_num > FIRE_SOUND_LIGHT_NODE_MAX_NUM)
+	  	return ;    
+      if(ubIndex >= sound_light_on_num){        
+        ubIndex = 0;
+      }
+      if(ubIndex < FIRE_SOUND_LIGHT_NODE_MAX_NUM){
+        length = rfUartProtocolFrameFill(txBuf,ubCmd,&(sound_light_on_mac[ubIndex][0]));
+        if (length > 0)
+           Send_RF_Data_by_Uart(txBuf, length);
+      }
     }
     ubIndex++;
 }
@@ -97,6 +123,35 @@ extern void addSoundLightNodeTable(const u_char *pcAddMAC)
         extgdbdevSetDeviceSettingInfoSt(LABLE_FIRE_NODE_INFO, 0, (const void *)&stFireNodeInfo, sizeof(FIRE_NODE_INFO));
     } 
 }
+
+extern void sound_light_address_table(u_char *sound_light_mac,uint8 sound_light_num) /*Modify_jjj*/
+{
+  u_char i;
+  sound_light_on_num = sound_light_num;
+  if(sound_light_num > 0 && sound_light_num < FIRE_SOUND_LIGHT_NODE_MAX_NUM)
+  {
+    for(i = 0;i < sound_light_num;i++)
+    {
+      memcpy(&(sound_light_on_mac[i][0]), &(sound_light_mac[4*i]), HWGG_NODE_MAC_LEN);
+      XPRINTF((12, "sound_light_mac:%X %X %X %X\n",(sound_light_mac[4*i]),(sound_light_mac[4*i+1]),(sound_light_mac[4*i+2]),(sound_light_mac[4*i+3])));
+      //MEM_DUMP(8, "AddSoundLightTable", stFireNodeInfo.soundlNodeArray, stFireNodeInfo.soundl_node_num*HWGG_NODE_MAC_LEN);
+      //extgdbdevSetDeviceSettingInfoSt(LABLE_FIRE_NODE_INFO, 0, (const void *)&stFireNodeInfo, sizeof(FIRE_NODE_INFO));
+    }
+    for(i = sound_light_num;i < FIRE_SOUND_LIGHT_NODE_MAX_NUM;i++)
+    {
+      memcpy(&(sound_light_on_mac[i][0]),SOUND_LIGHT_MAC_NULL, HWGG_NODE_MAC_LEN);
+    }
+  }
+  else 
+  {
+    for(i = 0;i < FIRE_SOUND_LIGHT_NODE_MAX_NUM;i++)
+    {
+      memcpy(&(sound_light_on_mac[i][0]),SOUND_LIGHT_MAC_NULL, HWGG_NODE_MAC_LEN);
+    }
+  }
+}
+
+
 
 extern void setSoundLightState(const u_char cmd)
 {

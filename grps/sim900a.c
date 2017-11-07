@@ -44,6 +44,10 @@ process_event_t sim900_event_fire_tran;
 #define TIME_CHECK_GPRS_AT		100
 #define TIME_CLOSE_GPRS_ECHO	200
 #define TIME_CHECK_GPRS_SIM		200
+
+#define ERR_ADDRESS_SITE 17
+#define USLESS_DATA_NUM 18
+
 static struct etimer et_gprs;
 //static struct etimer et_gprs_status;
 //static struct etimer et_gprs_heart_periodic;
@@ -55,11 +59,15 @@ static SIM900A_MSG sim900_tx;
 static SIM900A_MSG sim900_tx_tran;
 static SIM900A_MSG sim900_app;
 //mark mark
-const u_char serverIp[]="119.29.155.148";//正式
+//const u_char serverIp[]="139.159.226.232";//新正式
+//const u_char serverIp[]="119.29.155.148";//正式
+//const u_char serverIp[]="139.159.209.212";//新测试
+const u_char serverIp[]="139.159.220.138";//新华为云测试
 //const u_char serverPort[]="4567";
 //const u_char serverIp[]="119.29.224.28";//调试
 //const u_char serverIp[]="192,168,0,203";//调试
 const u_char serverPort[]="4567";
+//const u_char serverPort[]="51091";
 
 //const u_char serverPort[]="8960";
 //const u_char serverPort[]="4570";
@@ -152,7 +160,8 @@ u_char sim900a_send_cmd(const u_char *cmd)
 {
 	 u_char ubaBuf[64] = {0};
 	xsprintf(ubaBuf, "%s\n", cmd);
-	MEM_DUMP(9, "->cm", ubaBuf, strlen(ubaBuf));
+	//MEM_DUMP(9, "->cm", ubaBuf, strlen(ubaBuf));
+        MEM_DUMP(3, "->cm", ubaBuf, strlen(ubaBuf));
 	//xfprintf(uart4_send_char, "%s\n", cmd);
 	uart4_send_bytes(ubaBuf, strlen(ubaBuf));
 	return 0;
@@ -232,7 +241,8 @@ PROCESS_THREAD(sim900a_hard_init, ev, data)
 	//gprs init
 	//RST
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_Disable,ENABLE);
-	XPRINTF((12, "sim900a_hard_init\r\n"));
+//	XPRINTF((12, "sim900a_hard_init\r\n"));
+        XPRINTF((3, "sim900a_hard_init\r\n"));
 //	GPRS_SRST(0);
 //	GPRS_STATUS(0);
 //	GPRS_PWRKEY(0);
@@ -432,7 +442,8 @@ PROCESS_THREAD(sim900a_check_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			etimer_stop(&et_check);
-			MEM_DUMP(10, "AT", data, strlen(data));
+			//MEM_DUMP(10, "AT", data, strlen(data));
+                        MEM_DUMP(3, "AT", data, strlen(data));
 			if (presp != NULL)
 			{
 				gprsState = SIM900A_AT_OK;
@@ -451,7 +462,8 @@ PROCESS_THREAD(sim900a_check_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			etimer_stop(&et_check);
-			MEM_DUMP(10, "ATE0", data, strlen(data));
+			//MEM_DUMP(10, "ATE0", data, strlen(data));
+                        MEM_DUMP(3, "ATE0", data, strlen(data));
 			if (presp != NULL)
 				break;
 		}
@@ -468,7 +480,8 @@ PROCESS_THREAD(sim900a_check_process, ev, data)
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			pcmd = sim900a_check_cmd((const char*)data,"CPIN");
 			etimer_stop(&et_check);
-			MEM_DUMP(10, "CPIN", data, strlen(data));
+			//MEM_DUMP(10, "CPIN", data, strlen(data));
+                        MEM_DUMP(3, "CPIN", data, strlen(data));
 			if (presp != NULL && pcmd != NULL)
 			{
 				gprsState = SIM900A_SIM_OK;
@@ -488,7 +501,8 @@ PROCESS_THREAD(sim900a_check_process, ev, data)
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			pcmd = sim900a_check_cmd((const char*)data,"COPS");
 			etimer_stop(&et_check);
-			MEM_DUMP(10, "COPS", data, strlen(data));
+			//MEM_DUMP(10, "COPS", data, strlen(data));
+                        MEM_DUMP(3, "COPS", data, strlen(data));
 			if (presp != NULL && pcmd != NULL)
 				break;
 		}
@@ -584,7 +598,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 			{
 				presp = sim900a_check_cmd((const char*)data,"OK");
 				etimer_stop(&et_cfggprs);
-				MEM_DUMP(10, "LOSE", data, strlen(data));
+				//MEM_DUMP(10, "LOSE", data, strlen(data));
+                                MEM_DUMP(3, "LOSE", data, strlen(data));
 				if (presp != NULL)
 					break;
 			}
@@ -600,7 +615,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 			{
 				presp = sim900a_check_cmd((const char*)data,"OK");
 				etimer_stop(&et_cfggprs);
-				MEM_DUMP(10, "SHUT", data, strlen(data));
+				//MEM_DUMP(10, "SHUT", data, strlen(data));
+                                MEM_DUMP(3, "SHUT", data, strlen(data));
 				if (presp != NULL)
 				{
 					gprsState = SIM900A_TCPUDP_CLOSE;
@@ -621,7 +637,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			etimer_stop(&et_cfggprs);
-			MEM_DUMP(12, "LASS", data, strlen(data));
+			//MEM_DUMP(12, "LASS", data, strlen(data));
+                        MEM_DUMP(3, "LASS", data, strlen(data));
 			if (presp != NULL)
 			{
 				break;
@@ -639,7 +656,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			etimer_stop(&et_cfggprs);
-			MEM_DUMP(12, "CGDC", data, strlen(data));
+			//MEM_DUMP(12, "CGDC", data, strlen(data));
+                        MEM_DUMP(3, "CGDC", data, strlen(data));
 			if (presp != NULL)
 			{
 				break;
@@ -657,7 +675,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			etimer_stop(&et_cfggprs);
-			MEM_DUMP(12, "CGAT", data, strlen(data));
+			//MEM_DUMP(12, "CGAT", data, strlen(data));
+                        MEM_DUMP(3, "CGAT", data, strlen(data));
 			if (presp != NULL)
 			{
 				break;
@@ -676,7 +695,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			etimer_stop(&et_cfggprs);
-			MEM_DUMP(12, "CSGP", data, strlen(data));
+			//MEM_DUMP(12, "CSGP", data, strlen(data));
+                        MEM_DUMP(3, "CSGP", data, strlen(data));
 			if (presp != NULL)
 			{
 				break;
@@ -695,7 +715,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 			etimer_stop(&et_cfggprs);
-			MEM_DUMP(12, "PHEAD", data, strlen(data));
+			//MEM_DUMP(12, "PHEAD", data, strlen(data));
+                        MEM_DUMP(3, "PHEAD", data, strlen(data));
 			if (presp != NULL)
 			{
 				break;
@@ -714,7 +735,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"OK");
 
-			MEM_DUMP(12, "CMGF", data, strlen(data));
+			//MEM_DUMP(12, "CMGF", data, strlen(data));
+                        MEM_DUMP(3, "CMGF", data, strlen(data));
 			if (presp != NULL)
 			{
 				etimer_stop(&et_cfggprs);
@@ -773,7 +795,8 @@ PROCESS_THREAD(sim900a_cfggprs_process, ev, data)
 		{
 			presp = sim900a_check_cmd((const char*)data,"CSCA");
 
-			MEM_DUMP(12, "CSCA", data, strlen(data));
+			//MEM_DUMP(12, "CSCA", data, strlen(data));
+                        MEM_DUMP(3, "CSCA", data, strlen(data));
 			if (presp != NULL)
 			{
 				etimer_stop(&et_cfggprs);
@@ -842,7 +865,8 @@ PROCESS_THREAD(sim900a_tcpudp_con_process, ev, data)
 			{
 				presp = sim900a_check_cmd((const char*)data,"OK");
 				etimer_stop(&et_tcpudp);
-				MEM_DUMP(12, "LOSE", data, strlen(data));
+				//MEM_DUMP(12, "LOSE", data, strlen(data));
+                                MEM_DUMP(3, "LOSE", data, strlen(data));
 				if (presp != NULL)
 					break;
 			}
@@ -858,7 +882,8 @@ PROCESS_THREAD(sim900a_tcpudp_con_process, ev, data)
 			{
 				presp = sim900a_check_cmd((const char*)data,"OK");
 				etimer_stop(&et_tcpudp);
-				MEM_DUMP(12, "SHUT", data, strlen(data));
+				//MEM_DUMP(12, "SHUT", data, strlen(data));
+                                MEM_DUMP(3, "SHUT", data, strlen(data));
 				if (presp != NULL)
 				{
 					gprsState = SIM900A_TCPUDP_CLOSE;
@@ -880,7 +905,8 @@ PROCESS_THREAD(sim900a_tcpudp_con_process, ev, data)
 			{
 				presp = sim900a_check_cmd((const char*)data,"CSCA");
 
-				MEM_DUMP(12, "CSCA", data, strlen(data));
+				//MEM_DUMP(12, "CSCA", data, strlen(data));
+                                MEM_DUMP(3, "CSCA", data, strlen(data));
 				if (presp != NULL)
 				{
 					etimer_stop(&et_tcpudp);
@@ -948,7 +974,8 @@ PROCESS_THREAD(sim900a_tcpudp_con_process, ev, data)
 				gprs_process = &sim900a_app_process;
 				etimer_stop(&et_tcpudp);
 				process_post(&sim900a_app_process, sim900_event_heart, NULL);
-				MEM_DUMP(12, "IPST", data, strlen(data));
+				//MEM_DUMP(12, "IPST", data, strlen(data));
+                                MEM_DUMP(3, "IPST", data, strlen(data));
 				break;
 			}
 		}
@@ -958,7 +985,8 @@ PROCESS_THREAD(sim900a_tcpudp_con_process, ev, data)
 			process_start(&sim900a_hard_init, NULL);
 			gprs_process = &sim900a_hard_init;
 			process_exit(&sim900a_tcpudp_con_process);
-			XPRINTF((10, "connect failed\r\n"));
+			//XPRINTF((10, "connect failed\r\n"));
+                        XPRINTF((3, "connect failed\r\n"));
 		}
 		ubcount ++;
 	}
@@ -1127,7 +1155,7 @@ void gprsProtocolRxProcess(const u_char *pcFrame, u_short uwSendSeq , struct eti
 	}
 	else if (pGprs->ubCmd == GPRS_F_CMD_WARN_ACK)
 	{
-
+                const GPRS_WARN_INFO *pGprsWarnInfo = (const GPRS_WARN_INFO *)(pGprs->ubaData);
 		if (uwSendSeq == uwSeq)
 		{
 			etimer_stop(petwait);
@@ -1141,6 +1169,16 @@ void gprsProtocolRxProcess(const u_char *pcFrame, u_short uwSendSeq , struct eti
 			{
 				//process_post(&sim900a_app_process, sim900_event_start_sms_phone, &stWarnPhone);
 			}
+                        if( pGprsWarnInfo->ubInfoLen > 0 && pGprsWarnInfo->ubInfoLen < (SMOKE_ADDRESS_INFO_MAX_LEN+13) )
+                        {
+                          uint8 i,sound_light_mac_num,err_address_num;
+                          static u_char ubaBuf[128];  
+                          memcpy( ubaBuf+1, pGprsWarnInfo->ubDevType, pGprsWarnInfo->ubInfoLen );
+                          err_address_num = ubaBuf[ERR_ADDRESS_SITE];
+                          sound_light_mac_num = ubaBuf[USLESS_DATA_NUM+err_address_num];
+                          sound_light_address_table(&(ubaBuf[USLESS_DATA_NUM+err_address_num+1]),sound_light_mac_num);
+                          XPRINTF((12, "sound_light_mac_num:0x%X\n",&sound_light_mac_num));	
+                        }
 		}
 	}
 }
@@ -1219,7 +1257,8 @@ void sim900a_reconnect(struct etimer *petHeart)
 	netModeSet(NET_CONNECT_NONE);
 	//sim900a_send_cmd("AT+CPOWD=1");
 	process_start(&sim900a_hard_init, NULL);
-	XPRINTF((8, "ERROR\n"));
+	//XPRINTF((8, "ERROR\n"));
+        XPRINTF((3, "sim900a_reconnect\n"));
 	etimer_stop(petHeart);
 }
 
@@ -1293,6 +1332,7 @@ void sim900a_app_handler(process_event_t ev, process_data_t data)
 		
 		if (sim900a_check_cmd((const char*)data,"\r\n>"))
 		{
+                        XPRINTF((8, "sim900a_check_cmd sendFlag\n"));
 			const u_char sendFlag[] = "\r\n>";
 			process_post(&sim900a_send_process, sim900_event_send_data_wait, (void *)sendFlag);
 		}
@@ -1374,8 +1414,14 @@ void sim900a_app_handler(process_event_t ev, process_data_t data)
 		{
 			int nFrameL = -1;
 			ptxMsg->nLen = nFramL;
+                        //nFramL = ptxMsg->nLen;
 			uwCurrentSeq = uwSeq;
 			ubSendCmd = GPRS_F_CMD_HEART;
+                        //sim900_tx_tran.ubamsg[nFramL] = sim900_tx_tran.ubamsg[nFramL - 1];
+                        //sim900_tx_tran.ubamsg[nFramL - 1] = sim900_tx_tran.ubamsg[nFramL - 2];
+                        //sim900_tx_tran.ubamsg[nFramL - 2] = sim900_tx_tran.ubamsg[nFramL - 3];
+                        //sim900_tx_tran.ubamsg[nFramL - 3] = power_check_val;
+                        //sim900_tx_tran.ubamsg[nFramL] = power_check_val;
 			//process_post(&sim900a_send_process, sim900_event_send_data,ptxMsg);
 			MEM_DUMP(6,"SRC",ptxMsg->ubamsg, ptxMsg->nLen);
 			nFrameL = gprsCodeGetOut0xla(sim900_tx_tran.ubamsg, (const u_char*)ptxMsg->ubamsg,ptxMsg->nLen);
@@ -1477,7 +1523,8 @@ void sim900a_app_handler(process_event_t ev, process_data_t data)
 		if (pnetMode->netMode == NET_CONNECT_NONE)
 		{
 			
-			XPRINTF((10, "et_heart check\n"));
+			//XPRINTF((10, "et_heart check\n"));
+                        XPRINTF((3, "et_heart check\n"));
 			gprs_process = &sim900a_hard_init;
 			gprsState = SIM900A_TCPUDP_CLOSE_T;
 			setNetState(NET_CONNECT_NONE);
@@ -1594,7 +1641,9 @@ int asiicToUTF8(u_char *pUTF8, const u_char *pasiic)
 #define GPRS_TIME_WAIT_BACK_TCP	(140*1000)
 
 #define GPRS_NO_ACK_MAX		100 //mark mark
-
+//static u_char alarm_rx_finish_flag = 0;
+static u_char gsm_send_lock = 0;
+static struct etimer et_rec_err;
 void sim900a_send_handler(process_event_t ev, process_data_t data)
 {
 	static const SIM900A_MSG *psendMsg = NULL;
@@ -1604,11 +1653,12 @@ void sim900a_send_handler(process_event_t ev, process_data_t data)
 	static u_char smsDestN[16] ={0x00};
 	static u_char ubasiicBuf[64] = {0x00};
 	static u_char ubcmdBuf[128] = {0x00};
-	static u_char sendState = SIM900A_SEND_NONE;
 	static struct etimer et_send;
 	static struct etimer et_wait_sms_ok;
 	static struct etimer et_phone;
 	static struct etimer et_back_udp;
+        static struct etimer et_send_lock;
+        static u_char sendState = SIM900A_SEND_NONE;
 	
 	//static u_char sendLockFlag = 0;
 	
@@ -1618,7 +1668,7 @@ void sim900a_send_handler(process_event_t ev, process_data_t data)
 	int nmp3L = 0;
 
 	u_char ubLen;
-	int nLen = 0;
+	int nLen = 0; 
 
 	if (ev == sim900_event_send_data && data != NULL)
 	{
@@ -1627,21 +1677,33 @@ void sim900a_send_handler(process_event_t ev, process_data_t data)
 		psendMsg = (const SIM900A_MSG *)data;
 		
 		XPRINTF((8, "START SEND gprs\n"));
-		MEM_DUMP(8, "TXDA", psendMsg->ubamsg, psendMsg->nLen);		
-		if (pnetMode->netMode == NET_CONNECT_SIM900)
+		MEM_DUMP(8, "TXDA", psendMsg->ubamsg, psendMsg->nLen);
+		if (pnetMode->netMode == NET_CONNECT_SIM900 && (!gsm_send_lock))
 		{
 			sim900a_send_cmd("AT+CIPSEND");
 			etimer_set(&et_send, GPRS_TIME_WAIT_SEND);
+                        etimer_stop(&et_send_lock);
+                        //etimer_set(&et_rec_err,(15*1000));
+                        //sendState = SIM900A_SEND_START;
+                        //alarm_rx_finish_flag = 0;
 		}
 	}
 	else if (ev == sim900_event_send_data_wait && data != NULL)
 	{
+                XPRINTF((8, "sim900_event_send_data_wait\n"));
 		if (sim900a_check_cmd((const char*)data,">"))
 		{
 			if (psendMsg != NULL)
 			{
 				int nDeL = 0;
 				MEM_DUMP(6,"->gp", psendMsg->ubamsg, psendMsg->nLen);
+                                /*
+                                if(psendMsg->ubamsg[2] == GPRS_F_CMD_WARN)
+                                {
+                                  gsm_send_lock = 1;
+                                  etimer_set(&et_send_lock, GPRS_TIME_WAIT_SEND);
+                                }
+                                */
 				//while(sendLockFlag);
 				//sendLockFlag = 1;
 				//nFrameL = gprsCodeGetOut0xla(sim900_tx_tran.ubamsg, (const u_char*)psendMsg->ubamsg,psendMsg->nLen);
@@ -1673,7 +1735,8 @@ void sim900a_send_handler(process_event_t ev, process_data_t data)
 				netModeSet(NET_CONNECT_NONE);
 				//sim900a_send_cmd("AT+CPOWD=1");
 				process_start(&sim900a_hard_init, NULL);	
-				XPRINTF((8, "sim900a reconnect agian\n"));
+				//XPRINTF((8, "sim900a reconnect agian\n"));
+                                XPRINTF((3, "sim900a reconnect agian\n"));
 				ubWaitAckCount = 0;
 			}
 			ubWaitAckCount++;
@@ -1775,17 +1838,41 @@ void sim900a_send_handler(process_event_t ev, process_data_t data)
 
 	else if (ev == PROCESS_EVENT_TIMER && data == &et_send)
 	{
+          NET_MODE *pnetMode;
 		XPRINTF((8, "UDP SEND TIME OUT\n"));
 		if (ubSendFailed >= 3)
 		{
 			gprs_process = &sim900a_hard_init;
 			gprsState = SIM900A_TCPUDP_CLOSE_T;
 			process_start(&sim900a_hard_init, NULL);
-			XPRINTF((10, "et_send out\n"));
+                        NET_MODE *pnetMode = (NET_MODE *)netModeGet();
+                        if(pnetMode->netMode != NET_CONNECT_ETH)
+                        {
+                          netModeSet(NET_CONNECT_NONE);
+                        }
+			//XPRINTF((10, "et_send out\n"));
+                        XPRINTF((3, "et_send out\n"));
 			ubSendFailed = 0;
 		}
 		ubSendFailed++;
 	}
+        else if(ev == PROCESS_EVENT_TIMER && (etimer_expired(&et_rec_err)))
+        {
+          gprs_process = &sim900a_hard_init;
+	  gprsState = SIM900A_TCPUDP_CLOSE_T;
+          NET_MODE *pnetMode = (NET_MODE *)netModeGet();
+          if(pnetMode->netMode != NET_CONNECT_ETH)
+          {
+             netModeSet(NET_CONNECT_NONE);
+          }
+	  process_start(&sim900a_hard_init, NULL);
+	  //XPRINTF((10, "et_rec_err\n"));
+          XPRINTF((3, "et_rec_err\n"));
+        }
+        else if(ev == PROCESS_EVENT_TIMER && (etimer_expired(&et_send_lock)))
+        {
+          gsm_send_lock = 0;
+        }
 
 	else if (ev == PROCESS_EVENT_TIMER && data == &et_wait_sms_ok)
 	{
@@ -1847,7 +1934,8 @@ void sim900a_send_handler(process_event_t ev, process_data_t data)
 		process_start(&sim900a_tcpudp_con_process, NULL);
 		
 		ubPhoneIndex = 0;
-		XPRINTF((10, "et_back_udp out\n"));
+		//XPRINTF((10, "et_back_udp out\n"));
+                XPRINTF((3, "et_back_udp out\n"));
 
 		nmp3L = mp3fillCmdNoParam(ubmp3buf, 0x1e);
 		MEM_DUMP(10, "M3->",ubmp3buf, nmp3L);
@@ -1867,6 +1955,9 @@ void sim900a_send_handler(process_event_t ev, process_data_t data)
 		uart5_send_bytes(ubmp3buf, nmp3L);		
 	}
 }
+
+
+
 //PROCESS(sim900a_send_process, "sim900a_send");
 PROCESS_THREAD(sim900a_send_process, ev, data)
 {
@@ -1929,6 +2020,7 @@ PROCESS_THREAD(gprs_resp_process, ev, data)//mark mark
 	static int ptr = 0;
 	char *pcsca;
 	int c;
+        u_char i;
 
 	PROCESS_BEGIN();
 	sim900_event_resp = process_alloc_event( );
@@ -1954,6 +2046,24 @@ PROCESS_THREAD(gprs_resp_process, ev, data)//mark mark
 			sim900_rx.nLen = ptr;
 			memcpy(sim900_rx.ubamsg, buf, ptr);
 			MEM_DUMP(10, "<-gp", buf, ptr);
+                        /*
+                        for(i=0;i<ptr;i++)
+                        {
+                          if(buf[i] == GPRS_F_HEAD && buf[i+1] == GPRS_F_SYN_CMD && buf[i+2] == GPRS_F_CMD_WARN_ACK)
+                          {
+                            gsm_send_lock = 0;
+                            break;
+                          }
+                        }
+                        */
+                        for(i=0;i<ptr;i++)
+                        {
+                          if(buf[i] == GPRS_F_HEAD)
+                          {
+                            etimer_stop(&et_rec_err);
+                            break;
+                          }
+                        }
 			process_post(gprs_process, sim900_event_resp, sim900_rx.ubamsg);
 			//process_post(gprs_process, sim900_event_resp, &sim900_rx);
 			//sim900a_send_cmd("AT+CSCA?");
@@ -1967,6 +2077,7 @@ PROCESS_THREAD(gprs_resp_process, ev, data)//mark mark
 				memcpy(smsCenterPhone, pcsca+3, 11);
 				XPRINTF((8, "smsCenterPhone = %s\n", smsCenterPhone));
 			}
+                        //alarm_rx_finish_flag = 1;
 			memset(buf, 0 ,sizeof(buf));
 			ptr = 0;
 		}
@@ -1978,7 +2089,7 @@ PROCESS_THREAD(gprs_resp_process, ev, data)//mark mark
 		}
 		else
 		{
-			//XPRINTF((10 "c = %02x\n", c));
+			//XPRINTF((10 ,"c = %02x\n", c));
 			//XPRINTF((9, "%02x\r\n", c));
 			if (ptr == 0 && (uint8_t)c != 0x0d)
 			{

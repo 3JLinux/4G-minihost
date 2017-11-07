@@ -156,10 +156,10 @@ void OSInitSys(void)
 
 	//led key module
 	//key
-	gpioInitSt.GPIO_Pin = ALARM_KEY_PIN|SILENCER_KEY_PIN|SELF_TEST_KEY_PIN;
-	gpioInitSt.GPIO_Mode = GPIO_Mode_IPU;
-	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
-	GPIO_Init(ALARM_KEY_PORT, &gpioInitSt);
+	//gpioInitSt.GPIO_Pin = ALARM_KEY_PIN|SILENCER_KEY_PIN|SELF_TEST_KEY_PIN;
+	//gpioInitSt.GPIO_Mode = GPIO_Mode_IPU;
+	//gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
+	//GPIO_Init(ALARM_KEY_PORT, &gpioInitSt);
 	/*end key*/
 	
 	//led  key mode buzzer
@@ -167,6 +167,13 @@ void OSInitSys(void)
 	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
 	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
 	GPIO_Init(POWER_LED_PORT, &gpioInitSt);
+        
+        //HWGG led
+        gpioInitSt.GPIO_Pin = HWGG_LED_PIN;
+	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
+	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_Init(HWGG_LED_PORT, &gpioInitSt);
+        //HWGG_LED(1); 
 
 	gpioInitSt.GPIO_Pin = NET_LED_PIN;
 	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
