@@ -56,7 +56,8 @@ void SysTick_Handler(void)
 	}
 }
 
-#if 0
+//#if 0
+/*
 void
 clock_init()
 {
@@ -65,7 +66,8 @@ clock_init()
   SysTick->LOAD = MCK/8/CLOCK_SECOND;
   SysTick->CTRL = SysTick_CTRL_ENABLE | SysTick_CTRL_TICKINT;
   */
-  #if 0
+  //#if 0
+/*
   current_clock = 0;
   //Systick时钟每s触发一次CLOCK_SECOND次
   if (SysTick_Config(SystemCoreClock / CLOCK_SECOND))
@@ -75,20 +77,21 @@ clock_init()
   }
   #endif
   /* SysTick initialization using the system clock.*/
+/*
   SysTick->LOAD = SystemCoreClock / CLOCK_SECOND - 1;
   SysTick->VAL = 0;
   SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk |
                   SysTick_CTRL_ENABLE_Msk |
                   SysTick_CTRL_TICKINT_Msk;}
-#else
-
+//#else
+*/
 void
 clock_init()
 {
 	current_clock = 0;
 	SysTick_Config(SystemCoreClock / CLOCK_SECOND);   
 }
-#endif
+//#endif
 
 
 

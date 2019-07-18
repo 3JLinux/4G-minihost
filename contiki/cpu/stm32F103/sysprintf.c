@@ -49,7 +49,7 @@ int strcmp_ex(char const*s1,char const *s2)
 
 
 
-static char g_nDebufLevel = 2;// level = -1, means to get the level, no change to g_nDebugLevel
+static char g_nDebufLevel = 12;// level = -1, means to get the level, no change to g_nDebugLevel
 char *get_gdbLevel(void)
 {
 	return &g_nDebufLevel;

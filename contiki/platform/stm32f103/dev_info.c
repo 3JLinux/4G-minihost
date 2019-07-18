@@ -60,9 +60,9 @@ const DEV_PARAM_STORAGE_INFO devInfo @0x0805F000 ={
 #endif
 
 #ifdef MCU_STM32F103RBT6
-#define DEVINFO_FLASH_ADDR	(0x0801F000)
+#define DEVINFO_FLASH_ADDR	(0x8035000)//(0x0801F000)
 //This variable is save at addr 0x0801f000  FLASH
-const DEV_PARAM_STORAGE_INFO devInfo @0x0801F000 ={
+const DEV_PARAM_STORAGE_INFO devInfo @0x8035000 ={
 
 	//u_short udwProtectWord; 
 	0x5aa5,

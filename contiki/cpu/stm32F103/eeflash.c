@@ -34,9 +34,9 @@
 */
 
 #define FLASH_ADDR_START 			(u_long)0x08000000
-#define FLASH_ADDR_END_ADDR			(u_long)0x08020000
+#define FLASH_ADDR_END_ADDR			(u_long)0x08050000
 
-#define FLASH_BLOCK_START 			(u_long)(124*1024)
+#define FLASH_BLOCK_START 			(u_long)(212*1024)//(u_long)(124*1024)
 #define FLASH_BLOCK_SIZE   			(u_long)(4*1024)
 #endif
 

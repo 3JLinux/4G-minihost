@@ -40,7 +40,8 @@
 #include "sim900a.h"
 #include "adc.h"
 
-
+static u_char no_connect_lock_flag = 0;
+static struct etimer et_no_connect;
 uint8_t process_request_u(void);
 
 PROCESS(blink_process, "Blink");
@@ -49,6 +50,7 @@ PROCESS_THREAD(blink_process, ev, data)
 {
 	//static u_char ubach[4] = {0x12, 0x23, 0x55, 0x66};
         static u_char first_star = 0;
+        
 	static struct etimer et;
 	static u_char ubacrctest[] = {0x1f,0x3a,0xab,0xcc};
 	u_short crc = 0;
@@ -69,6 +71,9 @@ PROCESS_THREAD(blink_process, ev, data)
 			NET_LED(0);
 			//FAULT_LED(1);
 			ALARM_LED(1);
+                        //etimer_reset(&et_no_connect);
+                        etimer_stop(&et_no_connect);
+                        no_connect_lock_flag = 0;
 		}
 		else
 		{
@@ -80,6 +85,11 @@ PROCESS_THREAD(blink_process, ev, data)
                         }
 			//FAULT_LED(0);
 			ALARM_LED(0);
+                        if(no_connect_lock_flag == 0)
+                        {
+                          etimer_set(&et_no_connect,10*60*1000);
+                          no_connect_lock_flag = 1;
+                        }
 		}		//uart4_send_char('a');
 		//sim900a_send_cmd("AT");
 		etimer_set(&et, 500);
@@ -98,15 +108,26 @@ PROCESS(feeddog_process, "feeddog");
 PROCESS_THREAD(feeddog_process, ev, data)
 {
 	static struct etimer et;
+        NET_MODE *pnetMode;
 
 	PROCESS_BEGIN();
+        watchdog_init( );
 	XPRINTF((10, "feeddog\r\n"));
 	XPRINTF((10, "clock s is %d\r\n", clock_seconds( )));
-	watchdog_init( );
 	etimer_set(&et, 10*CLOCK_SECOND);
 	
 	while(1) 
-	{		
+	{	if((ev == PROCESS_EVENT_TIMER) && (etimer_expired(&et_no_connect)))
+                {
+                  pnetMode = (NET_MODE *)netModeGet();
+                  if(pnetMode->netMode == NET_CONNECT_NONE)
+                  {
+                    XPRINTF((10, "et_no_connect\r\n"));
+                    LORA_RST(0);
+                    __set_FAULTMASK(1);  //关中断
+                    NVIC_SystemReset();  //软件复位
+                  }
+                }
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 		watchdog_periodic( );
 		etimer_reset(&et);
@@ -392,10 +413,11 @@ PROCESS_THREAD(user_ip_start, ev, data)
 
 #define VCC_ON          0X01
 #define BAT_ON          0x02
-#define LIGHT_VCC_ON()  GPIO_SetBits(GPIOB,GPIO_Pin_8)           
-#define LIGHT_BAT_ON()  GPIO_SetBits(GPIOB,GPIO_Pin_9)
-#define LIGHT_VCC_OFF() GPIO_ResetBits(GPIOB,GPIO_Pin_8)           
-#define LIGHT_BAT_OFF() GPIO_ResetBits(GPIOB,GPIO_Pin_9)
+#define LIGHT_VCC_ON()  GPIO_ResetBits(GPIOB,GPIO_Pin_8)//GPIO_SetBits(GPIOB,GPIO_Pin_8)           
+#define LIGHT_BAT_ON()  GPIO_ResetBits(GPIOB,GPIO_Pin_9)//GPIO_SetBits(GPIOB,GPIO_Pin_9)
+#define LIGHT_VCC_OFF() GPIO_SetBits(GPIOB,GPIO_Pin_8) //GPIO_ResetBits(GPIOB,GPIO_Pin_8)           
+#define LIGHT_BAT_OFF() GPIO_SetBits(GPIOB,GPIO_Pin_9)//GPIO_ResetBits(GPIOB,GPIO_Pin_9)
+
 
 u_char power_check_val;
 PROCESS(ADC_process, "ADC");
@@ -417,7 +439,7 @@ PROCESS_THREAD(ADC_process, ev, data)
                 adcx=Get_Adc_Average(ADC_VCC,1);
                 val=(float)adcx*(3.3/4096);
                 //XPRINTF((12, "val=%6.3f\r\n",val));
-                if(val >= 1)
+                if(val >= 1.5)
                 {
                   power_check_val |= VCC_ON; 
                   LIGHT_VCC_ON(); 
@@ -452,6 +474,8 @@ PROCESS_THREAD(ADC_process, ev, data)
 
 int main(void)
 {
+        //NVIC_SetVectorTable(0x08000000,0x10000);
+        //SCB->VTOR = FLASH_BASE | 0x10000;//0x36000;
 	u_short uwRandrom = 0;
 	sysInit();
 
@@ -476,6 +500,7 @@ int main(void)
 	//app485Init( );
 	//mp3init( );
     appSoundLightInit();
+    XPRINTF((0,"V2.0.0 Full2019.6.28 10\r\n"));
 	XPRINTF((0,"Processes running\r\n"));
 	while(1) 
 	{

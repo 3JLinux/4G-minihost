@@ -1,0 +1,1940 @@
+###############################################################################
+#
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                28/Jun/2019  13:52:23
+# Copyright 2007-2015 IAR Systems AB.
+#
+#    Output file  =  
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Exe\contiki_os.out
+#    Map file     =  
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\List\contiki_os.map
+#    Command line =  
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\adc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\anti-replay.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\app485.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\app_sound_light_alarm.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\appenc28j60.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\appkey.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\arch_s.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\arch_spi.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\arg.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\autostart.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\clock.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\common.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\contiki-main.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\contikimac-framer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\contikimac.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\core_cm3.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\crc16.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\csma.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ctimer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\debug-uart.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\dev_info.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\dhcpc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\eeflash.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\enc28j60-ip64-driver.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\enc28j60.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\enc28j60_stm32f103.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\end_node_list.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\energest.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\etimer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\fireNodeApp.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\frame802154.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\framer-802154.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\framer-nullmac.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\framer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\gprsProtocol.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\hwgg.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\iap.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-addr.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-addrmap.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-arp.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-dhcpc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-eth-interface.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-eth.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-ipv4-dhcp.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-null-driver.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-slip-interface.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64-special-ports.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ip64.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\leds-arch.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\leds.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\linkaddr.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\list.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\mac-sequence.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\mac.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\memb.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\misc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\mmem.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\mp3app.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\nbr-table.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\netstack.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\nullmac.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\nullradio.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\nullrdc-noframer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\nullrdc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\nullsec.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\packetbuf.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\phase.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\process.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\procinit.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\psock.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\pulse.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\queuebuf.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\random.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\receiver-node.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\resolv.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ringbuf.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\ringbufindex.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\root-node.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl-dag-root.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl-dag.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl-ext-header.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl-icmp6.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl-mrhof.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl-of0.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl-timers.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rpl.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rtimer-arch.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\rtimer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\serial-line.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\serial-shell.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\shell.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\sicslowmac.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\sicslowpan.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\sim900a.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\simple-udp.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\slipdev.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\startup_stm32f10x_hd.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stimer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f103_contiki_os.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_adc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_bkp.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_can.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_cec.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_crc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_dac.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_dbgmcu.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_dma.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_exti.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_flash.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_fsmc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_gpio.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_i2c.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_it.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_iwdg.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_pwr.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_rcc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_rtc.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_sdio.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_spi.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_tim.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_usart.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_usart1.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\stm32f10x_wwdg.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\sysprintf.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\system_stm32f10x.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\tcp-socket.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\tcpip.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\timer.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uart_dma.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\udp-socket.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-debug.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-ds6-nbr.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-ds6-route.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-ds6.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-icmp6.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-nd6.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-packetqueue.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-split.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip-udp-packet.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uip6.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\uiplib.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\utility.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\watchdog.o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj\xprintf.o
+#        -o
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Exe\contiki_os.out
+#        --map
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\List\contiki_os.map
+#        --config
+#        E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\contiki_os_rdt6.icf
+#        --semihosting --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor                     = *
+__SystemLibrary               = DLib
+__dlib_dynamic_initialization = normal
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x08000000 { ro section .intvec };
+"P1":  place in [from 0x08000000 to 0x0805ffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2000ffff] { rw, block CSTACK, block HEAP };
+
+  Section             Kind        Address     Size  Object
+  -------             ----        -------     ----  ------
+"A1":                                        0x130
+  .intvec             ro code  0x08000000    0x130  startup_stm32f10x_hd.o [1]
+                             - 0x08000130    0x130
+
+"P1":                                      0x11cc6
+  .text               ro code  0x08000130   0x2dbc  sim900a.o [1]
+  .text               ro code  0x08002eec      0x6  ABImemclr4.o [5]
+  .text               ro code  0x08002ef2     0x76  lz77_init_single.o [5]
+  .text               ro code  0x08002f68    0x250  xprintf.o [1]
+  .text               ro code  0x080031b8     0x36  strlen.o [5]
+  .text               ro code  0x080031f0    0x25c  sysprintf.o [1]
+  .text               ro code  0x0800344c    0x1e4  stm32f10x_usart1.o [1]
+  .text               ro code  0x08003630    0x12c  stm32f10x_gpio.o [1]
+  .text               ro code  0x0800375c    0x188  etimer.o [1]
+  .text               ro code  0x080038e4    0x298  process.o [1]
+  .text               ro code  0x08003b7c     0x2c  strstr.o [3]
+  .text               ro code  0x08003ba8    0xcf8  appenc28j60.o [1]
+  .text               ro code  0x080048a0     0xf8  dev_info.o [1]
+  .text               ro code  0x08004998    0x2a0  gprsProtocol.o [1]
+  .text               ro code  0x08004c38     0xfc  ctimer.o [1]
+  .text               ro code  0x08004d34     0x76  ABImemcpy_unaligned.o [5]
+  .text               ro code  0x08004dac     0x8c  clock.o [1]
+  .text               ro code  0x08004e38    0x1c0  end_node_list.o [1]
+  .text               ro code  0x08004ff8    0x4f8  app_sound_light_alarm.o [1]
+  .text               ro code  0x080054f0    0xbfa  fireNodeApp.o [1]
+  .text               ro code  0x080060ec     0x92  hwgg.o [1]
+  .text               ro code  0x08006180     0x28  iap.o [1]
+  .text               ro code  0x080061a8      0x6  ABImemclr.o [5]
+  .text               ro code  0x080061b0     0x40  appkey.o [1]
+  .text               ro code  0x080061f0     0x50  mp3app.o [1]
+  .text               ro code  0x08006240     0x60  ringbuf.o [1]
+  .text               ro code  0x080062a0     0x32  ABImemset48.o [5]
+  .text               ro code  0x080062d2     0x18  toupper.o [3]
+  .text               ro code  0x080062ea     0x28  isxxx.o [3]
+  .text               ro code  0x08006314    0x178  stm32f10x_usart.o [1]
+  .text               ro code  0x0800648c     0x48  timer.o [1]
+  .text               ro code  0x080064d4     0x16  strchr.o [5]
+  .text               ro code  0x080064ea     0x9c  ip64-addr.o [1]
+  .text               ro code  0x08006588    0x2c4  uip-ds6-route.o [1]
+  .text               ro code  0x0800684c    0x144  simple-udp.o [1]
+  .text               ro code  0x08006990     0xd0  arch_spi.o [1]
+  .text               ro code  0x08006a60    0x254  rpl-dag-root.o [1]
+  .text               ro code  0x08006cb4    0x6a0  ip64.o [1]
+  .text               ro code  0x08007354     0xbc  eeflash.o [1]
+  .text               ro code  0x08007410    0x234  common.o [1]
+  .text               ro code  0x08007644     0xb8  list.o [1]
+  .text               ro code  0x080076fc     0xb2  memb.o [1]
+  .text               ro code  0x080077b0     0x66  ABImemset.o [5]
+  .text               ro code  0x08007818     0x62  memcmp_unaligned.o [5]
+  .text               ro code  0x0800787c     0x18  setlocale.o [3]
+  .text               ro code  0x08007894     0x16  xlocale_c.o [3]
+  .text               ro code  0x080078aa     0x24  xlocale_c.o [3]
+  .text               ro code  0x080078d0     0xec  stm32f10x_rcc.o [1]
+  .text               ro code  0x080079bc    0x340  nbr-table.o [1]
+  .text               ro code  0x08007cfc    0x1cc  uip-ds6-nbr.o [1]
+  .text               ro code  0x08007ec8     0x88  uip-debug.o [1]
+  .text               ro code  0x08007f50     0x2c  stimer.o [1]
+  .text               ro code  0x08007f7c     0x7c  uip-udp-packet.o [1]
+  .text               ro code  0x08007ff8    0x5ec  tcpip.o [1]
+  .text               ro code  0x080085e4     0x62  stm32f10x_spi.o [1]
+  .text               ro code  0x08008648    0x3c0  rpl-dag.o [1]
+  .text               ro code  0x08008a08    0x668  uip-ds6.o [1]
+  .text               ro code  0x08009070     0x28  rpl.o [1]
+  .text               ro code  0x08009098    0x334  rpl-icmp6.o [1]
+  .text               ro code  0x080093cc    0x104  ip64-ipv4-dhcp.o [1]
+  .text               ro code  0x080094d0   0x14b4  uip6.o [1]
+  .text               ro code  0x0800a984     0x10  ip64-special-ports.o [1]
+  .text               ro code  0x0800a994    0x1f0  ip64-addrmap.o [1]
+  .text               ro code  0x0800ab84    0x110  stm32f10x_flash.o [1]
+  .text               ro code  0x0800ac94      0x2  xtls.o [3]
+  .text               ro code  0x0800ac98     0x24  linkaddr.o [1]
+  .text               ro code  0x0800acbc     0x84  uip-packetqueue.o [1]
+  .text               ro code  0x0800ad40    0x240  packetbuf.o [1]
+  .text               ro code  0x0800af80    0x550  uip-nd6.o [1]
+  .text               ro code  0x0800b4d0    0x118  rpl-timers.o [1]
+  .text               ro code  0x0800b5e8      0xe  random.o [1]
+  .text               ro code  0x0800b5f8    0x33c  uip-icmp6.o [1]
+  .text               ro code  0x0800b934    0x8b8  ip64-dhcpc.o [1]
+  .text               ro code  0x0800c1ec     0x78  ABImemmove_unaligned.o [5]
+  .text               ro code  0x0800c264     0x20  srand.o [3]
+  .text               ro code  0x0800c284     0xe0  rand.o [3]
+  .text               ro code  0x0800c364    0xe54  sicslowpan.o [1]
+  .text               ro code  0x0800d1b8    0x160  queuebuf.o [1]
+  .text               ro code  0x0800d318     0x2e  watchdog.o [1]
+  .text               ro code  0x0800d348     0x34  stm32f10x_iwdg.o [1]
+  .text               ro code  0x0800d37c    0xc04  shell.o [1]
+  .text               ro code  0x0800df80    0x13a  utility.o [1]
+  .text               ro code  0x0800e0bc     0x38  arch_s.o [1]
+  .text               ro code  0x0800e0f4    0xb3c  contiki-main.o [1]
+  .text               ro code  0x0800ec30     0x42  strcmp_unaligned.o [5]
+  .text               ro code  0x0800ec72     0x28  strncmp.o [3]
+  .text               ro code  0x0800ec9c     0xd8  serial-shell.o [1]
+  .text               ro code  0x0800ed74     0x1e  isxdigit.o [3]
+  .text               ro code  0x0800ed94    0x384  stm32f103_contiki_os.o [1]
+  .text               ro code  0x0800f118     0x2c  rtimer.o [1]
+  .text               ro code  0x0800f144    0x124  serial-line.o [1]
+  .text               ro code  0x0800f268     0x32  crc16.o [1]
+  .text               ro code  0x0800f29c     0x30  netstack.o [1]
+  .text               ro code  0x0800f2cc    0x130  adc.o [1]
+  .text               ro code  0x0800f3fc     0x1e  I32ToFlt.o [4]
+  .text               ro code  0x0800f41c     0x4e  FltToDbl.o [4]
+  .text               ro code  0x0800f46c    0x1a2  DblMul.o [4]
+  .text               ro code  0x0800f610     0x90  DblToFlt.o [4]
+  .text               ro code  0x0800f6a0     0x24  FltCmpGe.o [4]
+  .text               ro code  0x0800f6c4     0x7c  misc.o [1]
+  .text               ro code  0x0800f740     0xf4  rtimer-arch.o [1]
+  .text               ro code  0x0800f834    0x17e  stm32f10x_adc.o [1]
+  .text               ro code  0x0800f9b4    0x548  ip64-arp.o [1]
+  .text               ro code  0x0800fefc    0x4ac  enc28j60.o [1]
+  .text               ro code  0x080103a8     0x38  enc28j60_stm32f103.o [1]
+  .text               ro code  0x080103e0    0x324  csma.o [1]
+  .text               ro code  0x08010704     0x12  mac.o [1]
+  .text               ro code  0x08010718    0x2a4  frame802154.o [1]
+  .text               ro code  0x080109bc    0x1c0  nullrdc.o [1]
+  .text               ro code  0x08010b7c     0x94  mac-sequence.o [1]
+  .text               ro code  0x08010c10    0x19a  framer-802154.o [1]
+  .text               ro code  0x08010dac    0x12c  enc28j60-ip64-driver.o [1]
+  .text               ro code  0x08010ed8     0xb4  ip64-eth-interface.o [1]
+  .text               ro code  0x08010f8c     0xf4  rpl-mrhof.o [1]
+  .text               ro code  0x08011080     0xec  system_stm32f10x.o [1]
+  .text               ro code  0x0801116c     0xbc  pulse.o [1]
+  .text               ro code  0x08011228     0x34  stm32f10x_bkp.o [1]
+  .text               ro code  0x0801125c     0x28  stm32f10x_exti.o [1]
+  .rodata             const    0x08011284     0xb8  shell.o [1]
+  .rodata             const    0x0801133c     0x8c  sim900a.o [1]
+  .text               ro code  0x080113c8     0x7c  uart_dma.o [1]
+  .text               ro code  0x08011444     0x10  stm32f10x_dma.o [1]
+  .text               ro code  0x08011454     0x44  stm32f10x_it.o [1]
+  .text               ro code  0x08011498     0x40  zero_init3.o [5]
+  .rodata             const    0x080114d8     0x38  nullradio.o [1]
+  .text               ro code  0x08011510     0x38  nullradio.o [1]
+  .text               ro code  0x08011548     0x34  nullsec.o [1]
+  .text               ro code  0x0801157c     0x2c  framer.o [1]
+  .rodata             const    0x080115a8     0x28  nullrdc.o [1]
+  .text               ro code  0x080115d0     0x28  data_init.o [5]
+  .rodata             const    0x080115f8     0x24  csma.o [1]
+  .rodata             const    0x0801161c     0x24  fireNodeApp.o [1]
+  .iar.init_table     const    0x08011640     0x20  - Linker created -
+  .rodata             const    0x08011660     0x20  enc28j60-ip64-driver.o [1]
+  .rodata             const    0x08011680     0x20  nullsec.o [1]
+  .rodata             const    0x080116a0     0x1c  contiki-main.o [1]
+  .text               ro code  0x080116bc     0x1a  cmain.o [5]
+  .text               ro code  0x080116d6      0x4  low_level_init.o [3]
+  .text               ro code  0x080116da      0x4  exit.o [3]
+  .text               ro code  0x080116e0      0xa  cexit.o [5]
+  .text               ro code  0x080116ec     0x14  exit.o [6]
+  .rodata             const    0x08011700     0x18  app_sound_light_alarm.o [1]
+  .rodata             const    0x08011718     0x18  serial-shell.o [1]
+  .rodata             const    0x08011730     0x18  sicslowpan.o [1]
+  .rodata             const    0x08011748     0x14  appenc28j60.o [1]
+  .rodata             const    0x0801175c     0x14  enc28j60.o [1]
+  .rodata             const    0x08011770     0x14  simple-udp.o [1]
+  .text               ro code  0x08011784     0x14  debug-uart.o [1]
+  .rodata             const    0x08011798     0x10  ctimer.o [1]
+  .rodata             const    0x080117a8     0x10  framer-802154.o [1]
+  .rodata             const    0x080117b8     0x10  serial-line.o [1]
+  .rodata             const    0x080117c8     0x10  tcpip.o [1]
+  .text               ro code  0x080117d8     0x10  startup_stm32f10x_hd.o [1]
+  .rodata             const    0x080117e8      0xc  etimer.o [1]
+  .rodata             const    0x080117f4      0xc  ip64-ipv4-dhcp.o [1]
+  .text               ro code  0x08011800      0xc  cstartup_M.o [5]
+  .rodata             const    0x0801180c      0x8  ip64-eth-interface.o [1]
+  .rodata             const    0x08011814      0x8  ip64.o [1]
+  .rodata             const    0x0801181c      0x8  linkaddr.o [1]
+  .text               ro code  0x08011824      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011828      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801182c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011830      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011834      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011838      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801183c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011840      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011844      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011848      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801184c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011850      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011854      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011858      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801185c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011860      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011864      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011868      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801186c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011870      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011874      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011878      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801187c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011880      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011884      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011888      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801188c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011890      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011894      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x08011898      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x0801189c      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118a0      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118a4      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118a8      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118ac      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118b0      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118b4      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118b8      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118bc      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118c0      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118c4      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118c8      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118cc      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118d0      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118d4      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118d8      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118dc      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118e0      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118e4      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118e8      0x4  startup_stm32f10x_hd.o [1]
+  .text               ro code  0x080118ec      0x4  startup_stm32f10x_hd.o [1]
+  .rodata             const    0x080118f0      0x0  zero_init3.o [5]
+  .rodata             const    0x080118f0      0x0  lz77_init_single.o [5]
+  Initializer bytes   const    0x080118f0    0x506  <for P2-1>
+                             - 0x08011df6  0x11cc6
+
+Absolute sections:                           0x37e
+  .rodata             const    0x08035000    0x37e  dev_info.o [1]
+                             - 0x0803537e    0x37e
+
+"P2", part 1 of 3:                          0x2470
+  P2-1                         0x20000000   0x2470  <Init block>
+    .data             inited   0x20000000     0x40  app_sound_light_alarm.o [1]
+    .data             inited   0x20000040    0x5d4  appenc28j60.o [1]
+    .data             inited   0x20000614      0xc  clock.o [1]
+    .data             inited   0x20000620     0x40  contiki-main.o [1]
+    .data             inited   0x20000660      0xc  contiki-main.o [1]
+    .data             inited   0x2000066c     0x2c  csma.o [1]
+    .data             inited   0x20000698     0x18  ctimer.o [1]
+    .data             inited   0x200006b0     0x10  dev_info.o [1]
+    .data             inited   0x200006c0     0x10  enc28j60-ip64-driver.o [1]
+    .data             inited   0x200006d0     0x34  enc28j60.o [1]
+    .data             inited   0x20000704     0x14  end_node_list.o [1]
+    .data             inited   0x20000718     0x18  etimer.o [1]
+    .data             inited   0x20000730    0x18c  fireNodeApp.o [1]
+    .data             inited   0x200008bc     0x14  fireNodeApp.o [1]
+    .data             inited   0x200008d0     0x14  ip64-addrmap.o [1]
+    .data             inited   0x200008e4     0x10  ip64-ipv4-dhcp.o [1]
+    .data             inited   0x200008f4      0x4  ip64.o [1]
+    .data             inited   0x200008f8     0x38  nbr-table.o [1]
+    .data             inited   0x20000930     0x24  queuebuf.o [1]
+    .data             inited   0x20000954     0x10  rpl-dag.o [1]
+    .data             inited   0x20000964      0x8  rpl-dag.o [1]
+    .data             inited   0x2000096c     0x1c  rpl-mrhof.o [1]
+    .data             inited   0x20000988     0xa0  serial-line.o [1]
+    .data             inited   0x20000a28     0x10  serial-shell.o [1]
+    .data             inited   0x20000a38     0x94  shell.o [1]
+    .data             inited   0x20000acc     0x10  shell.o [1]
+    .data             inited   0x20000adc     0x10  shell.o [1]
+    .data             inited   0x20000aec     0x10  shell.o [1]
+    .data             inited   0x20000afc     0x10  shell.o [1]
+    .data             inited   0x20000b0c    0x240  sim900a.o [1]
+    .data             inited   0x20000d4c    0xee4  sim900a.o [1]
+    .data             inited   0x20001c30    0x228  sim900a.o [1]
+    .data             inited   0x20001e58    0x3ec  sim900a.o [1]
+    .data             inited   0x20002244     0x14  simple-udp.o [1]
+    .data             inited   0x20002258     0x14  stm32f10x_rcc.o [1]
+    .data             inited   0x2000226c     0x14  stm32f10x_usart1.o [1]
+    .data             inited   0x20002280     0x14  system_stm32f10x.o [1]
+    .data             inited   0x20002294     0x10  tcpip.o [1]
+    .data             inited   0x200022a4     0x30  uart_dma.o [1]
+    .data             inited   0x200022d4     0x10  uip-ds6-nbr.o [1]
+    .data             inited   0x200022e4      0x4  uip-ds6-nbr.o [1]
+    .data             inited   0x200022e8     0x44  uip-ds6-route.o [1]
+    .data             inited   0x2000232c     0x1c  uip-icmp6.o [1]
+    .data             inited   0x20002348     0x18  uip-nd6.o [1]
+    .data             inited   0x20002360      0xc  uip-packetqueue.o [1]
+    __DLIB_PERTHREAD  inited   0x2000236c     0x8c  rand.o [3]
+    __DLIB_PERTHREAD  inited   0x200023f8     0x74  setlocale.o [3]
+    .data             inited   0x2000246c      0x2  ip64.o [1]
+    .data             inited   0x2000246e      0x1  rpl-icmp6.o [1]
+    .data             inited   0x2000246f      0x1  sysprintf.o [1]
+                             - 0x20002470   0x2470
+
+"P2", part 2 of 3:                           0x400
+  CSTACK                       0x20002470    0x400  <Block>
+    CSTACK            uninit   0x20002470    0x400  <Block tail>
+                             - 0x20002870    0x400
+
+"P2", part 3 of 3:                          0x96fc
+  .bss                zero     0x20002870    0xc80  end_node_list.o [1]
+  .bss                zero     0x200034f0    0xc28  uip-packetqueue.o [1]
+  .bss                zero     0x20004118    0x8fc  appenc28j60.o [1]
+  .bss                zero     0x20004a14    0x800  dev_info.o [1]
+  .bss                zero     0x20005214    0x7cc  uip6.o [1]
+  .bss                zero     0x200059e0    0x654  uip6.o [1]
+  .bss                zero     0x20006034    0x5ec  ip64.o [1]
+  .bss                zero     0x20006620    0x5ec  sicslowpan.o [1]
+  .bss                zero     0x20006c0c    0x5ec  sim900a.o [1]
+  .bss                zero     0x200071f8    0x5ec  simple-udp.o [1]
+  .bss                zero     0x200077e4    0x560  sim900a.o [1]
+  .bss                zero     0x20007d44    0x554  appenc28j60.o [1]
+  .bss                zero     0x20008298    0x554  sim900a.o [1]
+  .bss                zero     0x200087ec    0x554  sim900a.o [1]
+  .bss                zero     0x20008d40    0x554  sim900a.o [1]
+  .bss                zero     0x20009294    0x500  ip64-addrmap.o [1]
+  .bss                zero     0x20009794    0x4fc  appenc28j60.o [1]
+  .bss                zero     0x20009c90    0x444  queuebuf.o [1]
+  .bss                zero     0x2000a0d4    0x400  fireNodeApp.o [1]
+  .bss                zero     0x2000a4d4    0x3e8  gprsProtocol.o [1]
+  .bss                zero     0x2000a8bc    0x361  app_sound_light_alarm.o [1]
+  .bss                zero     0x2000ac1d      0x2  framer-802154.o [1]
+  .bss                zero     0x2000ac1f      0x1  app_sound_light_alarm.o [1]
+  .bss                zero     0x2000ac20    0x360  sim900a.o [1]
+  .bss                zero     0x2000af80    0x180  process.o [1]
+  .bss                zero     0x2000b100    0x140  uip6.o [1]
+  .bss                zero     0x2000b240    0x108  uip-ds6.o [1]
+  .bss                zero     0x2000b348    0x104  rpl-dag.o [1]
+  .bss                zero     0x2000b44c     0xf4  packetbuf.o [1]
+  .bss                zero     0x2000b540     0xc8  end_node_list.o [1]
+  .bss                zero     0x2000b608     0xbc  app_sound_light_alarm.o [1]
+  .bss                zero     0x2000b6c4     0xb9  fireNodeApp.o [1]
+  .bss                zero     0x2000b77d      0x2  tcpip.o [1]
+  .bss                zero     0x2000b77f      0x1  ip64-arp.o [1]
+  .bss                zero     0x2000b780     0xb8  fireNodeApp.o [1]
+  .bss                zero     0x2000b838     0x90  mac-sequence.o [1]
+  .bss                zero     0x2000b8c8     0x80  uip-ds6.o [1]
+  .bss                zero     0x2000b948     0x78  app_sound_light_alarm.o [1]
+  .bss                zero     0x2000b9c0     0x78  queuebuf.o [1]
+  .bss                zero     0x2000ba38     0x70  csma.o [1]
+  .bss                zero     0x2000baa8     0x70  ip64-dhcpc.o [1]
+  .bss                zero     0x2000bb18     0x60  ip64-arp.o [1]
+  .bss                zero     0x2000bb78     0x54  tcpip.o [1]
+  .bss                zero     0x2000bbcc     0x48  csma.o [1]
+  .bss                zero     0x2000bc14     0x48  csma.o [1]
+  .bss                zero     0x2000bc5c     0x40  uip-ds6-route.o [1]
+  .bss                zero     0x2000bc9c     0x3c  rpl-dag-root.o [1]
+  .bss                zero     0x2000bcd8     0x3c  sim900a.o [1]
+  .bss                zero     0x2000bd14     0x38  sicslowpan.o [1]
+  .bss                zero     0x2000bd4c     0x34  contiki-main.o [1]
+  .bss                zero     0x2000bd80     0x2c  uip-ds6-nbr.o [1]
+  .bss                zero     0x2000bdac     0x28  uip-ds6-route.o [1]
+  .bss                zero     0x2000bdd4     0x24  ip64.o [1]
+  .bss                zero     0x2000bdf8     0x20  ip64-addrmap.o [1]
+  .bss                zero     0x2000be18     0x18  process.o [1]
+  .bss                zero     0x2000be30     0x18  queuebuf.o [1]
+  .bss                zero     0x2000be48     0x14  contiki-main.o [1]
+  .bss                zero     0x2000be5c     0x14  rpl-dag.o [1]
+  .bss                zero     0x2000be70     0x10  enc28j60-ip64-driver.o [1]
+  .bss                zero     0x2000be80     0x10  ip64-ipv4-dhcp.o [1]
+  .bss                zero     0x2000be90     0x10  uip-icmp6.o [1]
+  .bss                zero     0x2000bea0     0x10  uip-nd6.o [1]
+  .bss                zero     0x2000beb0      0xc  nbr-table.o [1]
+  .bss                zero     0x2000bebc      0xc  sicslowpan.o [1]
+  .bss                zero     0x2000bec8      0xc  xprintf.o [1]
+  .bss                zero     0x2000bed4      0x8  csma.o [1]
+  .bss                zero     0x2000bedc      0x8  csma.o [1]
+  .bss                zero     0x2000bee4      0x8  ip64-eth.o [1]
+  .bss                zero     0x2000beec      0x8  linkaddr.o [1]
+  .bss                zero     0x2000bef4      0x8  queuebuf.o [1]
+  .bss                zero     0x2000befc      0x8  queuebuf.o [1]
+  .bss                zero     0x2000bf04      0x8  rtimer-arch.o [1]
+  .bss                zero     0x2000bf0c      0x8  uip-ds6-route.o [1]
+  .bss                zero     0x2000bf14      0x8  uip-ds6-route.o [1]
+  .bss                zero     0x2000bf1c      0x8  uip6.o [1]
+  .bss                zero     0x2000bf24      0x8  uip6.o [1]
+  .bss                zero     0x2000bf2c      0x4  fireNodeApp.o [1]
+  .bss                zero     0x2000bf30      0x4  fireNodeApp.o [1]
+  .bss                zero     0x2000bf34      0x4  iap.o [1]
+  .bss                zero     0x2000bf38      0x4  ip64.o [1]
+  .bss                zero     0x2000bf3c      0x4  rtimer.o [1]
+  .bss                zero     0x2000bf40      0x4  stm32f10x_usart1.o [1]
+  .bss                zero     0x2000bf44      0x4  stm32f10x_usart1.o [1]
+  .bss                zero     0x2000bf48      0x4  stm32f10x_usart1.o [1]
+  .bss                zero     0x2000bf4c      0x4  stm32f10x_usart1.o [1]
+  .bss                zero     0x2000bf50      0x4  stm32f10x_usart1.o [1]
+  .bss                zero     0x2000bf54      0x4  tcpip.o [1]
+  .bss                zero     0x2000bf58      0x4  uip-icmp6.o [1]
+  .bss                zero     0x2000bf5c      0x2  csma.o [1]
+  .bss                zero     0x2000bf5e      0x2  queuebuf.o [1]
+  .bss                zero     0x2000bf60      0x2  uip-ds6-route.o [1]
+  .bss                zero     0x2000bf62      0x2  uip-packetqueue.o [1]
+  .bss                zero     0x2000bf64      0x1  ip64-dhcpc.o [1]
+  .bss                zero     0x2000bf65      0x1  nbr-table.o [1]
+  .bss                zero     0x2000bf66      0x1  rpl-timers.o [1]
+  .bss                zero     0x2000bf67      0x1  rpl.o [1]
+  .bss                zero     0x2000bf68      0x1  tcpip.o [1]
+  .bss                zero     0x2000bf69      0x1  uip-ds6-route.o [1]
+  .bss                zero     0x2000bf6a      0x1  uip-ds6-route.o [1]
+                             - 0x2000bf6b   0x96fb
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x96fb:
+          0x20002870  0x96fb
+
+Copy/lz77 (__iar_lz77_init_single3)
+    1 source range, total size 0x506 (13% of destination):
+          0x080118f0   0x506
+    1 destination range, total size 0x2470:
+          0x20000000  0x2470
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                   ro code  ro data  rw data  ro data
+                                                         (abs)
+    ------                   -------  -------  -------  -------
+E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj: [1]
+    adc.o                        304
+    app_sound_light_alarm.o    1 272       32    1 238
+    appenc28j60.o              3 320      226    6 432
+    appkey.o                      64
+    arch_s.o                      56
+    arch_spi.o                   208
+    clock.o                      140        2       12
+    common.o                     564
+    contiki-main.o             2 876       38      148
+    crc16.o                       50
+    csma.o                       804       42      318
+    ctimer.o                     252       20       24
+    debug-uart.o                  20
+    dev_info.o                   248        2    2 064      894
+    eeflash.o                    188
+    enc28j60-ip64-driver.o       300       34       32
+    enc28j60.o                 1 196       27       52
+    enc28j60_stm32f103.o          56
+    end_node_list.o              448        3    3 420
+    etimer.o                     392       15       24
+    fireNodeApp.o              3 066       94    1 817
+    frame802154.o                676
+    framer-802154.o              410       16        2
+    framer.o                      44
+    gprsProtocol.o               672             1 000
+    hwgg.o                       146
+    iap.o                         40                 4
+    ip64-addr.o                  156
+    ip64-addrmap.o               496        2    1 332
+    ip64-arp.o                 1 352                97
+    ip64-dhcpc.o               2 232               113
+    ip64-eth-interface.o         180        8
+    ip64-eth.o                                       8
+    ip64-ipv4-dhcp.o             260       14       32
+    ip64-special-ports.o          16
+    ip64.o                     1 696        9    1 562
+    linkaddr.o                    36        8        8
+    list.o                       184
+    mac-sequence.o               148               144
+    mac.o                         18
+    memb.o                       178
+    misc.o                       124
+    mp3app.o                      80
+    nbr-table.o                  832        8       69
+    netstack.o                    48
+    nullradio.o                   56       56
+    nullrdc.o                    448       40
+    nullsec.o                     52       32
+    packetbuf.o                  576               244
+    process.o                    664               408
+    pulse.o                      188
+    queuebuf.o                   352        5    1 290
+    random.o                      14
+    ringbuf.o                     96
+    rpl-dag-root.o               596                60
+    rpl-dag.o                    960        3      304
+    rpl-icmp6.o                  820                 1
+    rpl-mrhof.o                  244        4       28
+    rpl-timers.o                 280                 1
+    rpl.o                         40                 1
+    rtimer-arch.o                244                 8
+    rtimer.o                      44                 4
+    serial-line.o                292       38      160
+    serial-shell.o               216       26       16
+    shell.o                    3 076      213      212
+    sicslowpan.o               3 668       24    1 584
+    sim900a.o                 11 708      960   13 852
+    simple-udp.o                 324       23    1 536
+    startup_stm32f10x_hd.o       524
+    stimer.o                      44
+    stm32f103_contiki_os.o       900
+    stm32f10x_adc.o              382
+    stm32f10x_bkp.o               52
+    stm32f10x_dma.o               16
+    stm32f10x_exti.o              40
+    stm32f10x_flash.o            272
+    stm32f10x_gpio.o             300
+    stm32f10x_it.o                68
+    stm32f10x_iwdg.o              52
+    stm32f10x_rcc.o              236        2       20
+    stm32f10x_spi.o               98
+    stm32f10x_usart.o            376
+    stm32f10x_usart1.o           484        3       40
+    sysprintf.o                  604        1        1
+    system_stm32f10x.o           236        3       20
+    tcpip.o                    1 516       18      107
+    timer.o                       72
+    uart_dma.o                   124        7       48
+    uip-debug.o                  136
+    uip-ds6-nbr.o                460        2       64
+    uip-ds6-route.o              708       10      192
+    uip-ds6.o                  1 640               392
+    uip-icmp6.o                  828        4       48
+    uip-nd6.o                  1 360        3       40
+    uip-packetqueue.o            132        2    3 126
+    uip-udp-packet.o             124
+    uip6.o                     5 300             3 952
+    utility.o                    314
+    watchdog.o                    46
+    xprintf.o                    592                12
+    -----------------------------------------------------------
+    Total:                    68 842    2 079   47 723      894
+
+command line: [2]
+    -----------------------------------------------------------
+    Total:
+
+dl7M_tlf.a: [3]
+    exit.o                         4
+    isxdigit.o                    30
+    isxxx.o                       40
+    low_level_init.o               4
+    rand.o                       224       19      140
+    setlocale.o                   24       16      116
+    srand.o                       32
+    strncmp.o                     40
+    strstr.o                      44
+    toupper.o                     24
+    xlocale_c.o                   58
+    xtls.o                         2
+    -----------------------------------------------------------
+    Total:                       526       35      256
+
+m7M_tl.a: [4]
+    DblMul.o                     418
+    DblToFlt.o                   144
+    FltCmpGe.o                    36
+    FltToDbl.o                    78
+    I32ToFlt.o                    30
+    -----------------------------------------------------------
+    Total:                       706
+
+rt7M_tl.a: [5]
+    ABImemclr.o                    6
+    ABImemclr4.o                   6
+    ABImemcpy_unaligned.o        118
+    ABImemmove_unaligned.o       120
+    ABImemset.o                  102
+    ABImemset48.o                 50
+    cexit.o                       10
+    cmain.o                       26
+    cstartup_M.o                  12
+    data_init.o                   40
+    lz77_init_single.o           118
+    memcmp_unaligned.o            98
+    strchr.o                      22
+    strcmp_unaligned.o            66
+    strlen.o                      54
+    zero_init3.o                  64
+    -----------------------------------------------------------
+    Total:                       912
+
+shb_l.a: [6]
+    exit.o                        20
+    -----------------------------------------------------------
+    Total:                        20
+
+    Gaps                          54
+    Linker created                         32    1 024
+---------------------------------------------------------------
+    Grand Total:              71 060    2 146   49 003      894
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x08011640          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x08011660          --   Gb  - Linker created -
+?main                   0x080116bd         Code  Gb  cmain.o [5]
+ADCPrescTable           0x20002268    0x4  Data  Lc  stm32f10x_rcc.o [1]
+ADC_Cmd                 0x0800f8c3   0x12  Code  Gb  stm32f10x_adc.o [1]
+ADC_DeInit              0x0800f835   0x52  Code  Gb  stm32f10x_adc.o [1]
+ADC_GetCalibrationStatus
+                        0x0800f8ef    0x4  Code  Gb  stm32f10x_adc.o [1]
+ADC_GetConversionValue  0x0800f989    0x6  Code  Gb  stm32f10x_adc.o [1]
+ADC_GetFlagStatus       0x0800f9a5    0xe  Code  Gb  stm32f10x_adc.o [1]
+ADC_GetResetCalibrationStatus
+                        0x0800f8df    0x6  Code  Gb  stm32f10x_adc.o [1]
+ADC_Init                0x0800f887   0x3c  Code  Gb  stm32f10x_adc.o [1]
+ADC_RegularChannelConfig
+                        0x0800f90b   0x7e  Code  Gb  stm32f10x_adc.o [1]
+ADC_ResetCalibration    0x0800f8d5    0xa  Code  Gb  stm32f10x_adc.o [1]
+ADC_SoftwareStartConvCmd
+                        0x0800f8f9   0x12  Code  Gb  stm32f10x_adc.o [1]
+ADC_StartCalibration    0x0800f8e5    0xa  Code  Gb  stm32f10x_adc.o [1]
+ADC_process             0x20000650   0x10  Data  Gb  contiki-main.o [1]
+AHBPrescTable           0x20002280   0x10  Data  Gb  system_stm32f10x.o [1]
+APBAHBPrescTable        0x20002258   0x10  Data  Lc  stm32f10x_rcc.o [1]
+Adc_Init                0x0800f2cd   0x7e  Code  Gb  adc.o [1]
+Asc2Int                 0x0800dfc7    0x4  Code  Gb  utility.o [1]
+Asc2IntN                0x0800df81   0x46  Code  Gb  utility.o [1]
+AscBcd2BcdHex           0x0800dfcb   0xf0  Code  Gb  utility.o [1]
+BKP_ReadBackupRegister  0x08011241   0x18  Code  Gb  stm32f10x_bkp.o [1]
+BKP_WriteBackupRegister
+                        0x08011229   0x18  Code  Gb  stm32f10x_bkp.o [1]
+BROADCAST_ADDR          0x200008cc    0x4  Data  Gb  fireNodeApp.o [1]
+BusFault_Handler        0x08011473    0xa  Code  Gb  stm32f10x_it.o [1]
+CSTACK$$Base            0x20002470          --   Gb  - Linker created -
+CSTACK$$Limit           0x20002870          --   Gb  - Linker created -
+DMA1_Channel7_IRQHandler
+                        0x080113c9   0x6c  Code  Gb  uart_dma.o [1]
+DMA_ITConfig            0x08011445   0x10  Code  Gb  stm32f10x_dma.o [1]
+DebugMon_Handler        0x0801148d    0x6  Code  Gb  stm32f10x_it.o [1]
+ELECTRICAL_UBA_DST_ADDR
+                        0x080060e0    0x2  Data  Gb  fireNodeApp.o [1]
+ELECTRICAL_UBA_END_ADDR
+                        0x080060e8    0x2  Data  Gb  fireNodeApp.o [1]
+ELECTRICAL_UBA_SRC_ADDR
+                        0x080060e4    0x2  Data  Gb  fireNodeApp.o [1]
+ENV_NODE_SRCMAC_ADDR    0x200008c8    0x4  Data  Gb  fireNodeApp.o [1]
+ENV_UBA_DST_ADDR        0x200008c0    0x2  Data  Gb  fireNodeApp.o [1]
+ENV_UBA_END_ADDR        0x200008c4    0x2  Data  Gb  fireNodeApp.o [1]
+ENV_UBA_SRC_ADDR        0x200008c2    0x2  Data  Gb  fireNodeApp.o [1]
+EXTI0_IRQHandler        0x080111b9   0x30  Code  Gb  pulse.o [1]
+EXTI1_IRQHandler        0x080111e9   0x2c  Code  Gb  pulse.o [1]
+EXTI_ClearITPendingBit  0x08011273    0x2  Code  Gb  stm32f10x_exti.o [1]
+EXTI_GetITStatus        0x0801125d   0x16  Code  Gb  stm32f10x_exti.o [1]
+FLASH_ErasePage         0x0800aba9   0x3a  Code  Gb  stm32f10x_flash.o [1]
+FLASH_Lock              0x0800ab99    0x2  Code  Gb  stm32f10x_flash.o [1]
+FLASH_ProgramWord       0x0800abe3   0x4e  Code  Gb  stm32f10x_flash.o [1]
+FLASH_Unlock            0x0800ab85    0x2  Code  Gb  stm32f10x_flash.o [1]
+FLASH_WaitForLastOperation
+                        0x0800ac31   0x50  Code  Gb  stm32f10x_flash.o [1]
+GPIO_Init               0x08003631   0xba  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_PinRemapConfig     0x080036fd   0x5c  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_ResetBits          0x080036ef    0x4  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_SetBits            0x080036eb    0x4  Code  Gb  stm32f10x_gpio.o [1]
+GPIO_WriteBit           0x080036f3    0xa  Code  Gb  stm32f10x_gpio.o [1]
+Get_Adc_Average         0x0800f3a7   0x48  Code  Gb  adc.o [1]
+HardFault_Handler       0x0801145f    0xa  Code  Gb  stm32f10x_it.o [1]
+IWDG_Enable             0x0800d365    0xa  Code  Gb  stm32f10x_iwdg.o [1]
+IWDG_ReloadCounter      0x0800d35b    0xa  Code  Gb  stm32f10x_iwdg.o [1]
+IWDG_SetPrescaler       0x0800d34f    0x6  Code  Gb  stm32f10x_iwdg.o [1]
+IWDG_SetReload          0x0800d355    0x6  Code  Gb  stm32f10x_iwdg.o [1]
+IWDG_WriteAccessCmd     0x0800d349    0x6  Code  Gb  stm32f10x_iwdg.o [1]
+MemManage_Handler       0x08011469    0xa  Code  Gb  stm32f10x_it.o [1]
+NMI_Handler             0x08011455    0xa  Code  Gb  stm32f10x_it.o [1]
+NVIC_Init               0x0800f6cf   0x5c  Code  Gb  misc.o [1]
+NVIC_PriorityGroupConfig
+                        0x0800f6c5    0xa  Code  Gb  misc.o [1]
+OSInitSys               0x0800ed95  0x384  Code  Gb  stm32f103_contiki_os.o [1]
+PendSV_Handler          0x08011493    0x6  Code  Gb  stm32f10x_it.o [1]
+RCC_ADCCLKConfig        0x080078d7    0xa  Code  Gb  stm32f10x_rcc.o [1]
+RCC_APB1PeriphClockCmd  0x08007967   0x12  Code  Gb  stm32f10x_rcc.o [1]
+RCC_APB1PeriphResetCmd  0x0800798b   0x12  Code  Gb  stm32f10x_rcc.o [1]
+RCC_APB2PeriphClockCmd  0x08007955   0x12  Code  Gb  stm32f10x_rcc.o [1]
+RCC_APB2PeriphResetCmd  0x08007979   0x12  Code  Gb  stm32f10x_rcc.o [1]
+RCC_GetClocksFreq       0x080078e1   0x74  Code  Gb  stm32f10x_rcc.o [1]
+Region$$Table$$Base     0x08011640          --   Gb  - Linker created -
+Region$$Table$$Limit    0x08011660          --   Gb  - Linker created -
+SOUND_LIGHT_MAC_NULL    0x080054e8    0x4  Data  Lc  app_sound_light_alarm.o [1]
+SPI_Cmd                 0x0800861d   0x14  Code  Gb  stm32f10x_spi.o [1]
+SPI_Config              0x08006991   0x96  Code  Gb  arch_spi.o [1]
+SPI_I2S_GetFlagStatus   0x08008639    0xe  Code  Gb  stm32f10x_spi.o [1]
+SPI_I2S_ReceiveData     0x08008635    0x4  Code  Gb  stm32f10x_spi.o [1]
+SPI_I2S_SendData        0x08008631    0x4  Code  Gb  stm32f10x_spi.o [1]
+SPI_Init                0x080085e5   0x38  Code  Gb  stm32f10x_spi.o [1]
+SPI_SendByteData        0x08006a27   0x30  Code  Gb  arch_spi.o [1]
+SVC_Handler             0x08011487    0x6  Code  Gb  stm32f10x_it.o [1]
+Sound_Light_Empty       0x080054ec    0x4  Data  Lc  app_sound_light_alarm.o [1]
+SysTick_Handler         0x08004dad   0x32  Code  Gb  clock.o [1]
+SystemCoreClock         0x20002290    0x4  Data  Gb  system_stm32f10x.o [1]
+SystemInit              0x08011081   0xd8  Code  Gb  system_stm32f10x.o [1]
+TIM2_IRQHandler         0x0800f741   0x5a  Code  Gb  rtimer-arch.o [1]
+UART4_IRQHandler        0x080034c1   0x20  Code  Gb  stm32f10x_usart1.o [1]
+UART5_IRQHandler        0x080034e1   0x20  Code  Gb  stm32f10x_usart1.o [1]
+USART1_IRQHandler       0x0800344d   0x20  Code  Gb  stm32f10x_usart1.o [1]
+USART2_IRQHandler       0x0800346d   0x22  Code  Gb  stm32f10x_usart1.o [1]
+USART3_IRQHandler       0x080034a1   0x20  Code  Gb  stm32f10x_usart1.o [1]
+USART_Cmd               0x08006449   0x14  Code  Gb  stm32f10x_usart.o [1]
+USART_DeInit            0x08006315   0x88  Code  Gb  stm32f10x_usart.o [1]
+USART_ITConfig          0x0800645d   0x30  Code  Gb  stm32f10x_usart.o [1]
+USART_Init              0x0800639d   0x96  Code  Gb  stm32f10x_usart.o [1]
+Uart_GprsSetInput       0x08003495    0x6  Code  Gb  stm32f10x_usart1.o [1]
+Uart_Init               0x08003501   0x8e  Code  Gb  stm32f10x_usart1.o [1]
+Uart_RfSetInput         0x0800349b    0x6  Code  Gb  stm32f10x_usart1.o [1]
+Uart_StdSetInput        0x0800358f    0x6  Code  Gb  stm32f10x_usart1.o [1]
+UsageFault_Handler      0x0801147d    0xa  Code  Gb  stm32f10x_it.o [1]
+_IsdstStr               0x200023fc    0x4  Data  Gb  setlocale.o [3]
+_LocaleC_isalpha        0x08007895   0x16  Code  Gb  xlocale_c.o [3]
+_LocaleC_ispunct        0x080078ab   0x24  Code  Gb  xlocale_c.o [3]
+_LocaleForCat           0x0800787d   0x12  Code  Gb  setlocale.o [3]
+_LocaleReturnString     0x2000241c   0x50  Data  Lc  setlocale.o [3]
+_Locale_Profile         0x20002400   0x1c  Data  Gb  setlocale.o [3]
+_Rand_idx               0x20002374    0x4  Data  Lc  rand.o [3]
+_Rand_rv                0x20002378   0x80  Data  Lc  rand.o [3]
+_Randinit               0x2000236c    0x1  Data  Gb  rand.o [3]
+_Randseed               0x20002370    0x4  Data  Gb  rand.o [3]
+_TzoneStr               0x200023f8    0x4  Data  Gb  setlocale.o [3]
+__aeabi_cfrcmple        0x0800f6a1         Code  Gb  FltCmpGe.o [4]
+__aeabi_d2f             0x0800f611         Code  Gb  DblToFlt.o [4]
+__aeabi_dmul            0x0800f46d         Code  Gb  DblMul.o [4]
+__aeabi_f2d             0x0800f41d         Code  Gb  FltToDbl.o [4]
+__aeabi_memclr          0x080061a9         Code  Gb  ABImemclr.o [5]
+__aeabi_memclr4         0x08002eed         Code  Gb  ABImemclr4.o [5]
+__aeabi_memset          0x080077b1         Code  Gb  ABImemset.o [5]
+__aeabi_ui2f            0x0800f3fd         Code  Gb  I32ToFlt.o [4]
+__cmain                 0x080116bd         Code  Gb  cmain.o [5]
+__exit                  0x080116ed   0x14  Code  Gb  exit.o [6]
+__iar_Memset            0x080077b1         Code  Gb  ABImemset.o [5]
+__iar_Memset4_word      0x080062a1         Code  Gb  ABImemset48.o [5]
+__iar_Memset8_word      0x080062a1         Code  Gb  ABImemset48.o [5]
+__iar_Memset_word       0x080077b9         Code  Gb  ABImemset.o [5]
+__iar_Strchr            0x080064d5         Code  Gb  strchr.o [5]
+__iar_Strstr            0x08003b7d   0x2c  Code  Gb  strstr.o [3]
+__iar_data_init3        0x080115d1   0x28  Code  Gb  data_init.o [5]
+__iar_dlib_perthread_access
+                        0x0800ac95    0x2  Code  Gb  xtls.o [3]
+__iar_lz77_init_single3
+                        0x08002ef3   0x76  Code  Gb  lz77_init_single.o [5]
+__iar_program_start     0x08011801         Code  Gb  cstartup_M.o [5]
+__iar_ui2f              0x0800f401         Code  Gb  I32ToFlt.o [4]
+__iar_unaligned___aeabi_memcpy
+                        0x08004d35         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy4
+                        0x08004d55         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy8
+                        0x08004d55         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memmove
+                        0x0800c1ed         Code  Gb  ABImemmove_unaligned.o [5]
+__iar_unaligned___aeabi_memmove4
+                        0x0800c1ed         Code  Gb  ABImemmove_unaligned.o [5]
+__iar_unaligned___aeabi_memmove8
+                        0x0800c1ed         Code  Gb  ABImemmove_unaligned.o [5]
+__iar_unaligned_memcmp  0x08007819         Code  Gb  memcmp_unaligned.o [5]
+__iar_unaligned_strcmp  0x0800ec31         Code  Gb  strcmp_unaligned.o [5]
+__iar_zero_init3        0x08011499   0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x080116d7    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x08000000         Data  Gb  startup_stm32f10x_hd.o [1]
+__xstd_dump             0x08003289  0x16c  Code  Gb  sysprintf.o [1]
+__xstd_printf           0x0800323b   0x4e  Code  Gb  sysprintf.o [1]
+_call_main              0x080116c9         Code  Gb  cmain.o [5]
+_ds6_neighbors_mem      0x2000bd80   0x2c  Data  Lc  uip-ds6-nbr.o [1]
+_exit                   0x080116e1         Code  Gb  cexit.o [5]
+_main                   0x080116d3         Code  Gb  cmain.o [5]
+_nbr_routes_mem         0x2000bf0c    0x8  Data  Lc  uip-ds6-route.o [1]
+_rpl_parents_mem        0x2000be5c   0x14  Data  Lc  rpl-dag.o [1]
+addFireNodeToList       0x080054f1   0x30  Code  Lc  fireNodeApp.o [1]
+addSoundLightNodeTable  0x08005201   0x98  Code  Gb  app_sound_light_alarm.o [1]
+add_timer               0x0800382b   0x38  Code  Lc  etimer.o [1]
+addr                    0x2000beac    0x4  Data  Lc  uip-nd6.o [1]
+addr_context_lookup_by_number
+                        0x0800c3c7   0x14  Code  Lc  sicslowpan.o [1]
+addr_context_lookup_by_prefix
+                        0x0800c3a7   0x20  Code  Lc  sicslowpan.o [1]
+addr_contexts           0x2000bebc    0xc  Data  Lc  sicslowpan.o [1]
+all_tables              0x20000908   0x20  Data  Lc  nbr-table.o [1]
+appSoundLightInit       0x080053e1    0x8  Code  Gb  app_sound_light_alarm.o [1]
+app_enc28j60_init       0x08004679   0x34  Code  Gb  appenc28j60.o [1]
+arp_table               0x2000bb18   0x60  Data  Lc  ip64-arp.o [1]
+arp_update              0x0800f9b5  0x104  Code  Lc  ip64-arp.o [1]
+arptime                 0x2000b77f    0x1  Data  Lc  ip64-arp.o [1]
+auchCRCHi               0x0800743c  0x104  Data  Gb  common.o [1]
+auchCRCLo               0x08007540  0x104  Data  Gb  common.o [1]
+bank                    0x200006d9    0x1  Data  Lc  enc28j60.o [1]
+best_dag                0x08011001   0x20  Code  Lc  rpl-mrhof.o [1]
+best_parent             0x08011021   0x5a  Code  Lc  rpl-mrhof.o [1]
+bitmap_bits             0x0800995c    0x8  Data  Lc  uip6.o [1]
+blink_process           0x20000620   0x10  Data  Gb  contiki-main.o [1]
+bootstrap               0x08011549    0x2  Code  Lc  nullsec.o [1]
+broadcast_ethaddr       0x0800fee4    0x8  Data  Lc  ip64-arp.o [1]
+buflen                  0x2000b44e    0x2  Data  Lc  packetbuf.o [1]
+bufmem                  0x20000930    0xc  Data  Lc  queuebuf.o [1]
+bufmem_memb_count       0x2000bef4    0x8  Data  Lc  queuebuf.o [1]
+bufmem_memb_mem         0x2000be30   0x18  Data  Lc  queuebuf.o [1]
+bufptr                  0x2000b450    0x2  Data  Lc  packetbuf.o [1]
+buframmem               0x20000948    0xc  Data  Lc  queuebuf.o [1]
+buframmem_memb_count    0x2000befc    0x8  Data  Lc  queuebuf.o [1]
+buframmem_memb_mem      0x20009c90  0x444  Data  Lc  queuebuf.o [1]
+c                       0x2000bcb8   0x20  Data  Lc  rpl-dag-root.o [1]
+c                       0x200059ec    0x1  Data  Lc  uip6.o [1]
+calculate_rank          0x08010fcf   0x32  Code  Lc  rpl-mrhof.o [1]
+call_process            0x080039bb   0x3a  Code  Lc  process.o [1]
+callback                0x2000bd30    0x4  Data  Lc  sicslowpan.o [1]
+channel_check_interval  0x080106c7    0xe  Code  Lc  csma.o [1]
+channel_check_interval  0x08010b5f    0x4  Code  Lc  nullrdc.o [1]
+channel_clear           0x08011525    0x4  Code  Lc  nullradio.o [1]
+checkPhoneNum           0x08000d91   0x2e  Code  Gb  sim900a.o [1]
+check_age               0x0800a995   0x38  Code  Lc  ip64-addrmap.o [1]
+check_prefix            0x0800882f   0x5e  Code  Lc  rpl-dag.o [1]
+chksum                  0x08006d63   0x3e  Code  Lc  ip64.o [1]
+chksum                  0x08009525   0x3e  Code  Lc  uip6.o [1]
+clock_init              0x08004ddf   0x2e  Code  Gb  clock.o [1]
+clock_seconds           0x08004e21    0x6  Code  Gb  clock.o [1]
+clock_time              0x08004e0d    0x6  Code  Gb  clock.o [1]
+clock_wait              0x08004e13    0xe  Code  Gb  clock.o [1]
+commands_list           0x20000a48    0x4  Data  Lc  shell.o [1]
+compress_hdr_hc06       0x0800c447  0x5dc  Code  Lc  sicslowpan.o [1]
+context                 0x2000bd34    0x4  Data  Lc  sicslowpan.o [1]
+crc16_data              0x0800f269   0x32  Code  Gb  crc16.o [1]
+create                  0x08010d19    0x2  Code  Lc  framer-802154.o [1]
+create_dag_callback     0x08006a61   0x74  Code  Lc  rpl-dag-root.o [1]
+create_frame            0x08010c11   0xfc  Code  Lc  framer-802154.o [1]
+create_msg              0x0800b935   0xa4  Code  Lc  ip64-dhcpc.o [1]
+csma_driver             0x08011600   0x1c  Data  Gb  csma.o [1]
+ctMacSyncCallback       0x08000c95   0x5a  Code  Lc  sim900a.o [1]
+ctSyncAckCallback       0x08000d15   0x58  Code  Lc  sim900a.o [1]
+ctimer_init             0x08004cb3   0x1c  Code  Gb  ctimer.o [1]
+ctimer_list_list        0x2000069c    0x4  Data  Lc  ctimer.o [1]
+ctimer_process          0x200006a0   0x10  Data  Gb  ctimer.o [1]
+ctimer_set              0x08004ccf   0x2e  Code  Gb  ctimer.o [1]
+ctimer_stop             0x08004d09   0x22  Code  Gb  ctimer.o [1]
+current_clock           0x20000614    0x4  Data  Lc  clock.o [1]
+current_seconds         0x20000618    0x4  Data  Lc  clock.o [1]
+cyg_crc16               0x08007411   0x22  Code  Gb  common.o [1]
+dao_output              0x080092b7   0x54  Code  Gb  rpl-icmp6.o [1]
+dao_output_target       0x0800930b   0xaa  Code  Gb  rpl-icmp6.o [1]
+dao_sequence            0x2000246e    0x1  Data  Lc  rpl-icmp6.o [1]
+databuffer              0x200071f8  0x5ec  Data  Lc  simple-udp.o [1]
+dbg_send_char           0x08011785   0x10  Code  Gb  debug-uart.o [1]
+default_instance        0x20000968    0x4  Data  Gb  rpl-dag.o [1]
+defaultrouterlist_list  0x20002318    0x4  Data  Lc  uip-ds6-route.o [1]
+defaultroutermemb       0x2000231c    0xc  Data  Lc  uip-ds6-route.o [1]
+defaultroutermemb_memb_count
+                        0x2000bf60    0x2  Data  Lc  uip-ds6-route.o [1]
+defaultroutermemb_memb_mem
+                        0x2000bc5c   0x40  Data  Lc  uip-ds6-route.o [1]
+devInfo                 0x08035000  0x37e  Data  Gb  dev_info.o [1]
+dianqi_packet_deal      0x08005ebf   0xa4  Code  Gb  fireNodeApp.o [1]
+dianqi_send             0x200070e0   0x2c  Data  Lc  sim900a.o [1]
+dio_output              0x080090f3  0x1be  Code  Gb  rpl-icmp6.o [1]
+dio_send_ok             0x2000bf66    0x1  Data  Lc  rpl-timers.o [1]
+dis_output              0x080090af   0x44  Code  Gb  rpl-icmp6.o [1]
+dma_end                 0x200022b0    0x4  Data  Lc  uart_dma.o [1]
+dma_running             0x200022a4    0x1  Data  Gb  uart_dma.o [1]
+do_poll                 0x08003a0d   0x4c  Code  Lc  process.o [1]
+ds6_neighbors           0x200022e4    0x4  Data  Gb  uip-ds6-nbr.o [1]
+ds6_neighbors_struct    0x200022d4   0x10  Data  Lc  uip-ds6-nbr.o [1]
+echo_reply_callback_list_list
+                        0x2000bf58    0x4  Data  Lc  uip-icmp6.o [1]
+echo_reply_handler      0x2000233c    0xc  Data  Lc  uip-icmp6.o [1]
+echo_reply_input        0x0800b86f   0x8e  Code  Lc  uip-icmp6.o [1]
+echo_request_handler    0x20002330    0xc  Data  Lc  uip-icmp6.o [1]
+echo_request_input      0x0800b635   0xa8  Code  Lc  uip-icmp6.o [1]
+eeBlockRead             0x080073d5   0x18  Code  Gb  eeflash.o [1]
+eeWriteMultiWord        0x08007355   0x80  Code  Gb  eeflash.o [1]
+electrical_packet_deal  0x08005e2b   0x94  Code  Gb  fireNodeApp.o [1]
+electrical_send         0x20009bbc   0x1c  Data  Lc  appenc28j60.o [1]
+electrical_send         0x2000710c   0x1c  Data  Lc  sim900a.o [1]
+electrical_set_val_buf  0x20009814   0x14  Data  Lc  appenc28j60.o [1]
+electrical_set_val_buf  0x20006d0c   0x14  Data  Lc  sim900a.o [1]
+electrical_set_val_send
+                        0x20009bd8   0x24  Data  Lc  appenc28j60.o [1]
+electrical_set_val_send
+                        0x20007128   0x24  Data  Lc  sim900a.o [1]
+enc28j60_arch_spi_deselect
+                        0x080103cf    0xc  Code  Gb  enc28j60_stm32f103.o [1]
+enc28j60_arch_spi_init  0x080103a9    0x4  Code  Gb  enc28j60_stm32f103.o [1]
+enc28j60_arch_spi_read  0x080103b1    0x6  Code  Gb  enc28j60_stm32f103.o [1]
+enc28j60_arch_spi_select
+                        0x080103b7   0x18  Code  Gb  enc28j60_stm32f103.o [1]
+enc28j60_arch_spi_write
+                        0x080103ad    0x4  Code  Gb  enc28j60_stm32f103.o [1]
+enc28j60_init           0x08010147   0x26  Code  Gb  enc28j60.o [1]
+enc28j60_ip64_driver    0x08011678    0x8  Data  Gb  enc28j60-ip64-driver.o [1]
+enc28j60_ip64_driver_process
+                        0x200006c0   0x10  Data  Gb  enc28j60-ip64-driver.o [1]
+enc28j60_read           0x0801024f  0x100  Code  Gb  enc28j60.o [1]
+enc28j60_send           0x0801016d   0xe2  Code  Gb  enc28j60.o [1]
+enc_mac_addr            0x200006d0    0x8  Data  Lc  enc28j60.o [1]
+enc_watchdog_process    0x200006e4   0x10  Data  Gb  enc28j60.o [1]
+endNodeInListByMac      0x08004e49   0x2a  Code  Gb  end_node_list.o [1]
+endNodeListHead         0x08004e39    0x6  Code  Gb  end_node_list.o [1]
+endNodeListNext         0x08004e3f    0xa  Code  Gb  end_node_list.o [1]
+endNodeListPeriodicCheck
+                        0x08004f03   0x2a  Code  Gb  end_node_list.o [1]
+endNodeListPrint        0x08004f2d   0x4e  Code  Gb  end_node_list.o [1]
+endNodeListRemove       0x08004ee3   0x20  Code  Gb  end_node_list.o [1]
+endNodeListadd          0x08004e73   0x70  Code  Gb  end_node_list.o [1]
+endnodelist_list        0x20000714    0x4  Data  Lc  end_node_list.o [1]
+endnodemem              0x20000708    0xc  Data  Lc  end_node_list.o [1]
+endnodemem_memb_count   0x2000b540   0xc8  Data  Lc  end_node_list.o [1]
+endnodemem_memb_mem     0x20002870  0xc80  Data  Lc  end_node_list.o [1]
+entrylist_list          0x200008e0    0x4  Data  Lc  ip64-addrmap.o [1]
+entrymemb               0x200008d4    0xc  Data  Lc  ip64-addrmap.o [1]
+entrymemb_memb_count    0x2000bdf8   0x20  Data  Lc  ip64-addrmap.o [1]
+entrymemb_memb_mem      0x20009294  0x500  Data  Lc  ip64-addrmap.o [1]
+environment_detector_send_packet_deal
+                        0x08005d6f   0xbc  Code  Gb  fireNodeApp.o [1]
+et_gprs                 0x20000bac   0x10  Data  Lc  sim900a.o [1]
+et_lock_relieve         0x20001c78   0x10  Data  Lc  sim900a.o [1]
+et_no_connect           0x2000bd50   0x10  Data  Lc  contiki-main.o [1]
+et_reboot               0x20000604   0x10  Data  Lc  appenc28j60.o [1]
+et_reboot               0x20000c8c   0x10  Data  Lc  sim900a.o [1]
+et_rec_err              0x20001c68   0x10  Data  Lc  sim900a.o [1]
+etimer_expired          0x08003887    0xc  Code  Gb  etimer.o [1]
+etimer_next_expiration_time
+                        0x0800389d    0xe  Code  Gb  etimer.o [1]
+etimer_pending          0x08003893    0xa  Code  Gb  etimer.o [1]
+etimer_process          0x20000720   0x10  Data  Gb  etimer.o [1]
+etimer_request_poll     0x08003825    0x6  Code  Gb  etimer.o [1]
+etimer_reset            0x0800386d    0x8  Code  Gb  etimer.o [1]
+etimer_restart          0x0800387d    0xa  Code  Gb  etimer.o [1]
+etimer_rssi             0x200007a4   0x10  Data  Lc  fireNodeApp.o [1]
+etimer_set              0x08003863    0xa  Code  Gb  etimer.o [1]
+etimer_stop             0x080038ab   0x2c  Code  Gb  etimer.o [1]
+etimer_transparent      0x20000794   0x10  Data  Lc  fireNodeApp.o [1]
+event_ack_time          0x20000045    0x1  Data  Gb  appenc28j60.o [1]
+event_electrical_control_ack
+                        0x20000046    0x1  Data  Gb  appenc28j60.o [1]
+event_electrical_set    0x20000048    0x1  Data  Gb  appenc28j60.o [1]
+event_electrical_state  0x20000047    0x1  Data  Gb  appenc28j60.o [1]
+event_ip_heart          0x20000041    0x1  Data  Gb  appenc28j60.o [1]
+event_ip_msg            0x20000040    0x1  Data  Gb  appenc28j60.o [1]
+event_ip_send_data      0x20000042    0x1  Data  Gb  appenc28j60.o [1]
+event_ip_tran           0x20000044    0x1  Data  Gb  appenc28j60.o [1]
+event_ip_warn           0x20000043    0x1  Data  Gb  appenc28j60.o [1]
+event_send_rssi         0x20000049    0x1  Data  Gb  appenc28j60.o [1]
+event_sound_light_msg   0x20000004    0x1  Data  Lc  app_sound_light_alarm.o [1]
+event_water_set         0x2000004a    0x1  Data  Gb  appenc28j60.o [1]
+eventhandler            0x08008033  0x216  Code  Lc  tcpip.o [1]
+events                  0x2000af80  0x180  Data  Lc  process.o [1]
+exit                    0x080116db    0x4  Code  Gb  exit.o [3]
+exit_process            0x08003921   0x9a  Code  Lc  process.o [1]
+ext_hdr_options_process
+                        0x0800999d   0x88  Code  Lc  uip6.o [1]
+extgdbdevGetDeviceSettingInfo
+                        0x080048a1    0x4  Code  Gb  dev_info.o [1]
+extgdbdevGetDeviceSettingInfoSt
+                        0x080048a5   0x16  Code  Gb  dev_info.o [1]
+extgdbdevSetDeviceSettingInfoSt
+                        0x080048bb   0xa4  Code  Gb  dev_info.o [1]
+feeddog_process         0x20000630   0x10  Data  Gb  contiki-main.o [1]
+fevent                  0x2000be1a    0x1  Data  Lc  process.o [1]
+field_len               0x08010719   0x70  Code  Lc  frame802154.o [1]
+fillNotNetNodeInfo      0x08001515   0xcc  Code  Gb  sim900a.o [1]
+fireAppInit             0x08005d25   0x4a  Code  Gb  fireNodeApp.o [1]
+fireProtocolProcess     0x08005591  0x36c  Code  Lc  fireNodeApp.o [1]
+fire_app_process        0x20000774   0x10  Data  Gb  fireNodeApp.o [1]
+fire_event_rev          0x20000738    0x1  Data  Lc  fireNodeApp.o [1]
+fire_first              0x20000739    0x1  Data  Lc  fireNodeApp.o [1]
+fire_last               0x2000073a    0x1  Data  Lc  fireNodeApp.o [1]
+fire_node_uart          0x20000764   0x10  Data  Gb  fireNodeApp.o [1]
+fire_read_process       0x20000784   0x10  Data  Gb  fireNodeApp.o [1]
+fire_rxbufs             0x2000a0d4  0x400  Data  Lc  fireNodeApp.o [1]
+fire_uart_input_byte    0x08005cf3   0x32  Code  Lc  fireNodeApp.o [1]
+first_star              0x20000b2a    0x1  Data  Lc  sim900a.o [1]
+frag_sender             0x2000bd3c    0x8  Data  Gb  sicslowpan.o [1]
+frame802154_create      0x080107b5   0xc6  Code  Gb  frame802154.o [1]
+frame802154_hdrlen      0x08010789   0x2c  Code  Gb  frame802154.o [1]
+frame802154_parse       0x0801087b  0x13e  Code  Gb  frame802154.o [1]
+framer_802154           0x080117a8   0x10  Data  Gb  framer-802154.o [1]
+framer_canonical_create_and_secure
+                        0x0801157d   0x2c  Code  Gb  framer.o [1]
+free_packet             0x08010403   0x7c  Code  Lc  csma.o [1]
+front_process           0x20000a3c    0x4  Data  Lc  shell.o [1]
+g_nDebufLevel           0x2000246f    0x1  Data  Lc  sysprintf.o [1]
+get_gdbLevel            0x08003237    0x4  Code  Gb  sysprintf.o [1]
+get_match_length        0x08008fcb   0x6c  Code  Gb  uip-ds6.o [1]
+get_object              0x08011541    0x4  Code  Lc  nullradio.o [1]
+get_overhead            0x08011579    0x4  Code  Lc  nullsec.o [1]
+get_random_seed         0x0800e77b   0x62  Code  Gb  contiki-main.o [1]
+get_value               0x08011539    0x4  Code  Lc  nullradio.o [1]
+gfireClean              0x08002bdf   0x20  Code  Gb  sim900a.o [1]
+gprsCodeGetOut0xla      0x08004a41   0x54  Code  Gb  gprsProtocol.o [1]
+gprsDecodeFrame         0x08004a95   0x56  Code  Gb  gprsProtocol.o [1]
+gprsProtocolCheck       0x08004aeb   0xc8  Code  Gb  gprsProtocol.o [1]
+gprsProtocolFindHead    0x08004bbd   0x28  Code  Gb  gprsProtocol.o [1]
+gprsProtocolFrameFill   0x08004999   0xa8  Code  Gb  gprsProtocol.o [1]
+gprsProtocolRxProcess   0x08000dc1  0x674  Code  Gb  sim900a.o [1]
+gprsSmsPhoneHandler     0x08001fb5   0xee  Code  Gb  sim900a.o [1]
+gprsState               0x20000b1e    0x1  Data  Lc  sim900a.o [1]
+gprs_process            0x20000b38    0x4  Data  Gb  sim900a.o [1]
+gprs_resp_process       0x20000b9c   0x10  Data  Gb  sim900a.o [1]
+gprs_sms_phone_process  0x20001be0   0x10  Data  Gb  sim900a.o [1]
+gprs_uart_input_byte    0x080029c1   0x32  Code  Gb  sim900a.o [1]
+gsm_send_lock           0x20001c58    0x1  Data  Lc  sim900a.o [1]
+handle_dhcp             0x0800bc4b  0x288  Code  Lc  ip64-dhcpc.o [1]
+handle_dio_timer        0x0800b521   0x6a  Code  Lc  rpl-timers.o [1]
+hc06_ptr                0x2000bd38    0x4  Data  Lc  sicslowpan.o [1]
+hdr_length              0x08010d15    0x4  Code  Lc  framer-802154.o [1]
+hdrptr                  0x2000b44c    0x1  Data  Lc  packetbuf.o [1]
+help_command            0x20000a6c   0x14  Data  Lc  shell.o [1]
+help_command_process    0x20000acc   0x10  Data  Gb  shell.o [1]
+hwggFillFrame           0x080060ed   0x88  Code  Gb  hwgg.o [1]
+iap_load_app            0x08006181   0x28  Code  Gb  iap.o [1]
+index_from_key          0x080079d3   0x16  Code  Lc  nbr-table.o [1]
+index_from_lladdr       0x08007a13   0x40  Code  Lc  nbr-table.o [1]
+init                    0x080106d5   0x1e  Code  Lc  csma.o [1]
+init                    0x08010dad   0x7c  Code  Lc  enc28j60-ip64-driver.o [1]
+init                    0x08010f2b    0x2  Code  Lc  ip64-eth-interface.o [1]
+init                    0x08011511    0x4  Code  Lc  nullradio.o [1]
+init                    0x08010b63    0x2  Code  Lc  nullrdc.o [1]
+initAppKey              0x080061ed    0x2  Code  Gb  appkey.o [1]
+initialized             0x20000698    0x1  Data  Lc  ctimer.o [1]
+initialized             0x200006d8    0x1  Data  Lc  enc28j60.o [1]
+initialized             0x2000ac1e    0x1  Data  Lc  framer-802154.o [1]
+input                   0x0801156b    0x6  Code  Lc  nullsec.o [1]
+input                   0x0800cf61  0x1f2  Code  Lc  sicslowpan.o [1]
+input_handler_list_list
+                        0x2000232c    0x4  Data  Lc  uip-icmp6.o [1]
+input_packet            0x080106b5    0x6  Code  Lc  csma.o [1]
+instance_table          0x2000b348  0x104  Data  Gb  rpl-dag.o [1]
+interface_init          0x08007327    0x6  Code  Lc  ip64.o [1]
+interface_output        0x0800732d    0x6  Code  Lc  ip64.o [1]
+ip64_4to6               0x08007085  0x29c  Code  Gb  ip64.o [1]
+ip64_6to4               0x08006ddf  0x2a0  Code  Gb  ip64.o [1]
+ip64_addr_4to6          0x080064f7   0x30  Code  Gb  ip64-addr.o [1]
+ip64_addr_6to4          0x08006527   0x60  Code  Gb  ip64-addr.o [1]
+ip64_addr_copy4         0x080064eb    0x6  Code  Gb  ip64-addr.o [1]
+ip64_addr_copy6         0x080064f1    0x6  Code  Gb  ip64-addr.o [1]
+ip64_addrmap_create     0x0800aa5f  0x102  Code  Gb  ip64-addrmap.o [1]
+ip64_addrmap_lookup     0x0800a9cd   0x68  Code  Gb  ip64-addrmap.o [1]
+ip64_addrmap_lookup_port
+                        0x0800aa35   0x2a  Code  Gb  ip64-addrmap.o [1]
+ip64_addrmap_set_lifetime
+                        0x0800ab69    0xc  Code  Gb  ip64-addrmap.o [1]
+ip64_addrmap_set_recycleble
+                        0x0800ab75   0x10  Code  Gb  ip64-addrmap.o [1]
+ip64_arp_arp_input      0x0800fab9   0xb6  Code  Gb  ip64-arp.o [1]
+ip64_arp_check_cache    0x0800fb6f  0x12a  Code  Gb  ip64-arp.o [1]
+ip64_arp_create_arp_request
+                        0x0800fe23   0xac  Code  Gb  ip64-arp.o [1]
+ip64_arp_create_ethhdr  0x0800fc99  0x18a  Code  Gb  ip64-arp.o [1]
+ip64_dhcpc_appcall      0x0800bf2f   0x10  Code  Gb  ip64-dhcpc.o [1]
+ip64_dhcpc_configured   0x08009441   0x40  Code  Gb  ip64-ipv4-dhcp.o [1]
+ip64_dhcpc_init         0x0800bed3   0x5c  Code  Gb  ip64-dhcpc.o [1]
+ip64_dhcpc_request      0x0800bf3f   0x34  Code  Gb  ip64-dhcpc.o [1]
+ip64_dhcpc_unconfigured
+                        0x08009481    0x2  Code  Gb  ip64-ipv4-dhcp.o [1]
+ip64_draddr             0x2000bf38    0x4  Data  Lc  ip64.o [1]
+ip64_eth_addr           0x2000bee4    0x8  Data  Gb  ip64-eth.o [1]
+ip64_eth_interface      0x0801180c    0x8  Data  Gb  ip64-eth-interface.o [1]
+ip64_eth_interface_input
+                        0x08010ed9   0x52  Code  Gb  ip64-eth-interface.o [1]
+ip64_get_draddr         0x08006d5d    0x6  Code  Gb  ip64.o [1]
+ip64_get_hostaddr       0x08006d51    0x6  Code  Gb  ip64.o [1]
+ip64_get_netmask        0x08006d57    0x6  Code  Gb  ip64.o [1]
+ip64_hostaddr           0x2000bddc    0x4  Data  Lc  ip64.o [1]
+ip64_hostaddr_configured
+                        0x2000bdd8    0x1  Data  Lc  ip64.o [1]
+ip64_init               0x08006cb5   0x76  Code  Gb  ip64.o [1]
+ip64_ipv4_dhcp_init     0x080093cd   0x16  Code  Gb  ip64-ipv4-dhcp.o [1]
+ip64_ipv4_dhcp_process  0x200008e4   0x10  Data  Gb  ip64-ipv4-dhcp.o [1]
+ip64_netmask            0x2000bde0    0x4  Data  Lc  ip64.o [1]
+ip64_packet_buffer      0x200008f4    0x4  Data  Gb  ip64.o [1]
+ip64_packet_buffer_aligned
+                        0x20006034  0x5ec  Data  Gb  ip64.o [1]
+ip64_packet_buffer_maxlen
+                        0x2000246c    0x2  Data  Gb  ip64.o [1]
+ip64_print_dhcpc_info   0x0800bf73   0x70  Code  Gb  ip64-dhcpc.o [1]
+ip64_set_draddr         0x08006d47    0xa  Code  Gb  ip64.o [1]
+ip64_set_hostaddr       0x08006d2b   0x12  Code  Gb  ip64.o [1]
+ip64_set_netmask        0x08006d3d    0xa  Code  Gb  ip64.o [1]
+ip64_special_ports_incoming_is_special
+                        0x0800a98d    0x4  Code  Gb  ip64-special-ports.o [1]
+ip64_special_ports_outgoing_is_special
+                        0x0800a991    0x4  Code  Gb  ip64-special-ports.o [1]
+ip64_special_ports_translate_incoming
+                        0x0800a985    0x4  Code  Gb  ip64-special-ports.o [1]
+ip64_special_ports_translate_outgoing
+                        0x0800a989    0x4  Code  Gb  ip64-special-ports.o [1]
+ip64_uip_fallback_interface
+                        0x08011814    0x8  Data  Gb  ip64.o [1]
+ipDataHandler           0x080041d7  0x426  Code  Gb  appenc28j60.o [1]
+ipProtocolRxProcess     0x08003cbd  0x514  Code  Gb  appenc28j60.o [1]
+ipSendFireMacSync       0x08003c6b   0x4c  Code  Gb  appenc28j60.o [1]
+ip_data_process         0x200005dc   0x10  Data  Gb  appenc28j60.o [1]
+ip_receive_process      0x200005cc   0x10  Data  Gb  appenc28j60.o [1]
+ipid                    0x2000bde4    0x2  Data  Lc  ip64.o [1]
+ipv4_broadcast_addr     0x2000bdd4    0x4  Data  Lc  ip64.o [1]
+ipv6_local_address      0x2000bde8   0x10  Data  Lc  ip64.o [1]
+ipv6_transport_checksum
+                        0x08006da1   0x3e  Code  Lc  ip64.o [1]
+is_mac_mii_reg          0x0800fefd   0x26  Code  Lc  enc28j60.o [1]
+isalpha                 0x080062eb   0x14  Code  Gb  isxxx.o [3]
+ispunct                 0x080062ff   0x14  Code  Gb  isxxx.o [3]
+iss                     0x200059e0    0x4  Data  Lc  uip6.o [1]
+isxdigit                0x0800ed75   0x1e  Code  Gb  isxdigit.o [3]
+item_from_index         0x080079bd   0x16  Code  Lc  nbr-table.o [1]
+jump2app                0x2000bf34    0x4  Data  Gb  iap.o [1]
+key_from_item           0x080079e9   0x2a  Code  Lc  nbr-table.o [1]
+kill_command            0x20000a94   0x14  Data  Lc  shell.o [1]
+killall                 0x0800d7d1   0x40  Code  Lc  shell.o [1]
+killall_command         0x20000a80   0x14  Data  Lc  shell.o [1]
+last_rssi               0x2000bd2c    0x4  Data  Lc  sicslowpan.o [1]
+last_tx_status          0x2000bd28    0x4  Data  Lc  sicslowpan.o [1]
+lastevent               0x2000be18    0x1  Data  Lc  process.o [1]
+lastport                0x20005a1c    0x2  Data  Lc  uip6.o [1]
+light_init              0x0800f34b   0x5c  Code  Gb  adc.o [1]
+linkaddr_cmp            0x0800ac9f   0x10  Code  Gb  linkaddr.o [1]
+linkaddr_copy           0x0800ac99    0x6  Code  Gb  linkaddr.o [1]
+linkaddr_node_addr      0x2000beec    0x8  Data  Gb  linkaddr.o [1]
+linkaddr_null           0x0801181c    0x8  Data  Gb  linkaddr.o [1]
+linkaddr_set_node_addr  0x0800acaf    0xa  Code  Gb  linkaddr.o [1]
+list_add                0x0800764f   0x26  Code  Gb  list.o [1]
+list_head               0x0800764b    0x4  Code  Gb  list.o [1]
+list_init               0x08007645    0x6  Code  Gb  list.o [1]
+list_insert             0x080076d9   0x1e  Code  Gb  list.o [1]
+list_item_next          0x080076f7    0x6  Code  Gb  list.o [1]
+list_length             0x080076c9   0x10  Code  Gb  list.o [1]
+list_push               0x08007675   0x30  Code  Gb  list.o [1]
+list_remove             0x080076a5   0x24  Code  Gb  list.o [1]
+llprefix                0x0800d1b0    0x2  Data  Gb  sicslowpan.o [1]
+loc_fipaddr             0x2000b8c8   0x10  Data  Lc  uip-ds6.o [1]
+locaddr                 0x2000b8dc    0x4  Data  Lc  uip-ds6.o [1]
+locked_map              0x200008f9    0x1  Data  Lc  nbr-table.o [1]
+locmaddr                0x2000b8e0    0x4  Data  Lc  uip-ds6.o [1]
+locprefix               0x2000b8e4    0x4  Data  Lc  uip-ds6.o [1]
+mac_call_sent_callback  0x08010705   0x12  Code  Gb  mac.o [1]
+mac_dsn                 0x2000ac1d    0x1  Data  Lc  framer-802154.o [1]
+mac_save                0x20000740    0x4  Data  Lc  fireNodeApp.o [1]
+mac_sequence_is_duplicate
+                        0x08010b7d   0x38  Code  Gb  mac-sequence.o [1]
+mac_sequence_register_seqno
+                        0x08010bb5   0x58  Code  Gb  mac-sequence.o [1]
+magic_cookie            0x0800c1e8    0x4  Data  Lc  ip64-dhcpc.o [1]
+main                    0x0800e943   0x74  Code  Gb  contiki-main.o [1]
+mapped_port             0x200008d0    0x2  Data  Lc  ip64-addrmap.o [1]
+mem_cmp                 0x080031f1   0x1c  Code  Gb  sysprintf.o [1]
+memb_alloc              0x08007719   0x32  Code  Gb  memb.o [1]
+memb_free               0x0800774b   0x30  Code  Gb  memb.o [1]
+memb_init               0x080076fd   0x1c  Code  Gb  memb.o [1]
+memb_inmemb             0x0800777b   0x1a  Code  Gb  memb.o [1]
+memb_numfree            0x08007795   0x1a  Code  Gb  memb.o [1]
+metadata_memb           0x20000688    0xc  Data  Lc  csma.o [1]
+metadata_memb_memb_count
+                        0x2000bedc    0x8  Data  Lc  csma.o [1]
+metadata_memb_memb_mem  0x2000bc14   0x48  Data  Lc  csma.o [1]
+mode                    0x2000bf67    0x1  Data  Lc  rpl.o [1]
+modetbl                 0x20000b30    0x8  Data  Gb  sim900a.o [1]
+mp3fillCmdNoParam       0x080061f1   0x20  Code  Gb  mp3app.o [1]
+mp3fillCmdOneByteParam  0x08006211   0x2a  Code  Gb  mp3app.o [1]
+msg_for_me              0x0800bbe5   0x66  Code  Lc  ip64-dhcpc.o [1]
+my_tag                  0x2000bd1a    0x2  Data  Lc  sicslowpan.o [1]
+n                       0x2000bcb0    0x8  Data  Lc  rpl-dag-root.o [1]
+na_input                0x0800b2d9  0x1c4  Code  Lc  uip-nd6.o [1]
+na_input_handler        0x20002354    0xc  Data  Lc  uip-nd6.o [1]
+nbr                     0x2000bea8    0x4  Data  Lc  uip-nd6.o [1]
+nbr_get_bit             0x08007a53   0x32  Code  Lc  nbr-table.o [1]
+nbr_routes_struct       0x200022ec   0x10  Data  Lc  uip-ds6-route.o [1]
+nbr_set_bit             0x08007a85   0x3a  Code  Lc  nbr-table.o [1]
+nbr_table_add_lladdr    0x08007c25   0x62  Code  Gb  nbr-table.o [1]
+nbr_table_allocate      0x08007abf   0xb0  Code  Lc  nbr-table.o [1]
+nbr_table_get_from_lladdr
+                        0x08007c87   0x26  Code  Gb  nbr-table.o [1]
+nbr_table_get_lladdr    0x08007cf1    0xc  Code  Gb  nbr-table.o [1]
+nbr_table_head          0x08007b8f   0x34  Code  Gb  nbr-table.o [1]
+nbr_table_keys_list     0x2000092c    0x4  Data  Lc  nbr-table.o [1]
+nbr_table_lock          0x08007cd3    0x8  Code  Gb  nbr-table.o [1]
+nbr_table_next          0x08007bc3   0x62  Code  Gb  nbr-table.o [1]
+nbr_table_register      0x08007b6f   0x20  Code  Gb  nbr-table.o [1]
+nbr_table_remove        0x08007cad   0x26  Code  Gb  nbr-table.o [1]
+nbr_table_unlock        0x08007cdb    0x6  Code  Gb  nbr-table.o [1]
+nd6_opt_llao            0x2000bea4    0x4  Data  Lc  uip-nd6.o [1]
+nd6_opt_offset          0x2000bea0    0x1  Data  Lc  uip-nd6.o [1]
+neighbor_addr_mem       0x200008fc    0xc  Data  Lc  nbr-table.o [1]
+neighbor_addr_mem_memb_count
+                        0x2000bf65    0x1  Data  Lc  nbr-table.o [1]
+neighbor_addr_mem_memb_mem
+                        0x2000beb0    0xc  Data  Lc  nbr-table.o [1]
+neighbor_link_callback  0x08010f8f   0x40  Code  Lc  rpl-mrhof.o [1]
+neighbor_list_list      0x20000694    0x4  Data  Lc  csma.o [1]
+neighbor_memb           0x20000670    0xc  Data  Lc  csma.o [1]
+neighbor_memb_memb_count
+                        0x2000bf5c    0x2  Data  Lc  csma.o [1]
+neighbor_memb_memb_mem  0x2000ba38   0x70  Data  Lc  csma.o [1]
+neighborroutememb       0x200022fc    0xc  Data  Lc  uip-ds6-route.o [1]
+neighborroutememb_memb_count
+                        0x2000bf69    0x1  Data  Lc  uip-ds6-route.o [1]
+neighborroutememb_memb_mem
+                        0x2000bf14    0x8  Data  Lc  uip-ds6-route.o [1]
+netModeGet              0x08003bb1    0x6  Code  Gb  appenc28j60.o [1]
+netModeSet              0x08003ba9    0x8  Code  Gb  appenc28j60.o [1]
+netstack_init           0x0800f29d   0x30  Code  Gb  netstack.o [1]
+nevents                 0x2000be19    0x1  Data  Lc  process.o [1]
+new_dio_interval        0x0800b4d1   0x40  Code  Lc  rpl-timers.o [1]
+next_expiration         0x2000071c    0x4  Data  Lc  etimer.o [1]
+next_rtimer             0x2000bf3c    0x4  Data  Lc  rtimer.o [1]
+next_rtimer_time        0x2000bf08    0x4  Data  Lc  rtimer-arch.o [1]
+no_ack_flag             0x20000b21    0x1  Data  Lc  sim900a.o [1]
+no_connect_lock_flag    0x2000bd4c    0x1  Data  Lc  contiki-main.o [1]
+nodeAddrCheckTimer      0x08005521   0x70  Code  Lc  fireNodeApp.o [1]
+nodeSync                0x20001e58  0x3ec  Data  Gb  sim900a.o [1]
+node_link_addr          0x0800ec28    0x8  Data  Gb  contiki-main.o [1]
+nodes                   0x20000704    0x4  Data  Lc  end_node_list.o [1]
+notificationlist_list   0x20002328    0x4  Data  Lc  uip-ds6-route.o [1]
+ns_input                0x0800af81  0x236  Code  Lc  uip-nd6.o [1]
+ns_input_handler        0x20002348    0xc  Data  Lc  uip-nd6.o [1]
+nullradio_driver        0x080114d8   0x38  Data  Gb  nullradio.o [1]
+nullrdc_driver          0x080115b0   0x20  Data  Gb  nullrdc.o [1]
+nullsec_driver          0x08011688   0x18  Data  Gb  nullsec.o [1]
+num_routes              0x200022e8    0x4  Data  Lc  uip-ds6-route.o [1]
+num_tables              0x20000928    0x4  Data  Lc  nbr-table.o [1]
+off                     0x080106c1    0x6  Code  Lc  csma.o [1]
+off                     0x08011535    0x4  Code  Lc  nullradio.o [1]
+off                     0x08010b51    0xe  Code  Lc  nullrdc.o [1]
+on                      0x080106bb    0x6  Code  Lc  csma.o [1]
+on                      0x08011531    0x4  Code  Lc  nullradio.o [1]
+on                      0x08010b4f    0x2  Code  Lc  nullrdc.o [1]
+on_frame_created        0x08011567    0x4  Code  Lc  nullsec.o [1]
+outptr                  0x2000becc    0x4  Data  Lc  xprintf.o [1]
+output                  0x08010e29   0x1c  Code  Lc  enc28j60-ip64-driver.o [1]
+output                  0x08010f2d   0x4e  Code  Lc  ip64-eth-interface.o [1]
+output                  0x0800cd49  0x212  Code  Lc  sicslowpan.o [1]
+outputfunc              0x2000bf54    0x4  Data  Lc  tcpip.o [1]
+packet_input            0x08010ac1   0x8e  Code  Lc  nullrdc.o [1]
+packet_memb             0x2000067c    0xc  Data  Lc  csma.o [1]
+packet_memb_memb_count  0x2000bed4    0x8  Data  Lc  csma.o [1]
+packet_memb_memb_mem    0x2000bbcc   0x48  Data  Lc  csma.o [1]
+packet_sent             0x08010481   0xea  Code  Lc  csma.o [1]
+packet_sent             0x0800cd1f   0x1e  Code  Lc  sicslowpan.o [1]
+packet_timedout         0x0800acbd   0x12  Code  Lc  uip-packetqueue.o [1]
+packetbuf_addr          0x0800af5f    0xa  Code  Gb  packetbuf.o [1]
+packetbuf_addrs         0x2000b47c   0x10  Data  Gb  packetbuf.o [1]
+packetbuf_aligned       0x2000b48c   0xb4  Data  Lc  packetbuf.o [1]
+packetbuf_attr          0x0800af43    0xa  Code  Gb  packetbuf.o [1]
+packetbuf_attr_copyfrom
+                        0x0800af15   0x18  Code  Gb  packetbuf.o [1]
+packetbuf_attr_copyto   0x0800aefd   0x18  Code  Gb  packetbuf.o [1]
+packetbuf_attrs         0x2000b454   0x24  Data  Gb  packetbuf.o [1]
+packetbuf_clear         0x0800ad41   0x22  Code  Gb  packetbuf.o [1]
+packetbuf_compact       0x0800adb1   0x42  Code  Gb  packetbuf.o [1]
+packetbuf_copyfrom      0x0800ad63   0x4e  Code  Gb  packetbuf.o [1]
+packetbuf_copyto        0x0800ae0d   0x42  Code  Gb  packetbuf.o [1]
+packetbuf_copyto_hdr    0x0800adf3   0x1a  Code  Gb  packetbuf.o [1]
+packetbuf_datalen       0x0800aec7    0x6  Code  Gb  packetbuf.o [1]
+packetbuf_dataptr       0x0800ae9d    0xa  Code  Gb  packetbuf.o [1]
+packetbuf_hdr_len       0x2000bd14    0x1  Data  Lc  sicslowpan.o [1]
+packetbuf_hdralloc      0x0800ae4f   0x2e  Code  Gb  packetbuf.o [1]
+packetbuf_hdrptr        0x0800aea7    0xa  Code  Gb  packetbuf.o [1]
+packetbuf_hdrreduce     0x0800ae7d   0x1a  Code  Gb  packetbuf.o [1]
+packetbuf_holds_broadcast
+                        0x0800af69    0x8  Code  Gb  packetbuf.o [1]
+packetbuf_is_reference  0x0800aeb1   0x10  Code  Gb  packetbuf.o [1]
+packetbuf_payload_len   0x2000bd24    0x4  Data  Lc  sicslowpan.o [1]
+packetbuf_ptr           0x2000bd20    0x4  Data  Lc  sicslowpan.o [1]
+packetbuf_reference_ptr
+                        0x0800aec1    0x6  Code  Gb  packetbuf.o [1]
+packetbuf_set_addr      0x0800af4d   0x12  Code  Gb  packetbuf.o [1]
+packetbuf_set_attr      0x0800af37    0xc  Code  Gb  packetbuf.o [1]
+packetbuf_set_datalen   0x0800ae97    0x6  Code  Gb  packetbuf.o [1]
+packetbuf_totlen        0x0800aecd   0x18  Code  Gb  packetbuf.o [1]
+packetbufptr            0x2000b478    0x4  Data  Lc  packetbuf.o [1]
+packets_memb            0x20002360    0xc  Data  Lc  uip-packetqueue.o [1]
+packets_memb_memb_count
+                        0x2000bf62    0x2  Data  Lc  uip-packetqueue.o [1]
+packets_memb_memb_mem   0x200034f0  0xc28  Data  Lc  uip-packetqueue.o [1]
+parse                   0x08010d1f   0x8c  Code  Lc  framer-802154.o [1]
+parse_msg               0x0800bb77   0x6e  Code  Lc  ip64-dhcpc.o [1]
+parse_options           0x0800ba3f  0x138  Code  Lc  ip64-dhcpc.o [1]
+pdevSettingBase         0x200006b0   0x10  Data  Lc  dev_info.o [1]
+pending_packet          0x0801152d    0x4  Code  Lc  nullradio.o [1]
+period_nodeaddr_timer   0x20000744   0x20  Data  Lc  fireNodeApp.o [1]
+periodic                0x2000bbbc   0x10  Data  Lc  tcpip.o [1]
+poll_requested          0x2000be1b    0x1  Data  Lc  process.o [1]
+power_check_val         0x2000be48    0x1  Data  Gb  contiki-main.o [1]
+prepare                 0x08011515    0x4  Code  Lc  nullradio.o [1]
+print_rfparam_info      0x0800d37d   0x7c  Code  Lc  shell.o [1]
+process_alloc_event     0x080038e5    0xa  Code  Gb  process.o [1]
+process_current         0x2000be24    0x4  Data  Gb  process.o [1]
+process_exit            0x080039f5    0x6  Code  Gb  process.o [1]
+process_init            0x080039fb   0x12  Code  Gb  process.o [1]
+process_is_running      0x08003b71    0xc  Code  Gb  process.o [1]
+process_list            0x2000be20    0x4  Data  Gb  process.o [1]
+process_poll            0x08003b4f   0x18  Code  Gb  process.o [1]
+process_post            0x08003b11   0x30  Code  Gb  process.o [1]
+process_post_synch      0x08003b41    0xe  Code  Gb  process.o [1]
+process_request_u       0x0800e291  0x41e  Code  Gb  contiki-main.o [1]
+process_run             0x08003a59   0xb8  Code  Gb  process.o [1]
+process_start           0x080038ef   0x32  Code  Gb  process.o [1]
+process_thread_ADC_process
+                        0x0800e82d  0x116  Code  Lc  contiki-main.o [1]
+process_thread_blink_process
+                        0x0800e0f5   0xe2  Code  Lc  contiki-main.o [1]
+process_thread_ctimer_process
+                        0x08004c39   0x7a  Code  Lc  ctimer.o [1]
+process_thread_enc28j60_ip64_driver_process
+                        0x08010e45   0x40  Code  Lc  enc28j60-ip64-driver.o [1]
+process_thread_enc_watchdog_process
+                        0x0801034f   0x4e  Code  Lc  enc28j60.o [1]
+process_thread_etimer_process
+                        0x0800378f   0x96  Code  Lc  etimer.o [1]
+process_thread_feeddog_process
+                        0x0800e1d7   0xb8  Code  Lc  contiki-main.o [1]
+process_thread_fire_app_process
+                        0x080058fd   0x38  Code  Lc  fireNodeApp.o [1]
+process_thread_fire_node_uart
+                        0x08005935  0x2f8  Code  Lc  fireNodeApp.o [1]
+process_thread_fire_read_process
+                        0x08005c2d   0xc6  Code  Lc  fireNodeApp.o [1]
+process_thread_gprs_resp_process
+                        0x080029f9  0x1e6  Code  Lc  sim900a.o [1]
+process_thread_gprs_sms_phone_process
+                        0x08002139   0x24  Code  Lc  sim900a.o [1]
+process_thread_help_command_process
+                        0x0800d8b1   0x3a  Code  Lc  shell.o [1]
+process_thread_ip64_ipv4_dhcp_process
+                        0x080093e3   0x50  Code  Lc  ip64-ipv4-dhcp.o [1]
+process_thread_ip_data_process
+                        0x080045fd   0x7c  Code  Lc  appenc28j60.o [1]
+process_thread_ip_receive_process
+                        0x08003c15   0x56  Code  Lc  appenc28j60.o [1]
+process_thread_serial_line_process
+                        0x0800f183   0xac  Code  Lc  serial-line.o [1]
+process_thread_serial_shell_process
+                        0x0800ed01   0x40  Code  Lc  serial-shell.o [1]
+process_thread_shell_kill_process
+                        0x0800d81f   0x82  Code  Lc  shell.o [1]
+process_thread_shell_killall_process
+                        0x0800d811    0xe  Code  Lc  shell.o [1]
+process_thread_shell_process
+                        0x0800db87   0x90  Code  Lc  shell.o [1]
+process_thread_shell_server_process
+                        0x0800dc17   0xa4  Code  Lc  shell.o [1]
+process_thread_shell_set_process
+                        0x0800d3f9  0x3d4  Code  Lc  shell.o [1]
+process_thread_sim900a_app_process
+                        0x08001f91   0x24  Code  Lc  sim900a.o [1]
+process_thread_sim900a_cfggprs_process
+                        0x08000679  0x2c2  Code  Lc  sim900a.o [1]
+process_thread_sim900a_check_process
+                        0x080002f9  0x31c  Code  Lc  sim900a.o [1]
+process_thread_sim900a_hard_init
+                        0x080001cd   0xfa  Code  Lc  sim900a.o [1]
+process_thread_sim900a_send_process
+                        0x08002999   0x28  Code  Lc  sim900a.o [1]
+process_thread_sim900a_tcpudp_con_process
+                        0x080009cd  0x212  Code  Lc  sim900a.o [1]
+process_thread_simple_udp_process
+                        0x080068d7   0x96  Code  Lc  simple-udp.o [1]
+process_thread_sound_light_msg_handler_process
+                        0x08005319   0xc8  Code  Lc  app_sound_light_alarm.o [1]
+process_thread_tcpip_process
+                        0x08008509   0x74  Code  Lc  tcpip.o [1]
+process_thread_user_ip_start
+                        0x0800e7dd   0x4c  Code  Lc  contiki-main.o [1]
+processed_ip_in_len     0x2000bd18    0x2  Data  Lc  sicslowpan.o [1]
+pulse_get_counter       0x0801116d   0x46  Code  Gb  pulse.o [1]
+queuebuf_attr           0x0800d30d    0xc  Code  Gb  queuebuf.o [1]
+queuebuf_free           0x0800d26b   0x3c  Code  Gb  queuebuf.o [1]
+queuebuf_init           0x0800d1b9   0x1e  Code  Gb  queuebuf.o [1]
+queuebuf_new_from_packetbuf
+                        0x0800d1f1   0x6e  Code  Gb  queuebuf.o [1]
+queuebuf_numfree        0x0800d1d7   0x1a  Code  Gb  queuebuf.o [1]
+queuebuf_to_packetbuf   0x0800d2a7   0x62  Code  Gb  queuebuf.o [1]
+queuebuf_update_attr_from_packetbuf
+                        0x0800d25f    0xc  Code  Gb  queuebuf.o [1]
+radio_read              0x08011521    0x4  Code  Lc  nullradio.o [1]
+rand                    0x0800c285   0xe0  Code  Gb  rand.o [3]
+random_init             0x0800b5e9    0x4  Code  Gb  random.o [1]
+random_rand             0x0800b5ed    0xa  Code  Gb  random.o [1]
+readdata                0x0800ffe1   0x2c  Code  Lc  enc28j60.o [1]
+readreg                 0x0800ff23   0x2a  Code  Lc  enc28j60.o [1]
+reass_tag               0x2000bd1c    0x2  Data  Lc  sicslowpan.o [1]
+reass_timer             0x2000bd44    0x8  Data  Lc  sicslowpan.o [1]
+received_packets        0x200006dc    0x4  Data  Lc  enc28j60.o [1]
+received_seqnos         0x2000b838   0x90  Data  Lc  mac-sequence.o [1]
+receiver                0x08003bb7   0x5c  Code  Lc  appenc28j60.o [1]
+receiving_packet        0x08011529    0x4  Code  Lc  nullradio.o [1]
+refbufmem               0x2000093c    0xc  Data  Lc  queuebuf.o [1]
+refbufmem_memb_count    0x2000bf5e    0x2  Data  Lc  queuebuf.o [1]
+refbufmem_memb_mem      0x2000b9c0   0x78  Data  Lc  queuebuf.o [1]
+remove_ext_hdr          0x08009603   0x4e  Code  Gb  uip6.o [1]
+remove_parents          0x080086a5   0x3a  Code  Lc  rpl-dag.o [1]
+reset                   0x0801000d  0x13a  Code  Lc  enc28j60.o [1]
+reset                   0x08010f8d    0x2  Code  Lc  rpl-mrhof.o [1]
+rfUartProtocolFrameFill
+                        0x08004ff9   0x78  Code  Gb  app_sound_light_alarm.o [1]
+rfUartSendProcess       0x08005071  0x190  Code  Lc  app_sound_light_alarm.o [1]
+ringbuf_get             0x08006279   0x28  Code  Gb  ringbuf.o [1]
+ringbuf_init            0x08006241    0xe  Code  Gb  ringbuf.o [1]
+ringbuf_put             0x0800624f   0x2a  Code  Gb  ringbuf.o [1]
+ringuartbuf             0x200007b4    0x8  Data  Lc  fireNodeApp.o [1]
+ringuartbuf             0x20000c9c    0x8  Data  Lc  sim900a.o [1]
+rm_routelist            0x0800671b   0x2c  Code  Lc  uip-ds6-route.o [1]
+rm_routelist_callback   0x08006749    0x2  Code  Lc  uip-ds6-route.o [1]
+route_callback          0x08003c13    0x2  Code  Lc  appenc28j60.o [1]
+route_callback          0x08006ad5   0x80  Code  Lc  rpl-dag-root.o [1]
+routelist_list          0x20002308    0x4  Data  Lc  uip-ds6-route.o [1]
+routememb               0x2000230c    0xc  Data  Lc  uip-ds6-route.o [1]
+routememb_memb_count    0x2000bf6a    0x1  Data  Lc  uip-ds6-route.o [1]
+routememb_memb_mem      0x2000bdac   0x28  Data  Lc  uip-ds6-route.o [1]
+rpl_alloc_dag           0x08008931   0x4a  Code  Gb  rpl-dag.o [1]
+rpl_alloc_instance      0x080088f9   0x38  Code  Gb  rpl-dag.o [1]
+rpl_dag_root_init       0x08006b55   0x8e  Code  Gb  rpl-dag-root.o [1]
+rpl_dag_root_init_dag   0x08006c77   0x26  Code  Gb  rpl-dag-root.o [1]
+rpl_dag_root_init_dag_immediately
+                        0x08006be3   0x94  Code  Gb  rpl-dag-root.o [1]
+rpl_get_any_dag         0x080089c3   0x16  Code  Gb  rpl-dag.o [1]
+rpl_get_instance        0x080089d9   0x1a  Code  Gb  rpl-dag.o [1]
+rpl_get_mode            0x08009071    0x6  Code  Gb  rpl.o [1]
+rpl_get_nbr             0x08008649   0x22  Code  Gb  rpl-dag.o [1]
+rpl_get_parent_ipaddr   0x0800866b   0x16  Code  Gb  rpl-dag.o [1]
+rpl_mrhof               0x2000096c   0x1c  Data  Gb  rpl-mrhof.o [1]
+rpl_nullify_parent      0x0800897b   0x48  Code  Gb  rpl-dag.o [1]
+rpl_parents             0x20000964    0x4  Data  Gb  rpl-dag.o [1]
+rpl_parents_struct      0x20000954   0x10  Data  Lc  rpl-dag.o [1]
+rpl_remove_routes       0x08009077   0x1e  Code  Gb  rpl.o [1]
+rpl_reset_dio_timer     0x0800b58b   0x56  Code  Gb  rpl-timers.o [1]
+rpl_set_preferred_parent
+                        0x08008681   0x24  Code  Lc  rpl-dag.o [1]
+rpl_set_prefix          0x0800888d   0x6c  Code  Gb  rpl-dag.o [1]
+rpl_set_root            0x080086df  0x122  Code  Gb  rpl-dag.o [1]
+rssi_send_flag          0x2000073b    0x1  Data  Gb  fireNodeApp.o [1]
+rtimer_arch_init        0x0800f79b   0x2a  Code  Gb  rtimer-arch.o [1]
+rtimer_arch_now         0x0800f7c5    0xe  Code  Gb  rtimer-arch.o [1]
+rtimer_arch_schedule    0x0800f7d3   0x28  Code  Gb  rtimer-arch.o [1]
+rtimer_init             0x0800f119    0x4  Code  Gb  rtimer.o [1]
+rtimer_run_next         0x0800f11d   0x22  Code  Gb  rtimer.o [1]
+rxbuf                   0x200009d0    0x8  Data  Lc  serial-line.o [1]
+rxbuf_data              0x200009d8   0x40  Data  Lc  serial-line.o [1]
+s                       0x2000baa8   0x6c  Data  Lc  ip64-dhcpc.o [1]
+s                       0x2000bb78   0x44  Data  Lc  tcpip.o [1]
+second_countdown        0x2000061c    0x4  Data  Lc  clock.o [1]
+send                    0x0801151d    0x4  Code  Lc  nullradio.o [1]
+send                    0x0801154b   0x1c  Code  Lc  nullsec.o [1]
+send_list               0x08010a9f   0x22  Code  Lc  nullrdc.o [1]
+send_one_packet         0x080109bd   0xe0  Code  Lc  nullrdc.o [1]
+send_packet             0x0801056b  0x14a  Code  Lc  csma.o [1]
+send_packet             0x08010a9d    0x2  Code  Lc  nullrdc.o [1]
+send_request            0x0800b9d9   0x66  Code  Lc  ip64-dhcpc.o [1]
+sent_packets            0x200006e0    0x4  Data  Lc  enc28j60.o [1]
+serial_line_event_message
+                        0x20000988    0x1  Data  Gb  serial-line.o [1]
+serial_line_init        0x0800f22f   0x20  Code  Gb  serial-line.o [1]
+serial_line_input_byte  0x0800f145   0x3e  Code  Gb  serial-line.o [1]
+serial_line_process     0x20000a18   0x10  Data  Gb  serial-line.o [1]
+serial_shell_init       0x0800ed41    0x8  Code  Gb  serial-shell.o [1]
+serial_shell_process    0x20000a28   0x10  Data  Gb  serial-shell.o [1]
+serverHostIp4Addr       0x0800489c    0x4  Data  Gb  appenc28j60.o [1]
+serverIp                0x0800288c   0x10  Data  Gb  sim900a.o [1]
+serverPort              0x08002884    0x8  Data  Gb  sim900a.o [1]
+set32                   0x08009099   0x16  Code  Lc  rpl-icmp6.o [1]
+setSoundLightState      0x08005307   0x12  Code  Gb  app_sound_light_alarm.o [1]
+set_command             0x20000aa8   0x14  Data  Lc  shell.o [1]
+set_ip_from_prefix      0x08008801   0x2e  Code  Lc  rpl-dag.o [1]
+set_link_addr           0x0800e715   0x66  Code  Gb  contiki-main.o [1]
+set_object              0x08011545    0x4  Code  Lc  nullradio.o [1]
+set_packet_attrs        0x0800c365   0x42  Code  Lc  sicslowpan.o [1]
+set_value               0x0801153d    0x4  Code  Lc  nullradio.o [1]
+setregbank              0x0800ff9d   0x22  Code  Lc  enc28j60.o [1]
+setregbitfield          0x0800ff61   0x2a  Code  Lc  enc28j60.o [1]
+shell_cmdlinepro        0x0800dcef   0x30  Code  Gb  shell.o [1]
+shell_default_output    0x0800ec9d   0x4e  Code  Gb  serial-shell.o [1]
+shell_event_input       0x20000a38    0x4  Data  Gb  shell.o [1]
+shell_init              0x0800dcbb   0x34  Code  Gb  shell.o [1]
+shell_input             0x0800da6d   0x52  Code  Gb  shell.o [1]
+shell_kill_process      0x20000aec   0x10  Data  Gb  shell.o [1]
+shell_killall_process   0x20000adc   0x10  Data  Gb  shell.o [1]
+shell_output_str        0x0800dabf   0x5e  Code  Gb  shell.o [1]
+shell_process           0x20000a4c   0x10  Data  Gb  shell.o [1]
+shell_prompt            0x0800eceb   0x16  Code  Gb  serial-shell.o [1]
+shell_prompt_text       0x0800df78    0x8  Data  Lc  shell.o [1]
+shell_register_command  0x0800db31   0x56  Code  Gb  shell.o [1]
+shell_server_process    0x20000a5c   0x10  Data  Gb  shell.o [1]
+shell_set_process       0x20000afc   0x10  Data  Gb  shell.o [1]
+shell_start_command     0x0800da2d   0x40  Code  Gb  shell.o [1]
+sicslowpan_aligned_buf  0x20006620  0x5ec  Data  Lc  sicslowpan.o [1]
+sicslowpan_driver       0x0801173c    0xc  Data  Gb  sicslowpan.o [1]
+sicslowpan_init         0x0800d159   0x1a  Code  Gb  sicslowpan.o [1]
+sicslowpan_len          0x2000bd16    0x2  Data  Lc  sicslowpan.o [1]
+sim900_app              0x2000168c  0x554  Data  Lc  sim900a.o [1]
+sim900_event_ack_time   0x20000b11    0x1  Data  Gb  sim900a.o [1]
+sim900_event_dianqi_control
+                        0x20000b16    0x1  Data  Gb  sim900a.o [1]
+sim900_event_dianqi_set
+                        0x20000b17    0x1  Data  Gb  sim900a.o [1]
+sim900_event_electrical_control_ack
+                        0x20000b12    0x1  Data  Gb  sim900a.o [1]
+sim900_event_electrical_set
+                        0x20000b13    0x1  Data  Gb  sim900a.o [1]
+sim900_event_electrical_state
+                        0x20000b14    0x1  Data  Gb  sim900a.o [1]
+sim900_event_fire_tran  0x20000b1c    0x1  Data  Gb  sim900a.o [1]
+sim900_event_fire_warn  0x20000b10    0x1  Data  Gb  sim900a.o [1]
+sim900_event_heart      0x20000b0f    0x1  Data  Gb  sim900a.o [1]
+sim900_event_resp       0x20000b0c    0x1  Data  Gb  sim900a.o [1]
+sim900_event_send_cmd   0x200077e4    0x1  Data  Gb  sim900a.o [1]
+sim900_event_send_data  0x20000b0d    0x1  Data  Gb  sim900a.o [1]
+sim900_event_send_data_wait
+                        0x20000b0e    0x1  Data  Gb  sim900a.o [1]
+sim900_event_send_rssi  0x20000b1d    0x1  Data  Gb  sim900a.o [1]
+sim900_event_send_sms   0x20000b1a    0x1  Data  Gb  sim900a.o [1]
+sim900_event_send_sms_phone
+                        0x20000b19    0x1  Data  Gb  sim900a.o [1]
+sim900_event_send_sms_wait
+                        0x20000b1b    0x1  Data  Gb  sim900a.o [1]
+sim900_event_start_sms_phone
+                        0x20000b18    0x1  Data  Gb  sim900a.o [1]
+sim900_event_water_set  0x20000b15    0x1  Data  Gb  sim900a.o [1]
+sim900_rx               0x20008298  0x554  Data  Lc  sim900a.o [1]
+sim900_tx               0x200087ec  0x554  Data  Lc  sim900a.o [1]
+sim900_tx_tran          0x20008d40  0x554  Data  Lc  sim900a.o [1]
+sim900a_app_handler     0x08001669  0x85a  Code  Gb  sim900a.o [1]
+sim900a_app_process     0x20000b7c   0x10  Data  Gb  sim900a.o [1]
+sim900a_cfggprs_process
+                        0x20000b5c   0x10  Data  Gb  sim900a.o [1]
+sim900a_check_process   0x20000b4c   0x10  Data  Gb  sim900a.o [1]
+sim900a_hard_init       0x20000b3c   0x10  Data  Gb  sim900a.o [1]
+sim900a_init            0x08002c05   0x44  Code  Gb  sim900a.o [1]
+sim900a_reconnect       0x080015fd   0x38  Code  Gb  sim900a.o [1]
+sim900a_send_cmd        0x08000131   0x40  Code  Gb  sim900a.o [1]
+sim900a_send_handler    0x0800216d  0x6f6  Code  Gb  sim900a.o [1]
+sim900a_send_process    0x20000b8c   0x10  Data  Gb  sim900a.o [1]
+sim900a_tcpudp_con_process
+                        0x20000b6c   0x10  Data  Gb  sim900a.o [1]
+sim_connect_star        0x20000b25    0x1  Data  Lc  sim900a.o [1]
+simple_udp_process      0x20002248   0x10  Data  Gb  simple-udp.o [1]
+simple_udp_register     0x0800686b   0x6c  Code  Gb  simple-udp.o [1]
+simple_udp_send         0x0800684d   0x1e  Code  Gb  simple-udp.o [1]
+smsCenterPhone          0x20000bbc   0x20  Data  Lc  sim900a.o [1]
+smsCenterPrex           0x08002950    0x8  Data  Gb  sim900a.o [1]
+smsDestCodeLen          0x08002968    0xc  Data  Gb  sim900a.o [1]
+smsDestPrex             0x08002974    0xc  Data  Gb  sim900a.o [1]
+smsPnoneByteReverse     0x08000171   0x52  Code  Gb  sim900a.o [1]
+sound_light_address_table
+                        0x08005299   0x52  Code  Gb  app_sound_light_alarm.o [1]
+sound_light_msg_handler_process
+                        0x20000010   0x10  Data  Gb  app_sound_light_alarm.o [1]
+sound_light_off_num     0x2000ac1c    0x1  Data  Gb  app_sound_light_alarm.o [1]
+sound_light_on_mac      0x2000b948   0x78  Data  Lc  app_sound_light_alarm.o [1]
+sound_light_on_num      0x2000ac1f    0x1  Data  Lc  app_sound_light_alarm.o [1]
+sound_light_part_off_mac
+                        0x2000b64c   0x78  Data  Gb  app_sound_light_alarm.o [1]
+sound_light_part_off_num
+                        0x2000b648    0x1  Data  Gb  app_sound_light_alarm.o [1]
+srand                   0x0800c265   0x20  Code  Gb  srand.o [3]
+stEncRxMsg              0x20007d44  0x554  Data  Lc  appenc28j60.o [1]
+stEncTxMsg              0x20000054  0x554  Data  Lc  appenc28j60.o [1]
+stEncTxMsgTran          0x20004480  0x554  Data  Lc  appenc28j60.o [1]
+stFireData              0x2000b6c4   0x80  Data  Lc  fireNodeApp.o [1]
+stRfParamCfg            0x20000660    0xc  Data  Lc  contiki-main.o [1]
+start_command           0x0800d8fb  0x12e  Code  Lc  shell.o [1]
+started                 0x20002244    0x1  Data  Lc  simple-udp.o [1]
+stimer_expired          0x08007f61   0x1c  Code  Gb  stimer.o [1]
+stimer_set              0x08007f51    0x8  Code  Gb  stimer.o [1]
+stnetMode               0x2000004c    0x8  Data  Lc  appenc28j60.o [1]
+strchr                  0x080064d5         Code  Gb  strchr.o [5]
+strcmp_ex               0x0800320d   0x2a  Code  Gb  sysprintf.o [1]
+strlen                  0x080031b9         Code  Gb  strlen.o [5]
+strncmp                 0x0800ec73   0x28  Code  Gb  strncmp.o [3]
+swEnable                0x080061b1   0x2a  Code  Gb  appkey.o [1]
+sysDisable              0x0800e0c3         Code  Gb  arch_s.o [1]
+sysEnable               0x0800e0bd         Code  Gb  arch_s.o [1]
+sysGetLR                0x0800e0e5         Code  Gb  arch_s.o [1]
+sysInit                 0x0800e6af   0x62  Code  Gb  contiki-main.o [1]
+sysPrintExp             0x080033f5    0x8  Code  Gb  sysprintf.o [1]
+sysReset                0x0800e0cb         Code  Gb  arch_s.o [1]
+tcpip_event             0x2000b77d    0x1  Data  Gb  tcpip.o [1]
+tcpip_icmp6_call        0x0800801b   0x18  Code  Gb  tcpip.o [1]
+tcpip_icmp6_event       0x2000b77e    0x1  Data  Gb  tcpip.o [1]
+tcpip_input             0x08008249   0x1c  Code  Gb  tcpip.o [1]
+tcpip_ipv6_output       0x08008265  0x1ca  Code  Gb  tcpip.o [1]
+tcpip_poll_udp          0x0800842f    0x6  Code  Gb  tcpip.o [1]
+tcpip_process           0x20002294   0x10  Data  Gb  tcpip.o [1]
+tcpip_set_outputfunc    0x08007ff9    0x8  Code  Gb  tcpip.o [1]
+tcpip_uipcall           0x0800843b   0xce  Code  Gb  tcpip.o [1]
+terminal_rssi           0x20000730    0x8  Data  Gb  fireNodeApp.o [1]
+testGprsAck             0x08002c49   0x1c  Code  Gb  sim900a.o [1]
+testGprsSmsPhone        0x08002cbd   0x48  Code  Gb  sim900a.o [1]
+testGprsSync            0x08002c69   0x22  Code  Gb  sim900a.o [1]
+testNodeInfo            0x08002ca1   0x1c  Code  Gb  sim900a.o [1]
+time_msb                0x2000bf04    0x4  Data  Lc  rtimer-arch.o [1]
+time_offset             0x20000a40    0x4  Data  Lc  shell.o [1]
+timer_expired           0x080064ab   0x18  Code  Gb  timer.o [1]
+timer_remaining         0x080064c3   0x12  Code  Gb  timer.o [1]
+timer_reset             0x08006495    0xa  Code  Gb  timer.o [1]
+timer_restart           0x0800649f    0x4  Code  Gb  timer.o [1]
+timer_set               0x0800648d    0x8  Code  Gb  timer.o [1]
+timerlist               0x20000718    0x4  Data  Lc  etimer.o [1]
+tmp_ipaddr              0x2000be90   0x10  Data  Lc  uip-icmp6.o [1]
+to_become_root          0x2000bc9c    0x1  Data  Lc  rpl-dag-root.o [1]
+toupper                 0x080062d3   0x18  Code  Gb  toupper.o [3]
+transmit                0x08011519    0x4  Code  Lc  nullradio.o [1]
+transmit_packet_list    0x080103e1   0x22  Code  Lc  csma.o [1]
+ttl_values              0x0800d1b4    0x4  Data  Lc  sicslowpan.o [1]
+uart3_send_bytes        0x08003595   0x1c  Code  Gb  stm32f10x_usart1.o [1]
+uart4_send_bytes        0x080035b5   0x1c  Code  Gb  stm32f10x_usart1.o [1]
+uart4_send_char         0x080035b1    0x4  Code  Gb  stm32f10x_usart1.o [1]
+uart5_send_bytes        0x080035db   0x1c  Code  Gb  stm32f10x_usart1.o [1]
+uart_485handler         0x2000bf44    0x4  Data  Lc  stm32f10x_usart1.o [1]
+uart_base               0x2000226c   0x14  Data  Lc  stm32f10x_usart1.o [1]
+uart_gprshandler        0x2000bf48    0x4  Data  Lc  stm32f10x_usart1.o [1]
+uart_mp3handler         0x2000bf4c    0x4  Data  Lc  stm32f10x_usart1.o [1]
+uart_rfhandler          0x2000bf50    0x4  Data  Lc  stm32f10x_usart1.o [1]
+uart_stdhandler         0x2000bf40    0x4  Data  Lc  stm32f10x_usart1.o [1]
+uartbuf                 0x200007bc   0x80  Data  Lc  fireNodeApp.o [1]
+uartbuf                 0x20000ca4   0x80  Data  Lc  sim900a.o [1]
+ubCount                 0x20000b20    0x1  Data  Lc  sim900a.o [1]
+ubMeterA                0x08011218    0x8  Data  Lc  pulse.o [1]
+ubMeterB                0x08011220    0x8  Data  Lc  pulse.o [1]
+ubNetState              0x20000b1f    0x1  Data  Lc  sim900a.o [1]
+ubWaitAckCount          0x20000b22    0x1  Data  Lc  sim900a.o [1]
+ubaDstAddr              0x08006174    0x2  Data  Lc  hwgg.o [1]
+ubaEndAddr              0x0800617c    0x2  Data  Lc  hwgg.o [1]
+ubaSrcAddr              0x08006178    0x2  Data  Lc  hwgg.o [1]
+ubanodeInfo             0x20004a14  0x800  Data  Lc  dev_info.o [1]
+udp_connection          0x200005a8   0x24  Data  Lc  appenc28j60.o [1]
+udp_new                 0x08008001   0x1a  Code  Gb  tcpip.o [1]
+uip_acc32               0x200059e4    0x4  Data  Gb  uip6.o [1]
+uip_add32               0x080094d1   0x54  Code  Gb  uip6.o [1]
+uip_aligned_buf         0x20005214  0x5ec  Data  Gb  uip6.o [1]
+uip_all_zeroes_addr     0x0800feec   0x10  Data  Gb  ip64-arp.o [1]
+uip_appdata             0x20005a24    0x4  Data  Gb  uip6.o [1]
+uip_conn                0x20005a2c    0x4  Data  Gb  uip6.o [1]
+uip_conns               0x20005800  0x1e0  Data  Gb  uip6.o [1]
+uip_debug_ipaddr_print  0x08007ec9   0x6a  Code  Gb  uip-debug.o [1]
+uip_ds6_addr_add        0x08008c11   0x8e  Code  Gb  uip-ds6.o [1]
+uip_ds6_addr_lookup     0x08008cdd   0x84  Code  Gb  uip-ds6.o [1]
+uip_ds6_addr_rm         0x08008c9f   0x3e  Code  Gb  uip-ds6.o [1]
+uip_ds6_addr_size       0x2000b8d8    0x1  Data  Gb  uip-ds6.o [1]
+uip_ds6_compute_reachable_time
+                        0x08009037   0x22  Code  Gb  uip-ds6.o [1]
+uip_ds6_defrt_choose    0x080067d3   0x32  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_defrt_lookup    0x080067a9   0x2a  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_defrt_periodic  0x08006805   0x32  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_defrt_rm        0x0800674b   0x5e  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_get_link_local  0x08008d61   0x3e  Code  Gb  uip-ds6.o [1]
+uip_ds6_if              0x2000b240   0xf8  Data  Gb  uip-ds6.o [1]
+uip_ds6_init            0x08008a09   0xc0  Code  Gb  uip-ds6.o [1]
+uip_ds6_is_addr_onlink  0x08008bd5   0x3c  Code  Gb  uip-ds6.o [1]
+uip_ds6_link_neighbor_callback
+                        0x08007dbd   0x12  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_list_loop       0x08008b15   0x4a  Code  Gb  uip-ds6.o [1]
+uip_ds6_maddr_add       0x08008dab   0xc2  Code  Gb  uip-ds6.o [1]
+uip_ds6_maddr_lookup    0x08008e73   0xac  Code  Gb  uip-ds6.o [1]
+uip_ds6_nbr_add         0x08007d09   0x4c  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_nbr_get_ll      0x08007d73    0xa  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_nbr_ipaddr_from_lladdr
+                        0x08007db1    0x2  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_nbr_lookup      0x08007d7d   0x34  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_nbr_rm          0x08007d55   0x1e  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_neighbor_periodic
+                        0x08007dd1   0xe6  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_neighbors_init  0x08007cfd    0xc  Code  Gb  uip-ds6-nbr.o [1]
+uip_ds6_netif_addr_list_offset
+                        0x2000b8d9    0x1  Data  Gb  uip-ds6.o [1]
+uip_ds6_notification_add
+                        0x08006589   0x14  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_periodic        0x08008ac9   0x4c  Code  Gb  uip-ds6.o [1]
+uip_ds6_prefix_add      0x08008b5f   0x76  Code  Gb  uip-ds6.o [1]
+uip_ds6_prefix_list     0x2000b8e8   0x60  Data  Gb  uip-ds6.o [1]
+uip_ds6_route_head      0x080065f1    0x8  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_route_init      0x0800659d   0x3c  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_route_lookup    0x0800660b   0x64  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_route_next      0x080065f9    0xa  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_route_nexthop   0x080065d9   0x18  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_route_num_routes
+                        0x08006603    0x8  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_route_rm        0x08006675   0xa6  Code  Gb  uip-ds6-route.o [1]
+uip_ds6_select_src      0x08008f1f   0x94  Code  Gb  uip-ds6.o [1]
+uip_ds6_set_addr_iid    0x08008fb3   0x18  Code  Gb  uip-ds6.o [1]
+uip_ds6_timer_periodic  0x2000b338   0x10  Data  Gb  uip-ds6.o [1]
+uip_ext_bitmap          0x200059e8    0x1  Data  Gb  uip6.o [1]
+uip_ext_len             0x200059e9    0x1  Data  Gb  uip6.o [1]
+uip_ext_opt_offset      0x200059ea    0x1  Data  Gb  uip6.o [1]
+uip_flags               0x200059eb    0x1  Data  Gb  uip6.o [1]
+uip_hostaddr            0x2000be80   0x10  Data  Gb  ip64-ipv4-dhcp.o [1]
+uip_htonl               0x0800a915   0x1a  Code  Gb  uip6.o [1]
+uip_htons               0x0800a90b    0xa  Code  Gb  uip6.o [1]
+uip_icmp6_conns         0x2000bf24    0x8  Data  Gb  uip6.o [1]
+uip_icmp6_error_output  0x0800b6dd  0x122  Code  Gb  uip-icmp6.o [1]
+uip_icmp6_init          0x0800b8fd   0x1a  Code  Gb  uip-icmp6.o [1]
+uip_icmp6_input         0x0800b5f9   0x34  Code  Gb  uip-icmp6.o [1]
+uip_icmp6_register_input_handler
+                        0x0800b62d    0x8  Code  Gb  uip-icmp6.o [1]
+uip_icmp6_send          0x0800b7ff   0x70  Code  Gb  uip-icmp6.o [1]
+uip_icmp6chksum         0x080095ad    0x4  Code  Gb  uip6.o [1]
+uip_id                  0x20005a34    0x4  Data  Lc  uip6.o [1]
+uip_init                0x080095b1   0x52  Code  Gb  uip6.o [1]
+uip_len                 0x20005a18    0x2  Data  Gb  uip6.o [1]
+uip_listenports         0x20005a08   0x10  Data  Gb  uip6.o [1]
+uip_lladdr              0x2000bf1c    0x8  Data  Gb  uip6.o [1]
+uip_nd6_init            0x0800b49d   0x16  Code  Gb  uip-nd6.o [1]
+uip_nd6_ns_output       0x0800b1b7  0x122  Code  Gb  uip-nd6.o [1]
+uip_next_hdr            0x20005a20    0x4  Data  Gb  uip6.o [1]
+uip_packetqueue_alloc   0x0800acd5   0x2a  Code  Gb  uip-packetqueue.o [1]
+uip_packetqueue_buf     0x0800ad25    0x8  Code  Gb  uip-packetqueue.o [1]
+uip_packetqueue_buflen  0x0800ad2d    0xa  Code  Gb  uip-packetqueue.o [1]
+uip_packetqueue_free    0x0800acff   0x1e  Code  Gb  uip-packetqueue.o [1]
+uip_packetqueue_new     0x0800accf    0x6  Code  Gb  uip-packetqueue.o [1]
+uip_packetqueue_set_buflen
+                        0x0800ad37    0xa  Code  Gb  uip-packetqueue.o [1]
+uip_process             0x08009a3d  0xece  Code  Gb  uip6.o [1]
+uip_reass               0x08009763  0x1f6  Code  Lc  uip6.o [1]
+uip_reass_on            0x200059ee    0x1  Data  Gb  uip6.o [1]
+uip_reass_over          0x08009965   0x38  Code  Gb  uip6.o [1]
+uip_reass_timer         0x20006024   0x10  Data  Gb  uip6.o [1]
+uip_reassbitmap         0x200059f0   0x18  Data  Lc  uip6.o [1]
+uip_reassbuf            0x20005a38  0x5ec  Data  Lc  uip6.o [1]
+uip_reassflags          0x200059ed    0x1  Data  Lc  uip6.o [1]
+uip_reasslen            0x20005a1e    0x2  Data  Lc  uip6.o [1]
+uip_sappdata            0x20005a28    0x4  Data  Gb  uip6.o [1]
+uip_send                0x0800a92f   0x44  Code  Gb  uip6.o [1]
+uip_slen                0x20005a1a    0x2  Data  Gb  uip6.o [1]
+uip_udp_conn            0x20005a30    0x4  Data  Gb  uip6.o [1]
+uip_udp_conns           0x2000b100  0x140  Data  Gb  uip6.o [1]
+uip_udp_new             0x08009651   0xaa  Code  Gb  uip6.o [1]
+uip_udp_packet_sendto   0x08007f7d   0x6c  Code  Gb  uip-udp-packet.o [1]
+uip_unlisten            0x080096fb   0x62  Code  Gb  uip6.o [1]
+unc_ctxconf             0x0800d1a8    0x4  Data  Gb  sicslowpan.o [1]
+unc_llconf              0x0800d1a4    0x4  Data  Gb  sicslowpan.o [1]
+unc_mxconf              0x0800d1ac    0x4  Data  Gb  sicslowpan.o [1]
+uncomp_hdr_len          0x2000bd15    0x1  Data  Lc  sicslowpan.o [1]
+uncompress_addr         0x0800c3db   0x6c  Code  Lc  sicslowpan.o [1]
+uncompress_hdr_hc06     0x0800ca23  0x2fc  Code  Lc  sicslowpan.o [1]
+update_metric_container
+                        0x0801107b    0x6  Code  Lc  rpl-mrhof.o [1]
+update_time             0x0800375d   0x32  Code  Lc  etimer.o [1]
+upper_layer_chksum      0x08009563   0x4a  Code  Lc  uip6.o [1]
+used_map                0x200008f8    0x1  Data  Lc  nbr-table.o [1]
+user_ip_start           0x20000640   0x10  Data  Gb  contiki-main.o [1]
+uwSeq                   0x20000b2c    0x2  Data  Lc  sim900a.o [1]
+warnMsg                 0x08002934   0x1c  Data  Gb  sim900a.o [1]
+watchdog_init           0x0800d319   0x2a  Code  Gb  watchdog.o [1]
+watchdog_periodic       0x0800d343    0x4  Code  Gb  watchdog.o [1]
+water_cache_buf         0x20009840    0xc  Data  Lc  appenc28j60.o [1]
+water_cache_buf         0x20006d38    0xc  Data  Lc  sim900a.o [1]
+water_cache_send        0x20009c24   0x20  Data  Lc  appenc28j60.o [1]
+water_cache_send        0x20007174   0x20  Data  Lc  sim900a.o [1]
+water_set_val_buf       0x20009828   0x18  Data  Lc  appenc28j60.o [1]
+water_set_val_buf       0x20006d20   0x18  Data  Lc  sim900a.o [1]
+water_set_val_send      0x20009bfc   0x28  Data  Lc  appenc28j60.o [1]
+water_set_val_send      0x2000714c   0x28  Data  Lc  sim900a.o [1]
+writedata               0x0800ffbf   0x22  Code  Lc  enc28j60.o [1]
+writereg                0x0800ff4d   0x14  Code  Lc  enc28j60.o [1]
+xfunc_in                0x2000bed0    0x4  Data  Gb  xprintf.o [1]
+xfunc_out               0x2000bec8    0x4  Data  Gb  xprintf.o [1]
+xid                     0x2000bb14    0x4  Data  Lc  ip64-dhcpc.o [1]
+xmit_buffer             0x200022b4   0x20  Data  Lc  uart_dma.o [1]
+xmit_buffer_head        0x200022a8    0x4  Data  Lc  uart_dma.o [1]
+xmit_buffer_tail        0x200022ac    0x4  Data  Lc  uart_dma.o [1]
+xprintf                 0x08003187    0xe  Code  Gb  xprintf.o [1]
+xputc                   0x08002f69   0x30  Code  Gb  xprintf.o [1]
+xsprintf                0x08003195   0x20  Code  Gb  xprintf.o [1]
+xvprintf                0x08002f99  0x1ee  Code  Gb  xprintf.o [1]
+
+
+[1] = E:\瀚润代码\瀚润代码\minihost_20180315_4G\4g\小主机副本\iar\Debug\Obj
+[2] = command line
+[3] = dl7M_tlf.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  71 060 bytes of readonly  code memory
+   2 146 bytes of readonly  data memory (+ 894 absolute)
+  49 003 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

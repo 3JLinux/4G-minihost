@@ -25,9 +25,10 @@
 #include "dev_info.h"
 #include "hwgg.h"
 #include "app485.h"
+#include "app_sound_light_alarm.h"
 //#include "mp3app.h"
 
-#define UDP_PORT_C	4567
+#define UDP_PORT_C	4566
 //#define UDP_PORT_C      51091
 //#define UDP_PORT_C	4570
 
@@ -44,10 +45,18 @@ const uip_ip4addr_t stip4MaskAddr={192,168,4,1};
 //const uip_ip4addr_t serverHostIp4Addr={139,159,226,232};//新正式
 //const uip_ip4addr_t serverHostIp4Addr={119,29,155,148};//正式
 //const uip_ip4addr_t serverHostIp4Addr={139,159,209,212};//新测试
-const uip_ip4addr_t serverHostIp4Addr={139,159,220,138};//新华为云测试
+//const uip_ip4addr_t serverHostIp4Addr={139,159,220,138};//新华为云测试
 //const uip_ip4addr_t serverHostIp4Addr={192,168,4,120};//林工
 //const uip_ip4addr_t serverHostIp4Addr={119,29,224,28};//调试
 //const uip_ip4addr_t serverHostIp4Addr={192,168,0,203};//本地
+//const uip_ip4addr_t serverHostIp4Addr={61,133,116,241};//山东
+//const uip_ip4addr_t serverHostIp4Addr={47,97,164,8};//维科
+//const uip_ip4addr_t serverHostIp4Addr={139,199,58,208};//新平台服务器
+//const uip_ip4addr_t serverHostIp4Addr={119,29,223,106};//北秦
+//const uip_ip4addr_t serverHostIp4Addr={139,199,58,208};//万科
+//const uip_ip4addr_t serverHostIp4Addr={47,106,48,157};//万科
+//const uip_ip4addr_t serverHostIp4Addr={192,168,0,191};
+const uip_ip4addr_t serverHostIp4Addr={47,95,43,248};//北京
 //const u_char serverIp[]="119.29.224.28";
 //const uip_ip4addr_t serverHostIp4Addr={192,168,3,6};
 //remote server ip port
@@ -67,11 +76,17 @@ process_event_t event_ip_heart;
 process_event_t event_ip_send_data;
 process_event_t event_ip_warn;
 process_event_t event_ip_tran;
+process_event_t event_ack_time;
+process_event_t event_electrical_control_ack;
+process_event_t event_electrical_state;
+process_event_t event_electrical_set;
+process_event_t event_send_rssi;
+process_event_t event_water_set;
 
 #define IP_NOT_NET_WAIT_TIME	120		//second
 
-#define ERR_ADDRESS_SITE 17
-#define USLESS_DATA_NUM 18
+#define ERR_ADDRESS_SITE 13//17
+#define USLESS_DATA_NUM 14//18
 
 
 /*---------------------------------------------------------------------------*/
@@ -218,7 +233,7 @@ void ipSendFireMacSync(u_char macSync, u_char uwSeq)
 	}
 	else
 	{
-		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, GPRS_F_CMD_REQUST_SYNC, uwSeq, paddrInfo->ubaNodeAddr, NULL, 0);
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, GPRS_F_CMD_REQUST_SYNC, uwSeq, paddrInfo->ubaNodeAddr, NULL,0);//iccid, 10);
 
 		if (nFramL > 0)
 		{
@@ -228,7 +243,14 @@ void ipSendFireMacSync(u_char macSync, u_char uwSeq)
 	}
 }
 
-
+static struct etimer et_reboot;
+static u_char electrical_send[27] = {0};
+static u_char electrical_set_val_buf[18] = {0};
+static u_char electrical_set_val_send[34] = {0};
+static u_char water_set_val_buf[22] = {0};
+static u_char water_set_val_send[38] = {0};
+static u_char water_cache_buf[11] = {0};
+static u_char water_cache_send[30] = {0};
 void ipProtocolRxProcess(u_char *ptxBuf, const u_char *pcFrame, u_short uwSendSeq , struct etimer *petwait)
 {
 	const FIRE_NODE_INFO *pfireNodeInfo = (const FIRE_NODE_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_FIRE_NODE_INFO);
@@ -295,7 +317,7 @@ void ipProtocolRxProcess(u_char *ptxBuf, const u_char *pcFrame, u_short uwSendSe
 		}
 		//clean warn phohe data
 		memset(&stWarnPhone, 0, sizeof(GPRS_WARN_PHONE));
-		if (uwLen-GPRS_F_MAC_LEN == 40)
+		if (uwLen-GPRS_F_MAC_LEN >= 40)
 		{
 			NET_MODE *pnetMode = (NET_MODE*)netModeGet( );
 			memcpy(&stWarnPhone, pGprs->ubaData, 40);
@@ -318,6 +340,230 @@ void ipProtocolRxProcess(u_char *ptxBuf, const u_char *pcFrame, u_short uwSendSe
 			}
 		}
 	}
+        
+        else if(pGprs->ubCmd == GPRS_F_CMD_ASK_TIME_ACK)
+        {
+                u_char src_mac[4],dst_mac[4];
+                static u_char env_send[34];
+                static u_char env_sned_buff[8] = {0};
+                u_char i;
+                if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+                XPRINTF((12, "GPRS_F_CMD_ASK_TIME_ACK"));
+                memcpy(src_mac,pGprs->ubaMac,4);
+                memcpy(dst_mac,pGprs->ubaData,4);
+                for(i=0;i<8;i++)
+                {
+                  env_sned_buff[i] = (pGprs->ubaData)[i + 4] / 16 * 10;
+                  switch((pGprs->ubaData)[i + 4] % 16)
+                  {
+                    case 10:env_sned_buff[i] += 0x0a;break;
+                    case 11:env_sned_buff[i] += 0x0b;break;
+                    case 12:env_sned_buff[i] += 0x0c;break;
+                    case 13:env_sned_buff[i] += 0x0d;break;
+                    case 14:env_sned_buff[i] += 0x0e;break;
+                    case 15:env_sned_buff[i] += 0x0f;break;
+                  default:env_sned_buff[i] += (pGprs->ubaData)[i + 4] % 16;break;
+                  }
+                }
+                environment_detector_send_packet_deal(env_send,env_sned_buff);
+                MEM_DUMP(9, "rf->",  env_send, 34);
+                Send_RF_Data_by_Uart(env_send,34);
+        }
+        else if(pGprs->ubCmd == GPRS_F_CMD_SOUND_RESET)
+        {
+          u_char src_mac[4],dst_mac[4];//={0x76,0x30,0x00,0x7c};
+            if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+            XPRINTF((12, "GPRS_F_CMD_ELECTRICAL_CONTROL\n"));
+            memcpy(src_mac,pGprs->ubaMac,4);
+            memcpy(dst_mac,pGprs->ubaData,4);
+            electrical_packet_deal(electrical_send,src_mac,dst_mac,HWGG_CMD_SOUND_RESET,(pGprs->ubaData)[4]);
+            //electrical_packet_deal(electrical_send,src_mac,dst_mac,HWGG_CMD_SOUND_RESET,null);
+            MEM_DUMP(12, "rf->",electrical_send, 27);
+        }
+         else if(pGprs->ubCmd == GPRS_F_CMD_ELECTRICAL_CONTROL) //dianqi
+     //if(pGprs->ubCmd == GPRS_F_CMD_ACK) 
+     {
+       u_char src_mac[4],dst_mac[4];//={0x76,0x30,0x00,0x7c};
+            if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+            XPRINTF((12, "GPRS_F_CMD_ELECTRICAL_CONTROL\n"));
+            memcpy(src_mac,pGprs->ubaMac,4);
+            memcpy(dst_mac,pGprs->ubaData,4);
+            electrical_packet_deal(electrical_send,src_mac,dst_mac,HWGG_CMD_ELECTRICAL_CONTROL,(pGprs->ubaData)[4]);
+            Send_RF_Data_by_Uart(electrical_send,27);
+            //uart2_send_bytes(electrical_send,27);
+            //etimer_set(&et_electrical_control_wait, ELECTRIAL_CONTROL_TIME);
+            //XPRINTF((12, "Send_RF_Data_by_Uart\n"));
+            MEM_DUMP(12, "rf->",electrical_send, 27);
+            MEM_DUMP(2, "rf->",electrical_send, 27);
+            //electrical_control_wait_open = 1;
+     }
+     else if(pGprs->ubCmd == GPRS_F_CMD_ELE_SET_THRESHOLD_VAL)
+     {
+       //u_char src_mac[4],dst_mac[4];//={0x76,0x30,0x00,0x7c};
+       u_char len = 0;
+            if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+            XPRINTF((12, "GPRS_F_CMD_ELE_SET_THRESHOLD_VAL\n"));
+            //memcpy(src_mac,pGprs->ubaMac,4);
+            //memcpy(dst_mac,pGprs->ubaData,4);
+            electrical_set_val_buf[0] = 0x12;
+            memcpy(electrical_set_val_buf + 1,pGprs->ubaMac,4);
+            memcpy(electrical_set_val_buf + 5,pGprs->ubaData,4);
+            electrical_set_val_buf[9] = HWGG_CMD_ELE_SET_THRESHOLD_VAL;
+            memcpy(electrical_set_val_buf + 10,(pGprs->ubaData)+4,8);
+            len = hwggFillFrame(electrical_set_val_send,0xDD,HWGG_CMD_ELE_SET_THRESHOLD_VAL,electrical_set_val_buf,18);
+            
+            Send_RF_Data_by_Uart(electrical_set_val_send,len);
+            //uart2_send_bytes(electrical_send,27);
+            //etimer_set(&et_electrical_control_wait, ELECTRIAL_CONTROL_TIME);
+            //XPRINTF((12, "Send_RF_Data_by_Uart\n"));
+            MEM_DUMP(12, "rf->",electrical_set_val_send,len);
+            //MEM_DUMP(2, "rf->",electrical_send, 27);
+     }
+     else if(pGprs->ubCmd == GPRS_F_CMD_WATER_SET_VAL)
+     {
+       //u_char src_mac[4],dst_mac[4];//={0x76,0x30,0x00,0x7c};
+       u_char len = 0;
+            if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+            XPRINTF((12, "GPRS_F_CMD_WATER_SET_VAL\n"));
+            //memcpy(src_mac,pGprs->ubaMac,4);
+            //memcpy(dst_mac,pGprs->ubaData,4);
+            water_set_val_buf[0] = 0x0e;
+            memcpy(water_set_val_buf + 1,pGprs->ubaMac,4);
+            memcpy(water_set_val_buf + 5,pGprs->ubaData,4);
+            water_set_val_buf[9] = HWGG_CMD_WATER_VAL_SET;
+            memcpy(water_set_val_buf + 10,(pGprs->ubaData)+4,12);
+            len = hwggFillFrame(water_set_val_send,0xFF,HWGG_CMD_WATER_VAL_SET,water_set_val_buf,22);
+            
+            Send_RF_Data_by_Uart(water_set_val_send,len);
+            //uart2_send_bytes(electrical_send,27);
+            //etimer_set(&et_electrical_control_wait, ELECTRIAL_CONTROL_TIME);
+            //XPRINTF((12, "Send_RF_Data_by_Uart\n"));
+            MEM_DUMP(12, "rf->",water_set_val_send,len);
+            //MEM_DUMP(2, "rf->",electrical_send, 27);
+     }
+     /*
+     else if(pGprs->ubCmd == GPRS_F_CMD_UPDATE_STAR)
+     {
+       u_char len = 0;
+            if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+            XPRINTF((12, "GPRS_F_CMD_WATER_SET_VAL\n"));
+            SCB->VTOR = FLASH_BASE;
+            iap_load_app(FLASH_BASE);
+     }*/
+     else if(pGprs->ubCmd == GPRS_F_CMD_WATER_CACHE)
+     {
+       u_char len = 0;
+            if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+            XPRINTF((12, "GPRS_F_CMD_WATER_CACHE\n"));
+            //memcpy(src_mac,pGprs->ubaMac,4);
+            //memcpy(dst_mac,pGprs->ubaData,4);
+            water_cache_buf[0] = 0x0a;
+            memcpy(water_cache_buf + 1,pGprs->ubaMac,4);
+            memcpy(water_cache_buf + 5,pGprs->ubaData ,4);
+            water_cache_buf[9] = HWGG_CMD_WATER_CACHE;
+            memcpy(water_cache_buf + 10,(pGprs->ubaData)+4,1);
+            len = hwggFillFrame(water_cache_send,0xFF,HWGG_CMD_WATER_CACHE,water_cache_buf,11);
+            
+            Send_RF_Data_by_Uart(water_cache_send,len);
+            //uart2_send_bytes(electrical_send,27);
+            //etimer_set(&et_electrical_control_wait, ELECTRIAL_CONTROL_TIME);
+            //XPRINTF((12, "Send_RF_Data_by_Uart\n"));
+            MEM_DUMP(12, "rf->",water_cache_send,len);
+     }
+     else if(pGprs->ubCmd == GPRS_F_CMD_HOST_RESET)
+     {
+       const FIRE_NODE_INFO *pfireNodeInfo = (const FIRE_NODE_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_FIRE_NODE_INFO);
+       int length;
+      static u_char txBuf[64];
+      int i;
+       if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+       XPRINTF((12, "GPRS_F_CMD_HOST_RESET\n"));
+        setSoundLightState(SOUND_LIGHT_CMD_OFF);
+        if(sound_light_off_num>0)
+        {
+          etimer_set(&et_reboot,2*sound_light_off_num*1000);//20*1000);
+        }
+        else 
+        {
+          etimer_set(&et_reboot,5*1000);//20*1000);
+        }
+        //etimer_set(&et_reboot,20*1000);
+        LORA_RST(0);
+     }
+     else if(pGprs->ubCmd == GPRS_F_CMD_SOUNDLIGHT_RESET)
+     {
+       u_char i;
+       if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+       XPRINTF((12, "GPRS_F_CMD_SOUNDLIGHT_RESET\n"));
+       sound_light_part_off_num = pGprs->ubaData[0];
+       for(i=0;i<sound_light_part_off_num;i++)
+       {
+        memcpy(&(sound_light_part_off_mac[i][0]),pGprs->ubaData + 1 + i * 4,4);
+        //MEM_DUMP(12, "sound_light_part_off_mac",sound_light_part_off_mac[i], 4);
+       }
+       setSoundLightState(SOUND_LIGHT_CMD_PART_OFF);
+     }
+     else if(pGprs->ubCmd == GPRS_F_CMD_ELE_METER_CONTROL)
+     {
+       SIM900A_MSG *ptxMsg = &stEncTxMsg;
+       static u_short uwipSeq = 0;
+       int nFramL = -1;
+       u_char i;
+       u_char src_mac[4],dst_mac[4];
+            if (uwSendSeq == uwSeq)
+		{
+			etimer_stop(petwait);
+		}
+            memcpy(src_mac,pGprs->ubaMac,4);
+            memcpy(dst_mac,pGprs->ubaData,4);
+            electrical_packet_deal(electrical_send,src_mac,dst_mac,HWGG_CMD_ELE_METER_CONTROL,(pGprs->ubaData)[4]);
+              Send_RF_Data_by_Uart(electrical_send,27);
+              MEM_DUMP(12, "rf->",electrical_send, 27);
+
+		uwipSeq++;
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, GPRS_F_CMD_ELE_METER_CONTROL_ACK, uwipSeq, src_mac,dst_mac, 4);
+		if (nFramL > 0 )
+		{
+			ptxMsg->nLen = nFramL;
+			//uwCurrentSeq = uwipSeq;
+			process_post(&ip_data_process, event_ip_send_data, ptxMsg);
+			//etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
+		}
+     }
+     else if(pGprs->ubCmd == GPRS_F_CMD_DIANQI_CONTROL)
+     {
+       //length = rfUartProtocolFrameFill(txBuf,ubCmd,&(sound_light_on_mac[ubIndex][0]));
+       //electrical_packet_deal(electrical_send,src_mac,dst_mac,HWGG_CMD_DIANQI_SET_VAL,(pGprs->ubaData)[4]);
+        //if (length > 0)
+           //Send_RF_Data_by_Uart(txBuf, 41);
+     }
 }
 
 
@@ -423,6 +669,115 @@ void ipDataHandler(process_event_t ev, process_data_t data)
 		}
 		
 	}
+        else if(ev == event_send_rssi && data != NULL)
+        {
+                SIM900A_MSG *ptxMsg = &stEncTxMsg;
+		NODE_ADDR_INFO *paddrInfo = (NODE_ADDR_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_ADDR_INFO);
+		int nFramL = -1;
+		//const APP_485_DATA *p485 = (const APP_485_DATA *)data;
+		MEM_DUMP(7, "TRAN", terminal_rssi, 7);
+
+		uwipSeq++;
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, terminal_rssi[0], uwipSeq, paddrInfo->ubaNodeAddr, (const u_char *)(terminal_rssi+1), 6);
+		if (nFramL > 0 )
+		{
+			ptxMsg->nLen = nFramL;
+			uwCurrentSeq = uwipSeq;
+			process_post(&ip_data_process, event_ip_send_data, ptxMsg);
+			etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
+		}
+          
+        }
+        else if(ev == event_ack_time && data != NULL)
+        {
+                SIM900A_MSG *ptxMsg = &stEncTxMsg;
+		NODE_ADDR_INFO *paddrInfo = (NODE_ADDR_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_ADDR_INFO);
+		int nFramL = -1;
+		const APP_485_DATA *ack_time_data = (const APP_485_DATA *)data;
+		MEM_DUMP(7, "TRAN", ack_time_data->ubaData, ack_time_data->ubLen);
+
+		uwipSeq++;
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, GPRS_F_CMD_ASK_TIME, uwipSeq, paddrInfo->ubaNodeAddr,(const u_char *)ack_time_data->ubaData, ack_time_data->ubLen);
+		if (nFramL > 0 )
+		{
+			ptxMsg->nLen = nFramL;
+			uwCurrentSeq = uwipSeq;
+			process_post(&ip_data_process, event_ip_send_data, ptxMsg);
+			etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
+		}
+        }
+        else if(ev == event_electrical_state && data != NULL)
+        {
+                SIM900A_MSG *ptxMsg = &stEncTxMsg;
+		NODE_ADDR_INFO *paddrInfo = (NODE_ADDR_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_ADDR_INFO);
+		int nFramL = -1;
+		const ELECTRICAL_DATA *electrical = (const ELECTRICAL_DATA *)data;
+		MEM_DUMP(7, "TRAN", electrical->ubaData, electrical->ubLen);
+
+		uwipSeq++;
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg,GPRS_F_CMD_ELECTRICAL_STATE, uwipSeq, paddrInfo->ubaNodeAddr,(const u_char *)electrical->ubaData, electrical->ubLen);
+		if (nFramL > 0 )
+		{
+			ptxMsg->nLen = nFramL;
+			uwCurrentSeq = uwipSeq;
+			process_post(&ip_data_process, event_ip_send_data, ptxMsg);
+			etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
+		}
+        }
+        else if(ev == event_electrical_control_ack && data != NULL)
+        {
+                SIM900A_MSG *ptxMsg = &stEncTxMsg;
+		NODE_ADDR_INFO *paddrInfo = (NODE_ADDR_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_ADDR_INFO);
+		int nFramL = -1;
+		const ELECTRICAL_DATA *electrical = (const ELECTRICAL_DATA *)data;
+		MEM_DUMP(7, "TRAN", electrical->ubaData, electrical->ubLen);
+
+		uwipSeq++;
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, GPRS_F_CMD_ELECTRICAL_CONTROL_ACK, uwipSeq, paddrInfo->ubaNodeAddr,(const u_char *)electrical->ubaData, electrical->ubLen);
+		if (nFramL > 0 )
+		{
+			ptxMsg->nLen = nFramL;
+			uwCurrentSeq = uwipSeq;
+			process_post(&ip_data_process, event_ip_send_data, ptxMsg);
+			etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
+		}
+        }
+        else if(ev == event_electrical_set && data != NULL)
+        {
+          SIM900A_MSG *ptxMsg = &stEncTxMsg;
+		NODE_ADDR_INFO *paddrInfo = (NODE_ADDR_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_ADDR_INFO);
+		int nFramL = -1;
+		const ELECTRICAL_DATA *electrical = (const ELECTRICAL_DATA *)data;
+		MEM_DUMP(7, "TRAN", electrical->ubaData, electrical->ubLen);
+
+		uwipSeq++;
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, GPRS_F_CMD_ELE_SET_THRESHOLD_ACK, uwipSeq, paddrInfo->ubaNodeAddr,(const u_char *)electrical->ubaData, electrical->ubLen);
+		if (nFramL > 0 )
+		{
+			ptxMsg->nLen = nFramL;
+			uwCurrentSeq = uwipSeq;
+			process_post(&ip_data_process, event_ip_send_data, ptxMsg);
+			etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
+		}
+        }
+        else if(ev == event_water_set && data != NULL)
+        {
+          SIM900A_MSG *ptxMsg = &stEncTxMsg;
+		NODE_ADDR_INFO *paddrInfo = (NODE_ADDR_INFO *)extgdbdevGetDeviceSettingInfoSt(LABLE_ADDR_INFO);
+		int nFramL = -1;
+		const ELECTRICAL_DATA *electrical = (const ELECTRICAL_DATA *)data;
+		MEM_DUMP(7, "TRAN", electrical->ubaData, electrical->ubLen);
+
+		uwipSeq++;
+		nFramL = gprsProtocolFrameFill(ptxMsg->ubamsg, GPRS_F_CMD_WATER_SET_ACK, uwipSeq, paddrInfo->ubaNodeAddr,(const u_char *)electrical->ubaData, electrical->ubLen);
+		if (nFramL > 0 )
+		{
+			ptxMsg->nLen = nFramL;
+			uwCurrentSeq = uwipSeq;
+			process_post(&ip_data_process, event_ip_send_data, ptxMsg);
+			etimer_set(&et_ip_ack_wait, IP_ACK_WAIT_TIME);
+		}
+        }
 	else if (ev == PROCESS_EVENT_TIMER && data == &et_ip_heart)
 	{
 		SIM900A_MSG *ptxMsg = &stEncTxMsg;
@@ -464,11 +819,21 @@ void ipDataHandler(process_event_t ev, process_data_t data)
 			{
 				XPRINTF((10, "-----------------------------set mode\n"));
 				netModeSet(NET_CONNECT_NONE);
+                                LORA_RST(0);
+                                __set_FAULTMASK(1);  //关中断
+                                NVIC_SystemReset();  //软件复位
 			}
 			ubNoAckCount = 0;
 		}
 		ubNoAckCount++;
 	}
+        else if(ev == PROCESS_EVENT_TIMER && etimer_expired(&et_reboot))
+        {
+          XPRINTF((10, "et_reboot\r\n"));
+          LORA_RST(0);
+          __set_FAULTMASK(1);  //关中断
+            NVIC_SystemReset();  //软件复位
+        }
 }
 
 /*---------------------------------------------------------------------------*/
@@ -480,6 +845,13 @@ PROCESS_THREAD(ip_data_process, ev, data)
   event_ip_send_data = process_alloc_event( );
   event_ip_warn = process_alloc_event( );
   event_ip_tran = process_alloc_event( );
+  event_ack_time = process_alloc_event();
+  event_electrical_control_ack = process_alloc_event();
+  event_electrical_state = process_alloc_event();
+  event_electrical_set = process_alloc_event();
+  event_send_rssi = process_alloc_event();
+  event_water_set = process_alloc_event();
+  
   XPRINTF((12, "ip_data_process\n"));
   
   while(1) {

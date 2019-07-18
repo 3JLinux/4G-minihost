@@ -1,0 +1,16 @@
+---- mark Matches (20 in 12 files) ----
+Appenc28j60.c (appenc28j60)://mark mark
+App_sound_light_alarm.h (app_sound_light_alarm):#define SOUND_LIGHT_SEND_PKG_NOMAL_TIME          (30*CLOCK_SECOND)  //mark mark
+Cfs-coffee.c (contiki\core\cfs):  /* Split an obsolete file starting in the previous sector and mark
+Dev_info.h (contiki\platform\stm32f103):#define FIRE_NODE_MAX_NUM		200   //mark mark
+fireNodeApp.c (hwgg):static void fireProtocolProcess(process_data_t data)//mark mark
+Hwgg.h (hwgg):#define HWGG_NODE_CHECK_TIMS_S		8200  //second  mark mark
+Ip64.c (contiki\core\net\ip64):        /* Also check if we see a FIN segment. If so, we'll mark the
+Ip64.c (contiki\core\net\ip64):           mark them as recyclable. */
+Queuebuf.c (contiki\core\net):    /* The file is full but doesn't contain any more queuebuf, mark it as renewable */
+Resolv.c (contiki\core\net\ip):               simply mark the entry as failed. */
+Sim900a.c (grps)://mark mark
+Sim900a.c (grps):#define GPRS_NO_ACK_MAX		100 //mark mark
+Sim900a.c (grps):PROCESS_THREAD(gprs_resp_process, ev, data)//mark mark
+Stm32f10x_usart.c (stdperiph_driver\src):  *     @arg USART_WakeUp_AddressMark: WakeUp by an address mark
+Tcpip.c (contiki\core\net\ip):      mark the connection with the right process ID. */

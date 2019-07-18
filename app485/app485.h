@@ -15,6 +15,11 @@ typedef struct _app_485_data
 	u_char ubaData[127];
 }APP_485_DATA;
 
+typedef struct _electrical_data
+{
+        u_char ubLen;
+	u_char ubaData[127];
+}ELECTRICAL_DATA;
 
 
 #endif

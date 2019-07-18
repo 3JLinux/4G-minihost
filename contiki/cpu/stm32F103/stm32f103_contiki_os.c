@@ -161,12 +161,24 @@ void OSInitSys(void)
 	//gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
 	//GPIO_Init(ALARM_KEY_PORT, &gpioInitSt);
 	/*end key*/
-	
+	/*
 	//led  key mode buzzer
 	gpioInitSt.GPIO_Pin = POWER_LED_PIN;
 	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
 	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
 	GPIO_Init(POWER_LED_PORT, &gpioInitSt);
+        */
+        gpioInitSt.GPIO_Pin = POWER_MAIN_LED_PIN;
+	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
+	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_Init(POWER_MAIN_LED_PORT, &gpioInitSt);
+        POWER_MAIN_LED(0);
+        
+        gpioInitSt.GPIO_Pin = POWER_STANDBY_LED_PIN;
+	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
+	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_Init(POWER_STANDBY_LED_PORT, &gpioInitSt);
+        POWER_STANDBY_LED(0);
         
         //HWGG led
         gpioInitSt.GPIO_Pin = HWGG_LED_PIN;
@@ -219,7 +231,13 @@ void OSInitSys(void)
 	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
 	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
 	GPIO_Init(SWITCH_2_PORT, &gpioInitSt);
-
+        
+        //hwgg reset
+        gpioInitSt.GPIO_Pin = LORA_RESET_PIN;
+	gpioInitSt.GPIO_Mode = GPIO_Mode_Out_PP;
+	gpioInitSt.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_Init(LORA_RESET_PORT, &gpioInitSt);
+        LORA_RST(1);
 }
 
 

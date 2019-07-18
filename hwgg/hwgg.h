@@ -13,8 +13,23 @@ this data frame ,cmd and define are used to communication
 /*these cmd is used to communication to  end node by router node*/
 #define HWGG_CMD_HEART			0xcb
 #define HWGG_CMD_WARN			0xca
-#define HWGG_CMD_LOW_VOLTAGE	0xc1
+#define HWGG_CMD_LOW_VOLTAGE	        0xc1
 #define HWGG_CMD_TRAN			0xcc
+#define HWGG_CMD_TIMER                  0xee //Modify_jjj
+#define HWGG_CMD_SOUND_RESET            0xc5
+
+#define HWGG_CMD_ELECTRICAL_CONTROL     0xc2
+#define HWGG_CMD_ELECTRICAL_CONTROL_REPLY 0xc2
+#define HWGG_CMD_ELECTRICAL_STATE       0xc3
+#define HWGG_CMD_ELE_SET_THRESHOLD_VAL  0xc4
+#define HWGG_CMD_ELE_SET_THRESHOLD_ACK  0xc4
+#define HWGG_CMD_ELE_METER_CONTROL      0x87
+#define HWGG_CMD_WATER_VAL_SET          0xc6
+#define HWGG_CMD_WATER_VAL_ACK          0xc7
+#define HWGG_CMD_WATER_CACHE            0xc8
+
+#define HWGG_CMD_DIANQI_SET_VAL         0xce
+#define HWGG_CMD_DIANQI_CONTROL         0xcd
 
 #define HWGG_CONST_DST_ADDR			0xffff
 #define HWGG_CONST_SRC_ADDR			0xffff
@@ -25,6 +40,10 @@ this data frame ,cmd and define are used to communication
 
 #define HWGG_HEAD_END_CRC_LEN		0x04
 
+#define TIME_QUERY_CMD                  0x06 //Modify_jjj
+#define TIME_QUERY_DATA_LEN             1
+#define TIME_QUERY_PACKET_LEN           9
+#define ENV_SRC_ADDR                    0xDD
 
 /*
 typedef struct _hwgg
@@ -134,5 +153,6 @@ typedef struct _node_info
 
 
 int hwggFillFrame(u_char *pioBuf, u_char uwpanId, u_char ubCMD, const u_char *pcData, u_char ubLen);
-
+extern u_char terminal_rssi[7];
+extern u_char rssi_send_flag;
 #endif

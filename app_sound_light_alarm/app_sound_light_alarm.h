@@ -6,6 +6,7 @@
 #define SOUND_LIGHT_CMD_MANUAL_ALARM    0x89
 #define SOUND_LIGHT_CMD_ON		0x88	
 #define SOUND_LIGHT_CMD_OFF		0x87
+#define SOUND_LIGHT_CMD_PART_OFF        0x86
 
 #define SOUND_LIGHT_DEVICE_TYPE 0xBB
 
@@ -18,17 +19,23 @@
 
 #define SOUND_LIGHT_EMERGENCY_TIME    (3*FIRE_SOUND_LIGHT_NODE_MAX_NUM*SOUND_LIGHT_SEND_PKG_EMERGENCY_TIME)
 
-#define Send_RF_Data_by_Uart    uart2_send_bytes
+#define Send_RF_Data_by_Uart    uart3_send_bytes
 
 typedef struct sound_light_msg
 {
 	u_char ubCmd;
 }SOUND_LIGHT_MSG;
 
+extern uint8 sound_light_part_off_num;
+extern uint8 sound_light_part_off_mac[30][4];
+
 extern void addSoundLightNodeTable(const u_char *pcAddMAC);
 extern void setSoundLightState(const u_char cmd);
 
 extern int uart3_send_bytes(u_char *pBuf, u_char ubLength);
 extern void sound_light_address_table(u_char *sound_light_mac,uint8 sound_light_num) ;/*Modify_jjj*/
-
+int rfUartProtocolFrameFill(u_char *pioBuf, u_char ubCmd, const u_char *pcDstMAC);
+void electrical_packet_deal(u_char* electrical_send,u_char* electricalSrcMac,u_char* electricalDstMac,const u_char electrical_cmd,const u_char electrical_data);
+void dianqi_packet_deal(u_char* electrical_send,u_char* electricalSrcMac,u_char* electricalDstMac,const u_char electrical_cmd,const u_char* electrical_data,u_char dianqi_len);
+extern u_char sound_light_off_num;
 #endif

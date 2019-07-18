@@ -69,5 +69,6 @@ typedef struct _net_mode
 void uart4_send_char(u_char ch);
 
 extern u_char power_check_val;
+extern u_char iccid[10];
 
 #endif

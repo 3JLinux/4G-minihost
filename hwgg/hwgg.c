@@ -28,7 +28,9 @@ int hwggFillFrame(u_char *pioBuf, u_char ubSeq,u_char ubCMD, const u_char *pcDat
 	memcpy(pHwgg->ubaDstAddr, ubaDstAddr, HWGG_NETADDR_LEN);
 	memcpy(pHwgg->ubaSrcAddr, ubaSrcAddr, HWGG_NETADDR_LEN);
 	memcpy(pHwgg->ubaEndAddr, ubaEndAddr, HWGG_NETADDR_LEN);
-	pHwgg->ubSeq = ubSeq;
+        pHwgg->ubSrcLayer = 0xFF;
+        pHwgg->ubEndLayer = 0xFF;
+	pHwgg->ubSeq = 0xFF;
 	pHwgg->ubCmd = ubCMD;
 	if (pcData != NULL && ubLen != 0)
 	{
@@ -44,6 +46,7 @@ int hwggFillFrame(u_char *pioBuf, u_char ubSeq,u_char ubCMD, const u_char *pcDat
 	}
 	pHwgg->ubLen = nLen;
 	uwCrc = cyg_crc16((const u_char *)&pHwgg->ubLen, pHwgg->ubLen);
+        //pHwgg->ubaData[i++] = uwCrc & 0xff;
 	pHwgg->ubaData[i++] = (uwCrc>>8) & 0xff;
 	pHwgg->ubaData[i++] = uwCrc & 0xff;
 	pHwgg->ubaData[i++] = HWGG_END;

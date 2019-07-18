@@ -126,11 +126,20 @@
 #define		KEY_VALUE		(ALARM_KEY_PIN|SILENCER_KEY_PIN|SELF_TEST_KEY_PIN)
 
 
-
+/*
 //state led
 #define POWER_LED_PIN		GPIO_Pin_4//GPIO_Pin_6
 #define POWER_LED_PORT		GPIOC//GPIOA
 #define POWER_LED(a)		sysSetPinStat(POWER_LED_PORT,POWER_LED_PIN,a)
+*/
+
+#define POWER_MAIN_LED_PIN      GPIO_Pin_8
+#define POWER_MAIN_LED_PORT     GPIOB
+#define POWER_MAIN_LED(a)       sysSetPinStat(POWER_MAIN_LED_PORT,POWER_MAIN_LED_PIN,a)
+
+#define POWER_STANDBY_LED_PIN   GPIO_Pin_9
+#define POWER_STANDBY_LED_PORT  GPIOB
+#define POWER_STANDBY_LED(a)    sysSetPinStat(POWER_STANDBY_LED_PORT,POWER_STANDBY_LED_PIN,a)
 
 #define NET_LED_PIN		GPIO_Pin_7//GPIO_Pin_4
 #define NET_LED_PORT		GPIOA//GPIOC
@@ -178,6 +187,10 @@
 #define ENC28J60_RST_PORT	GPIOC
 #define ENC28J60_RST(a)			sysSetPinStat(ENC28J60_RST_PORT,ENC28J60_RST_PIN,a)
 
+//LoRa reset
+#define LORA_RESET_PIN          GPIO_Pin_2
+#define LORA_RESET_PORT         GPIOC
+#define LORA_RST(a)                     sysSetPinStat(LORA_RESET_PORT,LORA_RESET_PIN,a)
 		                                
 #endif
 
